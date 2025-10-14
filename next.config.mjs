@@ -5,8 +5,6 @@ const nextConfig = {
     NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
   },
 
-  // ✅ REMOVED: output: 'standalone' - can cause deployment issues on Vercel
-  
   // ✅ SIMPLIFIED: Experimental features
   experimental: {
     optimizeCss: false, // Disable to prevent build issues
@@ -58,43 +56,29 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === "production",
   },
 
-  // ✅ ADDED: Webpack configuration with Critical CSS plugin
-  webpack: (config, { isServer }) => {
-    // Only apply Critical plugin on client-side builds
-    if (!isServer) {
-      // Dynamic import of critical plugin
-      import('critical').then(({ CriticalPlugin }) => {
-        config.plugins.push(
-          new CriticalPlugin({
-            base: 'out/',
-            src: 'index.html',
-            target: { css: 'critical.css' },
-            inline: true,
-            minify: true,
-          })
-        );
-      }).catch((err) => {
-        console.warn('Critical plugin could not be loaded:', err);
-      });
-    }
-    
-    return config;
-  },
+  // ✅ REMOVED: Webpack configuration with Critical CSS plugin (causing constructor error)
+  // webpack: (config, { isServer }) => {
+  //   if (!isServer) {
+  //     import('critical').then(({ CriticalPlugin }) => {
+  //       config.plugins.push(
+  //         new CriticalPlugin({
+  //           base: 'out/',
+  //           src: 'index.html',
+  //           target: { css: 'critical.css' },
+  //           inline: true,
+  //           minify: true,
+  //         })
+  //       );
+  //     }).catch((err) => {
+  //       console.warn('Critical plugin could not be loaded:', err);
+  //     });
+  //   }
+  //   return config;
+  // },
 
   // ✅ FIXED: Headers for proper caching
   async headers() {
     return [
-      // Catch-all cache control for all routes
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      // Specific cache control for _next/static files
       {
         source: "/_next/static/:path*",
         headers: [
@@ -104,7 +88,6 @@ const nextConfig = {
           },
         ],
       },
-      // Specific cache control for static assets
       {
         source: "/:path*.(jpg|jpeg|gif|png|svg|webp|avif|ico|css|js)",
         headers: [
@@ -114,7 +97,6 @@ const nextConfig = {
           },
         ],
       },
-      // Specific headers for webmanifest
       {
         source: "/site.webmanifest",
         headers: [

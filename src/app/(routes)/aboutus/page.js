@@ -1,288 +1,267 @@
-// src/app/(routes)/aboutus/page.js
+'use client';  // Makes this a client component - allows ssr: false in dynamic
 
-import React from "react";
-import AchievementsSection from "@/components/TestingAbout/Achievements";
-import Hero from "@/components/TestingAbout/Hero";
-import OurBranch from "@/components/TestingAbout/Locations";
-import SAPCompassDial from "@/components/TestingAbout/Placement";
-import SAPAdoptionRings from "@/components/TestingAbout/SapComp";
+import dynamic from 'next/dynamic';
+import Head from 'next/head';
+import React from 'react';
 
-// 1. SEO METADATA - Next.js App Router way
-export const metadata = {
-  title: "About Connecting Dots ERP | Our Mission & Vision",
-  description:
-    "Learn about Connecting Dots ERP, our mission, vision, values, and the team dedicated to empowering students and professionals with industry-leading training.",
-  keywords: [
-    "Connecting Dots ERP",
-    "about us",
-    "training institute",
-    "SAP training",
-    "IT courses",
-    "HR courses",
-    "placement support",
-    "mission",
-    "vision",
-    "Pune",
-    "Mumbai",
-    "Raipur",
-    "professional training",
-    "career development",
-    "skill enhancement",
-  ],
-  author: "Connecting Dots ERP",
-  robots: "index, follow",
-  alternates: {
-    canonical: "https://connectingdotserp.com/aboutus",
-  },
-  openGraph: {
-    title: "About Connecting Dots ERP | Our Mission & Vision",
-    description:
-      "Discover the story behind Connecting Dots ERP, a leading provider of job-oriented training in SAP, IT, and HR with strong placement focus.",
-    url: "https://connectingdotserp.com/aboutus",
-    siteName: "Connecting Dots ERP",
-    images: [
-      {
-        url: "https://connectingdotserp.com/images/about-us-banner.jpg",
-        width: 1200,
-        height: 630,
-        alt: "The Connecting Dots ERP Team",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "About Connecting Dots ERP | Our Mission & Vision",
-    description:
-      "Learn about Connecting Dots ERP's commitment to providing quality SAP, IT, and HR training with placement support.",
-    site: "@CD_ERP",
-    images: ["https://connectingdotserp.com/images/about-us-banner.jpg"],
-  },
-};
+// Dynamic imports with ssr: false (now allowed in client component)
+const Hero = dynamic(() => import("@/components/TestingAbout/Hero"), {
+  ssr: false,  // Skip server rendering - loads only on client (avoids hook errors)
+  loading: () => <div className="h-[400px] bg-gray-100 flex items-center justify-center">Loading hero...</div>,
+});
 
-// 2. JSON-LD STRUCTURED DATA
+const AchievementsSection = dynamic(() => import("@/components/TestingAbout/Achievements"), {
+  ssr: false,
+  loading: () => <div className="h-[300px] bg-gray-100 flex items-center justify-center">Loading achievements...</div>,
+});
+
+const OurBranch = dynamic(() => import("@/components/TestingAbout/Locations"), {
+  ssr: false,
+  loading: () => <div className="h-[400px] bg-gray-100 flex items-center justify-center">Loading locations...</div>,
+});
+
+const SAPCompassDial = dynamic(() => import("@/components/TestingAbout/Placement"), {
+  ssr: false,
+  loading: () => <div className="h-[300px] bg-gray-100 flex items-center justify-center">Loading placements...</div>,
+});
+
+const SAPAdoptionRings = dynamic(() => import("@/components/TestingAbout/SapComp"), {
+  ssr: false,
+  loading: () => <div className="h-[300px] bg-gray-100 flex items-center justify-center">Loading SAP content...</div>,
+});
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Organization",
       "@id": "https://connectingdotserp.com/#organization",
-      name: "Connecting Dots ERP",
-      url: "https://connectingdotserp.com/",
-      logo: {
+      "name": "Connecting Dots ERP",
+      "url": "https://connectingdotserp.com/",
+      "sameAs": [
+        "https://www.facebook.com/connectingdotserp/",
+        "https://www.linkedin.com/company/connecting-dots-erp/",
+        "https://www.instagram.com/connectingdotserp/"
+      ],
+      "logo": {
         "@type": "ImageObject",
-        url: "https://connectingdotserp.com/Navbar/connecting%20dot%20erp%20logo.avif",
         "@id": "https://connectingdotserp.com/#logo",
-        width: 228,
-        height: 70,
-        caption: "Connecting Dots ERP Logo",
+        "url": "https://connectingdotserp.com/images/logo.png",
+        "width": 500,
+        "height": 500,
+        "caption": "Connecting Dots ERP"
       },
-      image: {
-        "@id": "https://connectingdotserp.com/#logo",
+      "image": {
+        "@id": "https://connectingdotserp.com/#logo"
       },
-      description:
-        "Connecting Dots ERP is a leading training institute specializing in SAP, IT, and HR courses, dedicated to providing job-oriented skills and placement assistance. Learn the way the industry wants it.",
-      telephone: "+919004002941",
-      email: "info@connectingdotserp.com",
-      address: [
-        {
-          "@type": "PostalAddress",
-          streetAddress:
-            "1st Floor,101, Police, Wireless Colony, Vishal Nagar, Pimple Nilakh",
-          addressLocality: "Pune",
-          addressRegion: "Maharashtra",
-          postalCode: "411027",
-          addressCountry: "IN",
-        },
-        {
-          "@type": "PostalAddress",
-          streetAddress:
-            "8th Floor, Paradise Tower, next to McDonald's, Naupada, Thane West",
-          addressLocality: "Mumbai",
-          addressRegion: "Maharashtra",
-          postalCode: "400601",
-          addressCountry: "IN",
-        },
-        {
-          "@type": "PostalAddress",
-          streetAddress: "Office Address", // Replace with actual Raipur address
-          addressLocality: "Raipur",
-          addressRegion: "Chhattisgarh",
-          postalCode: "492001",
-          addressCountry: "IN",
-        },
-      ],
-      foundingDate: "2013",
-      founder: {
-        "@type": "Person",
-        name: "Nitendra Singh",
+      "description": "Premier training institute for SAP, IT, and professional courses with placement support in Pune, Mumbai, and Raipur.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1st Floor, Sai Arcade, Wakad - Hinjewadi Rd, Wakad",
+        "addressLocality": "Pune",
+        "postalCode": "411057",
+        "addressCountry": "IN"
       },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.7",
-        reviewCount: "185",
-      },
-      sameAs: [
-        "https://www.facebook.com/sapinstallation.pune.9",
-        "https://x.com/CD_ERP",
-        "https://www.youtube.com/channel/UCxQ-RBOBaoYjjd4Mv7qQekA",
-        "https://www.linkedin.com/company/connecting-dots-erp",
-        "https://www.instagram.com/connecting_dot_software_course/",
-        "https://in.pinterest.com/Connecting_Dots_ERP/",
-        "https://www.quora.com/profile/Connecting-Dot-ERP-SAP-And-IT-Training-Institute",
-      ],
-      knowsAbout: [
-        "SAP Training",
-        "Software Development Training",
-        "HR Training",
-        "Digital Marketing Training",
-        "Data Science Training",
-        "Professional Certification",
-      ],
-      areaServed: [
-        {
-          "@type": "City",
-          name: "Pune",
-        },
-        {
-          "@type": "City",
-          name: "Mumbai",
-        },
-        {
-          "@type": "City",
-          name: "Raipur",
-        },
-      ],
-    },
-    {
-      "@type": "AboutPage",
-      "@id": "https://connectingdotserp.com/aboutus#webpage",
-      url: "https://connectingdotserp.com/aboutus",
-      name: "About Connecting Dots ERP | Our Mission & Vision",
-      description:
-        "Learn about Connecting Dots ERP, our mission, vision, values, and the team dedicated to empowering students and professionals with industry-leading training.",
-      inLanguage: "en-US",
-      isPartOf: {
-        "@id": "https://connectingdotserp.com/#website",
-      },
-      primaryImageOfPage: {
-        "@type": "ImageObject",
-        url: "https://connectingdotserp.com/images/about-us-banner.jpg",
-        "@id": "https://connectingdotserp.com/aboutus#mainImage",
-        width: 1200,
-        height: 630,
-        caption: "The Connecting Dots ERP Team",
-      },
-      mainEntity: {
-        "@id": "https://connectingdotserp.com/#organization",
-      },
-      breadcrumb: {
-        "@id": "https://connectingdotserp.com/aboutus#breadcrumb",
-      },
-      datePublished: "2013-01-01",
-      dateModified: "2025-07-08",
-      about: {
-        "@type": "Thing",
-        name: "Professional Training and Education",
-        description:
-          "Comprehensive training programs in SAP, IT, and HR with placement assistance",
-      },
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://connectingdotserp.com/aboutus#breadcrumb",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: "https://connectingdotserp.com/",
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "About Us",
-          item: "https://connectingdotserp.com/aboutus",
-        },
-      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-1234567890",
+        "contactType": "customer service",
+        "email": "info@connectingdotserp.com",
+        "availableLanguage": ["English", "Hindi", "Marathi"]
+      }
     },
     {
       "@type": "WebSite",
       "@id": "https://connectingdotserp.com/#website",
-      url: "https://connectingdotserp.com/",
-      name: "Connecting Dots ERP",
-      description:
-        "Connecting Dots ERP - Leading Training Institute for SAP, IT & HR Courses with Placement Support.",
-      publisher: {
-        "@id": "https://connectingdotserp.com/#organization",
+      "url": "https://connectingdotserp.com/",
+      "name": "Connecting Dots ERP",
+      "description": "Premier training institute for SAP, IT, and professional courses with placement support in Pune, Mumbai, and Raipur.",
+      "publisher": {
+        "@id": "https://connectingdotserp.com/#organization"
       },
-      potentialAction: [
-        {
-          "@type": "SearchAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate:
-              "https://connectingdotserp.com/?s={search_term_string}",
-          },
-          "query-input": {
-            "@type": "PropertyValueSpecification",
-            valueRequired: true,
-            valueName: "search_term_string",
-          },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://connectingdotserp.com/?s={search_term_string}"
         },
-      ],
-      inLanguage: "en-US",
+        "query-input": {
+          "@type": "PropertyValueSpecification",
+          "valueRequired": true,
+          "valueName": "search_term_string"
+        }
+      },
+      "inLanguage": "en-US"
     },
     {
       "@type": "EducationalOrganization",
       "@id": "https://connectingdotserp.com/#educationalorganization",
-      name: "Connecting Dots ERP Training Institute",
-      description:
-        "Professional training institute offering industry-relevant courses in SAP, IT, and HR with placement support",
-      url: "https://connectingdotserp.com/",
-      sameAs: {
-        "@id": "https://connectingdotserp.com/#organization",
+      "name": "Connecting Dots ERP Training Institute",
+      "description": "Premier training institute for SAP, IT, and professional courses with placement support in Pune, Mumbai, and Raipur.",
+      "url": "https://connectingdotserp.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://connectingdotserp.com/images/logo.png"
       },
-      hasCredential: [
-        {
-          "@type": "EducationalOccupationalCredential",
-          name: "SAP Certification Programs",
-          description: "Industry-recognized SAP certification training",
-        },
-        {
-          "@type": "EducationalOccupationalCredential",
-          name: "IT Professional Certification",
-          description: "Comprehensive IT skills certification programs",
-        },
+      "sameAs": [
+        "https://www.facebook.com/connectingdotserp/",
+        "https://www.linkedin.com/company/connecting-dots-erp/"
       ],
-    },
-  ],
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "1st Floor, Sai Arcade, Wakad - Hinjewadi Rd, Wakad",
+          "addressLocality": "Pune",
+          "postalCode": "411057",
+          "addressCountry": "IN"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Office No. 12, 3rd Floor, Sai Chambers, Sector 11, CBD Belapur",
+          "addressLocality": "Navi Mumbai",
+          "postalCode": "400614",
+          "addressCountry": "IN"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "1st Floor, City Center Mall, G.E. Road",
+          "addressLocality": "Raipur",
+          "postalCode": "492001",
+          "addressCountry": "IN"
+        }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-1234567890",
+        "contactType": "admissions",
+        "email": "admissions@connectingdotserp.com",
+        "availableLanguage": ["English", "Hindi", "Marathi"]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Training Programs",
+        "itemListElement": [
+          {
+            "@type": "EducationalOccupationalProgram",
+            "name": "SAP Training",
+            "description": "Comprehensive SAP training with certification support",
+            "programPrerequisites": "Basic computer knowledge"
+          },
+          {
+            "@type": "EducationalOccupationalProgram",
+            "name": "IT Professional Courses",
+            "description": "Industry-relevant IT courses with hands-on training"
+          },
+          {
+            "@type": "EducationalOccupationalProgram",
+            "name": "HR Training",
+            "description": "Professional HR certification and training programs"
+          }
+        ]
+      },
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "EducationalOccupationalProgram",
+            "name": "SAP FICO",
+            "description": "SAP FICO Training with Real-time Projects",
+            "programPrerequisites": "Basic accounting knowledge"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "EducationalOccupationalProgram",
+            "name": "SAP MM",
+            "description": "SAP Materials Management Training"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "EducationalOccupationalProgram",
+            "name": "SAP SD",
+            "description": "SAP Sales and Distribution Training"
+          }
+        }
+      ]
+    }
+  ]
 };
 
-export default function AboutUsPage() {
+// Static branches data
+const branches = [
+  {
+    city: "Pune",
+    address: "1st Floor, Sai Arcade, Wakad - Hinjewadi Rd, Wakad, Pune, Maharashtra 411057",
+    phone: "+91 1234567890",
+    email: "pune@connectingdotserp.com",
+    coords: { lat: 18.5993, lng: 73.7449 }
+  },
+  {
+    city: "Mumbai",
+    address: "Office No. 12, 3rd Floor, Sai Chambers, Sector 11, CBD Belapur, Navi Mumbai, Maharashtra 400614",
+    phone: "+91 1234567891",
+    email: "mumbai@connectingdotserp.com",
+    coords: { lat: 19.0225, lng: 73.0297 }
+  },
+  {
+    city: "Raipur",
+    address: "1st Floor, City Center Mall, G.E. Road, Raipur, Chhattisgarh 492001",
+    phone: "+91 1234567892",
+    email: "raipur@connectingdotserp.com",
+    coords: { lat: 21.2409, lng: 81.6337 }
+  }
+];
+
+const AboutUsPage = () => {
   return (
     <>
-      {/* 3. INJECT JSON-LD SCRIPT */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {/* Page-specific metadata via next/head (works in client components) */}
+      <Head>
+        <title>About Us | Connecting Dots ERP - SAP Training Institute in Pune, Mumbai & Raipur</title>
+        <meta name="description" content="Discover our story, expert trainers, and commitment to SAP, IT, and HR training with 100% placement support across multiple locations." />
+        <meta name="keywords" content="About Connecting Dots ERP, SAP Training Institute About, IT Training Pune About, HR Courses Mumbai About, Professional Training Raipur" />
+        <meta name="author" content="Connecting Dots ERP Team" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://connectingdotserp.com/aboutus" />
+        
+        {/* OpenGraph for social sharing */}
+        <meta property="og:title" content="About Connecting Dots ERP | Premier SAP Training Institute" />
+        <meta property="og:description" content="Learn about our 10+ years of excellence in SAP, software, and professional training with branches in Pune, Mumbai, and Raipur." />
+        <meta property="og:url" content="https://connectingdotserp.com/aboutus" />
+        <meta property="og:site_name" content="Connecting Dots ERP" />
+        <meta property="og:image" content="https://connectingdotserp.com/images/about-hero.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Connecting Dots ERP Team and Training" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:type" content="website" />
+        
+        {/* Twitter cards */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Us - Connecting Dots ERP" />
+        <meta name="twitter:description" content="Premier SAP and IT training institute with expert-led courses and placement assistance." />
+        <meta name="twitter:site" content="@connectingdotserp" />
+        <meta name="twitter:image" content="https://connectingdotserp.com/images/about-hero.jpg" />
+      </Head>
 
-      {/* SEO-only content - hidden from users */}
-      <div className="sr-only" aria-hidden="true">
-        <h1>About Connecting Dots ERP - Leading SAP Training Institute</h1>
-        <h2>Our Mission & Vision</h2>
-        <h2>Why Choose Connecting Dots ERP?</h2>
-        <h2>Our Training Programs</h2>
-        <h2>Placement Support & Career Services</h2>
+      <div className="min-h-screen bg-white">
+        <Hero />
+        <AchievementsSection />
+        <SAPCompassDial />
+        <SAPAdoptionRings />
+        <OurBranch branches={branches} />
+        
+        {/* JSON-LD for structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </div>
-
-      <Hero />
-      <SAPAdoptionRings />
-      <SAPCompassDial />
-      <AchievementsSection />
-      <OurBranch />
     </>
   );
-}
+};
+
+export default AboutUsPage;
