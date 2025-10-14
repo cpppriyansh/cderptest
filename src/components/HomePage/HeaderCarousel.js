@@ -161,7 +161,7 @@ const CareerSlide = memo(({ onButtonClick }) => (
             //   "drop-shadow(0 25px 50px rgba(0, 0, 0, 0.15)) drop-shadow(0 12px 30px rgba(0, 0, 0, 0.1))",
             zIndex: 1,
           }}
-          loading="lazy" // Changed from priority to lazy
+          loading="eager" // Changed from priority to lazy
           sizes="(max-width: 768px) 100vw, 400px"
         />
       </div>

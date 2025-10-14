@@ -235,46 +235,29 @@ export default function HomePage() {
         <HeaderCarousel />
         <Marquee />
         
-        {/* Below the fold - lazy hydrate when visible */}
-        <LazyHydrate whenVisible>
+        
           <Chevron />
-        </LazyHydrate>
         
-        <LazyHydrate whenVisible>
+        
           <Keypoints />
-        </LazyHydrate>
         
-        <LazyHydrate whenVisible>
+        
           <OurClients />
-        </LazyHydrate>
         
-        <LazyHydrate whenVisible>
+        
           <Courses />
-        </LazyHydrate>
         
-        <LazyHydrate whenVisible>
           <PlacementSection />
-        </LazyHydrate>
         
-        <LazyHydrate whenVisible>
           <OurStats />
-        </LazyHydrate>
         
-        <LazyHydrate whenVisible>
           <Achievements />
-        </LazyHydrate>
         
-        <LazyHydrate whenVisible>
           <FeedbackAndReviews />
-        </LazyHydrate>
         
-        <LazyHydrate whenVisible>
           <DemoCertificate />
-        </LazyHydrate>
         
-        <LazyHydrate whenVisible>
           <Branches />
-        </LazyHydrate>
       </main>
     </>
   );

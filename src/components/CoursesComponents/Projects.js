@@ -10,13 +10,30 @@ const Projects = ({ pageId, pageType }) => {
   const [projectsData, setProjectsData] = useState(null);
 
   useEffect(() => {
-    fetch('/Jsonfolder/projectsdata.json') // Path to your JSON file
-      .then((response) => response.json())
-      .then((data) => {
-        const pageData = data[pageType]?.[pageId];
-        setProjectsData(pageData);
-      })
-      .catch((error) => console.error('Error fetching the data:', error));
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch('/Jsonfolder/projectsdata.json', { cache: 'force-cache' });
+
+        if (!response.ok) {
+          console.error('Failed to fetch projectsdata.json:', response.status);
+          return;
+        }
+
+        const contentType = response.headers.get('content-type') || '';
+        if (!contentType.includes('application/json')) {
+          console.error('projectsdata.json did not return JSON. Content-Type:', contentType);
+          return;
+        }
+
+        const data = await response.json();
+        const pageData = data?.[pageType]?.[pageId];
+        setProjectsData(pageData || null);
+      } catch (error) {
+        console.error('Error fetching the data:', error);
+      }
+    };
+
+    fetchProjects();
   }, [pageId, pageType]);
 
   const handleSelect = (selectedIndex) => {

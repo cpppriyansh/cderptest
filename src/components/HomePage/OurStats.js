@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useCallback} from "react";
+import React, { useState, useCallback } from "react";
 import Image from "next/image";
 import styles from "@/styles/HomePage/OurStats.module.css";
 
 // Memoized card component to prevent unnecessary re-renders
-const StatCard = memo(({ card, isFlipped, onMouseEnter, onMouseLeave, index }) => {
+const StatCard = React.memo(({ card, isFlipped, onMouseEnter, onMouseLeave, index }) => {
   return (
     <div
       className={styles.cardT2pContainer}
