@@ -1,13 +1,11 @@
 "use client";
 
 import { useEffect, useState, useCallback, memo } from "react";
-// Defer heavy react-bootstrap components to reduce initial JS execution
-import dynamic from "next/dynamic";
-const Carousel = dynamic(() => import("react-bootstrap/Carousel"), { ssr: false });
-const RBButton = dynamic(() => import("react-bootstrap/Button"), { ssr: false });
+import { Carousel, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "@/styles/HomePage/HeaderCarousel.module.css";
 // Lazy load Btnform only when needed to reduce JS on initial load
+import dynamic from "next/dynamic";
 const Btnform = dynamic(() => import("./Btnform"), { ssr: false });
 import Image from "next/image";
 import Link from "next/link";
@@ -113,12 +111,12 @@ const CareerSlide = memo(({ onButtonClick }) => (
         Est. 2013 Trusted by <span className={styles.highlight}>5000+</span>{" "}
         Students
       </p>
-      <RBButton
+      <Button
         className={`${styles.customBtn} ${styles.btn3}`}
         onClick={onButtonClick}
       >
         <span>Free Consultation</span>
-      </RBButton>
+      </Button>
       <CompanyLogos />
     </div>
     <div className={styles.carouselImage}>
@@ -191,13 +189,13 @@ const AISlide = memo(({ index, onClick }) => (
         AI.
       </h3>
       <div className={styles.expPgBtn}>
-        <RBButton
+        <Button
           className={styles.slide2Btn}
           onClick={onClick}
           aria-label="View top training programs"
         >
           <span>Explore Our Top Programs</span>
-        </RBButton>
+        </Button>
       </div>
     </div>
     <div className={styles.cardBox2}>
