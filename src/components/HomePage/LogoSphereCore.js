@@ -1,7 +1,7 @@
 // components/HomePage/LogoSphereCore.js (RENAMED and OPTIMIZED)
 "use client";
 
-import { useEffect, useRef, useMemo } from "react";
+import { useEffect, useRef} from "react";
 import * as THREE from "three";
 // Removed OrbitControls as it's disabled anyway and adds to bundle size
 // import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"; // REMOVE THIS

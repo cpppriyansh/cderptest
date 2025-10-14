@@ -2,7 +2,7 @@
 
 "use client";
 
-import { useState, useEffect, useMemo } from "react"; // Removed useContext and Head
+import { useState, useEffect} from "react"; // Removed useContext and Head
 import styles from "@/styles/CoursesComponents/Header.module.css";
 import Btnform from "@/components/HomePage/Btnform"; // Assuming Btnform is a client component
 

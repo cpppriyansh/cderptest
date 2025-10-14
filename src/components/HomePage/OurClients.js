@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo } from "react";
 
 // Organized clients by tier for better visual hierarchy
 const premiumClients = [

@@ -1,7 +1,8 @@
-// src/app/layout.js - Fixed to prevent JavaScript errors
+// src/app/layout.js - With Partytown Integration
 
 import { Lato, Rubik } from "next/font/google";
 import Script from "next/script";
+import { Partytown } from "@builder.io/partytown/react";
 import "./globals.css";
 
 // Static imports for components that are part of the main layout
@@ -59,24 +60,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${lato.variable} ${rubik.variable}`}>
       <head>
+        {/* Partytown Component - MUST be in <head> */}
+        <Partytown 
+          debug={false} 
+          forward={["dataLayer.push", "fbq"]} 
+        />
+        
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#1a365d" />
         <meta name="mobile-web-app-capable" content="yes" />
-
-        {/* GTM Head Script - Critical for GTM to work properly */}
-        <Script
-          id="gtm-head"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','${GTM_ID}');
-            `,
-          }}
-        />
       </head>
       <body
         className={`body bg-black ${lato.className} ${rubik.className}`}
@@ -105,10 +97,25 @@ export default function RootLayout({ children }) {
 
         <Footer />
 
-        {/* Facebook Pixel */}
+        {/* GTM Script - Offloaded to Web Worker */}
+        <Script
+          id="gtm-script"
+          type="text/partytown"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','${GTM_ID}');
+            `,
+          }}
+        />
+
+        {/* Facebook Pixel - Offloaded to Web Worker */}
         <Script
           id="facebook-pixel"
-          strategy="afterInteractive"
+          type="text/partytown"
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
@@ -124,12 +131,12 @@ export default function RootLayout({ children }) {
           }}
         />
 
-        {/* Ahrefs Analytics */}
+        {/* Ahrefs Analytics - Offloaded to Web Worker */}
         <Script
           id="ahrefs-analytics"
           src="https://analytics.ahrefs.com/analytics.js"
           data-key={AHREFS_KEY}
-          strategy="lazyOnload"
+          type="text/partytown"
         />
       </body>
     </html>

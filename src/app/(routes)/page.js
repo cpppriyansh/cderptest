@@ -1,5 +1,11 @@
+'use client';
+
+// Note: Metadata has been moved to metadata.js for better separation
+// and to avoid conflicts with client-side components
+
 import "@/app/globals.css";
 import dynamic from "next/dynamic";
+import LazyHydrate from 'react-lazy-hydration';
 
 // --- Critical & Dynamic Component Imports ---
 // Critical above-the-fold component - load immediately
@@ -7,75 +13,70 @@ import HeaderCarousel from "@/components/HomePage/HeaderCarousel";
 
 // Lazy load below-the-fold components for better performance
 const Marquee = dynamic(() => import("@/components/HomePage/Marquee2"), {
+  ssr: false,
   loading: () => <div style={{ height: "60px" }} />,
 });
-const Chevron = dynamic(() => import("@/components/HomePage/Chevron"));
-const Keypoints = dynamic(() => import("@/components/HomePage/Keypoints"));
-const OurClients = dynamic(() => import("@/components/HomePage/OurClients"));
+
+const Chevron = dynamic(() => import("@/components/HomePage/Chevron"), {
+  ssr: false,
+  loading: () => <div style={{ minHeight: "100px" }} />,
+});
+
+const Keypoints = dynamic(() => import("@/components/HomePage/Keypoints"), {
+  ssr: false,
+  loading: () => <div style={{ minHeight: "300px" }} />,
+});
+
+const OurClients = dynamic(() => import("@/components/HomePage/OurClients"), {
+  ssr: false,
+  loading: () => <div style={{ minHeight: "200px" }} />,
+});
+
 const PlacementSection = dynamic(
-  () => import("@/components/HomePage/PlacementSection")
+  () => import("@/components/HomePage/PlacementSection"),
+  {
+    ssr: false,
+    loading: () => <div style={{ minHeight: "400px" }} />,
+  }
 );
-const OurStats = dynamic(() => import("@/components/HomePage/OurStats"));
+
+const OurStats = dynamic(() => import("@/components/HomePage/OurStats"), {
+  ssr: false,
+  loading: () => <div style={{ minHeight: "250px" }} />,
+});
+
 const Achievements = dynamic(
-  () => import("@/components/HomePage/Achievements")
+  () => import("@/components/HomePage/Achievements"),
+  {
+    ssr: false,
+    loading: () => <div style={{ minHeight: "300px" }} />,
+  }
 );
+
 const FeedbackAndReviews = dynamic(
-  () => import("@/components/HomePage/FeedbackandReviews")
+  () => import("@/components/HomePage/FeedbackandReviews"),
+  {
+    ssr: false,
+    loading: () => <div style={{ minHeight: "400px" }} />,
+  }
 );
-const DemoCertificate = dynamic(() => import("@/components/HomePage/DemoCertificate"));
-const Branches = dynamic(() => import("@/components/HomePage/Branches"));
-const Courses = dynamic(() => import("@/components/HomePage/PopCourses"));
 
-export const metadata = {
-  title: "Connecting Dots ERP | SAP Training Institute In Pune",
-  description:
-    "We offer Expert-led training in SAP, Software Development, Digital Marketing, and HR Courses with strong placement support for your career.",
-  keywords: [
-    "SAP Certification Courses",
-    "SAP Course",
-    "Data Science Course",
-    "Power Bi Course",
-    "Digital Marketing Course",
-    "HR Training Institute",
-    "SAP Training Institute",
-    "Python Course",
-    "Software Course",
-    "Training",
-    "Education",
-  ],
-  author: "Connecting Dots ERP | Software and SAP Training Institute",
-  robots: "index, follow", // Controls search engine crawling
-  alternates: {
-    canonical: "https://connectingdotserp.com/", // Sets the canonical URL
-  },
-  openGraph: {
-    // For social media sharing (Facebook, LinkedIn, etc.)
-    title: "Connecting Dots ERP | Software and SAP Training Institute",
-    description:
-      "With 10+ years of experience we offer Expert-led training in SAP, Software Development, Digital Marketing, and HR Courses with strong placement support for your career.",
-    url: "https://connectingdotserp.com/",
-    siteName: "Connecting Dots ERP",
-    images: [
-      {
-        url: "https://connectingdotserp.com/Navbar/logo.webp", // IMPORTANT: Must be an absolute URL
-        width: 180,
-        height: 60,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    // For Twitter card sharing
-    card: "summary_large_image",
-    title: "SAP Training Institute | Connecting Dots ERP",
-    description:
-      "Get recognized SAP and Software training at Connecting Dots ERP. Start your career in SAP with expert guidance.",
-    site: "@CD_ERP",
-    // images: ['https://connectingdotserp.com/og-image.png'], // Optional: Add absolute URL to an image
-  },
-};
+const DemoCertificate = dynamic(() => import("@/components/HomePage/DemoCertificate"), {
+  ssr: false,
+  loading: () => <div style={{ minHeight: "300px" }} />,
+});
 
+const Branches = dynamic(() => import("@/components/HomePage/Branches"), {
+  ssr: false,
+  loading: () => <div style={{ minHeight: "350px" }} />,
+});
+
+const Courses = dynamic(() => import("@/components/HomePage/PopCourses"), {
+  ssr: false,
+  loading: () => <div style={{ minHeight: "400px" }} />,
+});
+
+// JSON-LD data for structured data
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -230,18 +231,50 @@ export default function HomePage() {
 
       {/* Main Page Content */}
       <main className="flex-col justify-center">
+        {/* Above the fold - critical content */}
         <HeaderCarousel />
         <Marquee />
-        <Chevron />
-        <Keypoints />
-        <OurClients />
-        <Courses />
-        <PlacementSection />
-        <OurStats />
-        <Achievements />
-        <FeedbackAndReviews />
-        <DemoCertificate />
-        <Branches />
+        
+        {/* Below the fold - lazy hydrate when visible */}
+        <LazyHydrate whenVisible>
+          <Chevron />
+        </LazyHydrate>
+        
+        <LazyHydrate whenVisible>
+          <Keypoints />
+        </LazyHydrate>
+        
+        <LazyHydrate whenVisible>
+          <OurClients />
+        </LazyHydrate>
+        
+        <LazyHydrate whenVisible>
+          <Courses />
+        </LazyHydrate>
+        
+        <LazyHydrate whenVisible>
+          <PlacementSection />
+        </LazyHydrate>
+        
+        <LazyHydrate whenVisible>
+          <OurStats />
+        </LazyHydrate>
+        
+        <LazyHydrate whenVisible>
+          <Achievements />
+        </LazyHydrate>
+        
+        <LazyHydrate whenVisible>
+          <FeedbackAndReviews />
+        </LazyHydrate>
+        
+        <LazyHydrate whenVisible>
+          <DemoCertificate />
+        </LazyHydrate>
+        
+        <LazyHydrate whenVisible>
+          <Branches />
+        </LazyHydrate>
       </main>
     </>
   );
