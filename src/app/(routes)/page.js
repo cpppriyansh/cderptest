@@ -2,8 +2,6 @@
 
 // Note: Metadata has been moved to metadata.js for better separation
 // and to avoid conflicts with client-side components
-
-import "@/app/globals.css";
 import dynamic from "next/dynamic";
 import LazyHydrate from 'react-lazy-hydration';
 

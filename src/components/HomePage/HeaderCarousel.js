@@ -1,15 +1,18 @@
 "use client";
 
 import { useEffect, useState, useCallback, memo } from "react";
-import { Carousel, Button } from "react-bootstrap";
+// Defer heavy react-bootstrap components to reduce initial JS execution
+import dynamic from "next/dynamic";
+const Carousel = dynamic(() => import("react-bootstrap/Carousel"), { ssr: false });
+const RBButton = dynamic(() => import("react-bootstrap/Button"), { ssr: false });
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "@/styles/HomePage/HeaderCarousel.module.css";
-import Btnform from "./Btnform";
+// Lazy load Btnform only when needed to reduce JS on initial load
+const Btnform = dynamic(() => import("./Btnform"), { ssr: false });
 import Image from "next/image";
 import Link from "next/link";
 
 // Dynamic import for LogoSphere
-import dynamic from "next/dynamic";
 const LogoSphere = dynamic(() => import("./LogoSphere"), {
   ssr: false,
   loading: () => (
@@ -67,7 +70,7 @@ const QUESTION_DATA = {
   },
 };
 
-// Memoized company logo component - OPTIMIZED FOR LCP
+// Memoized company logo component - defer offscreen logo strip
 const CompanyLogos = memo(() => (
   <div className={styles.logoStrip}>
     <Image
@@ -75,7 +78,9 @@ const CompanyLogos = memo(() => (
       alt="Partner companies logos including IBM, TCS, and other corporate partners"
       width={800}
       height={130}
-      priority={true} // LCP element gets priority
+      loading="lazy"
+      fetchPriority="low"
+      quality={60}
       sizes="(max-width: 768px) 100vw, 800px"
       style={{
         width: "auto",
@@ -108,12 +113,12 @@ const CareerSlide = memo(({ onButtonClick }) => (
         Est. 2013 Trusted by <span className={styles.highlight}>5000+</span>{" "}
         Students
       </p>
-      <Button
+      <RBButton
         className={`${styles.customBtn} ${styles.btn3}`}
         onClick={onButtonClick}
       >
         <span>Free Consultation</span>
-      </Button>
+      </RBButton>
       <CompanyLogos />
     </div>
     <div className={styles.carouselImage}>
@@ -186,13 +191,13 @@ const AISlide = memo(({ index, onClick }) => (
         AI.
       </h3>
       <div className={styles.expPgBtn}>
-        <Button
+        <RBButton
           className={styles.slide2Btn}
           onClick={onClick}
           aria-label="View top training programs"
         >
           <span>Explore Our Top Programs</span>
-        </Button>
+        </RBButton>
       </div>
     </div>
     <div className={styles.cardBox2}>
@@ -204,6 +209,7 @@ const AISlide = memo(({ index, onClick }) => (
           width={500}
           height={400}
           loading="lazy" // Changed from priority to lazy
+          quality={60}
           sizes="(max-width: 768px) 100vw, 500px"
         />
       </div>
@@ -213,7 +219,25 @@ const AISlide = memo(({ index, onClick }) => (
 
 AISlide.displayName = "AISlide";
 
-const ExpertsSlide = memo(() => (
+const ExpertsSlide = memo(() => {
+  const [showAll, setShowAll] = useState(false);
+  const companies = [
+    { src: "/Headercarousel/ibm1.avif", name: "IBM", className: styles.gridImageIbm },
+    { src: "/Headercarousel/tcs1.avif", name: "TCS", className: styles.gridImageTcs },
+    { src: "/Headercarousel/LnT.avif", name: "L&T", className: styles.gridImageLnt },
+    { src: "/Headercarousel/amdocs1.avif", name: "Amdocs", className: styles.gridImageAmd },
+    { src: "/Headercarousel/infosys2.avif", name: "Infosys", className: styles.gridImageInfo },
+    { src: "/Headercarousel/wipro.avif", name: "Wipro", className: styles.gridImageWip },
+    { src: "/Headercarousel/deloitte.avif", name: "Deloitte", className: styles.gridImageDel },
+    { src: "/Headercarousel/accenture1.avif", name: "Accenture", className: styles.gridImageAcc },
+    { src: "/Headercarousel/BMW.avif", name: "BMW", className: styles.gridImageBmw },
+    { src: "/Headercarousel/cognizant1.avif", name: "Cognizant", className: styles.gridImageCog },
+    { src: "/Headercarousel/Cisco.avif", name: "Cisco", className: styles.gridImageCis },
+    { src: "/Headercarousel/TechM.avif", name: "Tech Mahindra", className: styles.gridImageTec },
+  ];
+  const visibleCompanies = showAll ? companies : companies.slice(0, 6);
+
+  return (
   <div className={styles.carouselSlide3}>
     <div className={styles.leftSideH3}>
       <h2>
@@ -242,68 +266,7 @@ const ExpertsSlide = memo(() => (
         <h3>Our Mentors Come From</h3>
         <div className={styles.content3}>
           <div className={styles.imageGrid}>
-            {[
-              {
-                src: "/Headercarousel/ibm1.avif",
-                name: "IBM",
-                className: styles.gridImageIbm,
-              },
-              {
-                src: "/Headercarousel/tcs1.avif",
-                name: "TCS",
-                className: styles.gridImageTcs,
-              },
-              {
-                src: "/Headercarousel/LnT.avif",
-                name: "L&T",
-                className: styles.gridImageLnt,
-              },
-              {
-                src: "/Headercarousel/amdocs1.avif",
-                name: "Amdocs",
-                className: styles.gridImageAmd,
-              },
-              {
-                src: "/Headercarousel/infosys2.avif",
-                name: "Infosys",
-                className: styles.gridImageInfo,
-              },
-              {
-                src: "/Headercarousel/wipro.avif",
-                name: "Wipro",
-                className: styles.gridImageWip,
-              },
-              {
-                src: "/Headercarousel/deloitte.avif",
-                name: "Deloitte",
-                className: styles.gridImageDel,
-              },
-              {
-                src: "/Headercarousel/accenture1.avif",
-                name: "Accenture",
-                className: styles.gridImageAcc,
-              },
-              {
-                src: "/Headercarousel/BMW.avif",
-                name: "BMW",
-                className: styles.gridImageBmw,
-              },
-              {
-                src: "/Headercarousel/cognizant1.avif",
-                name: "Cognizant",
-                className: styles.gridImageCog,
-              },
-              {
-                src: "/Headercarousel/Cisco.avif",
-                name: "Cisco",
-                className: styles.gridImageCis,
-              },
-              {
-                src: "/Headercarousel/TechM.avif",
-                name: "Tech Mahindra",
-                className: styles.gridImageTec,
-              },
-            ].map((company, idx) => (
+            {visibleCompanies.map((company, idx) => (
               <Image
                 key={idx}
                 src={company.src}
@@ -316,11 +279,16 @@ const ExpertsSlide = memo(() => (
               />
             ))}
           </div>
+          <div className="mt-2" style={{ textAlign: 'center' }}>
+            <button className={styles.slide2Btn} onClick={() => setShowAll((v) => !v)}>
+              <span>{showAll ? 'Show fewer' : 'Show more'}</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-));
+)});
 
 ExpertsSlide.displayName = "ExpertsSlide";
 
@@ -352,6 +320,7 @@ const QuizSlide = memo(({ question, setQuestion }) => (
         height={400}
         className="plants-image"
         loading="lazy"
+          quality={60}
         sizes="(max-width: 768px) 100vw, 500px"
       />
       <Link href="/quiz" className={styles.goButton}>

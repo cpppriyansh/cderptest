@@ -8,6 +8,9 @@ const nextConfig = {
   // ✅ SIMPLIFIED: Experimental features
   experimental: {
     optimizeCss: false, // Disable to prevent build issues
+    // Build only for modern evergreen browsers
+    legacyBrowsers: false,
+    browsersListForSwc: true,
   },
 
   // ✅ FIXED: Image configuration
@@ -15,6 +18,7 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 31536000,
     remotePatterns: [
       {
         protocol: "http",
@@ -55,6 +59,10 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
+
+  // Enable Next.js CSS optimization pipeline
+  optimizeFonts: true,
+  swcMinify: true,
 
   // ✅ REMOVED: Webpack configuration with Critical CSS plugin (causing constructor error)
   // webpack: (config, { isServer }) => {

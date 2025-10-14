@@ -84,8 +84,8 @@ export default function RootLayout({ children }) {
           />
         </noscript>
 
-        {/* Server Ping Component - Will ping servers on app load */}
-        <ServerPing />
+        {/* Server Ping Component - optional via env flag to reduce JS */}
+        {process.env.NEXT_PUBLIC_ENABLE_PING === "true" && <ServerPing />}
 
         {/* Server-Side Rendered Components */}
         <CallAdvisorsStrip />
