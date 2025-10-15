@@ -46,37 +46,9 @@ const Phases = () => {
 
   return (
     <div className={styles.containerCH}>
-      <h2 
-        className={styles.sectionTitle}
-        style={{
-          // Inline critical styles for LCP optimization
-          fontSize: '2.5rem',
-          fontWeight: 700,
-          letterSpacing: '4px',
-          textAlign: 'center',
-          margin: '0',
-          padding: '0',
-          // Optimize font loading
-          fontDisplay: 'swap',
-        }}
-      >
-        Training To Placement Approach
-      </h2>
+      <h2 className={styles.sectionTitle}>Training To Placement Approach</h2>
       <div className={styles.titleUnderline}></div>
-      <div 
-        className={styles.phases}
-        style={{
-          // Inline critical layout styles
-          textAlign: 'center',
-          marginTop: '10px',
-          backgroundColor: '#ffffff',
-          paddingTop: '10px',
-          paddingBottom: '8px',
-          paddingLeft: '8px',
-          borderRadius: '20px',
-          boxShadow: '7px 5px 5px #000000',
-        }}
-      >
+      <div className={styles.phases}>
         <ul>
           {phaseItems.map((phase) => (
             <li
@@ -84,16 +56,7 @@ const Phases = () => {
               className={`${styles.chevronItem} ${phase.className}`}
             >
               <a href={`#${phase.id}`}>
-                <h4 
-                  style={{ 
-                    marginTop: phase.marginTop,
-                    fontSize: '18px',
-                    marginLeft: '20px',
-                    marginBottom: '10px',
-                  }}
-                >
-                  {phase.title}
-                </h4>
+                <h4 style={{ marginTop: phase.marginTop }}>{phase.title}</h4>
               </a>
             </li>
           ))}
