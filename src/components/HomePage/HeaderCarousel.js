@@ -76,8 +76,8 @@ const CompanyLogos = memo(() => (
       alt="Partner companies logos including IBM, TCS, and other corporate partners"
       width={800}
       height={130}
-      loading="lazy"
-      fetchPriority="low"
+      priority={true}
+      fetchPriority="high"
       quality={60}
       sizes="(max-width: 768px) 100vw, 800px"
       style={{
