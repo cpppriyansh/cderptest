@@ -236,13 +236,10 @@ export default function HomePage() {
         
           <Chevron />
         
-        
-          <Keypoints />
-        
-        
           <OurClients />
         
-        
+          <Keypoints />
+
           <Courses />
         
           <PlacementSection />
