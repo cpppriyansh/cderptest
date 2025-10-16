@@ -204,12 +204,16 @@ const DSHeader = ({ data }) => {
       {/* 🔹 Background Video */}
       <video
         className={styles.backgroundVideo}
-        src={data.backgroundVideo} // Use data from props
+        preload="auto"
+        fetchPriority="high"
         autoPlay
         loop
         muted
         playsInline
-      />
+        poster={data.backgroundPoster || undefined}
+      >
+        <source src={data.backgroundVideo} type="video/mp4" />
+      </video>
 
       <div className={styles.leftSectionItDs}>
         <h1>

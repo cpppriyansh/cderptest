@@ -55,7 +55,7 @@ const Chatbot = () => {
   return (
     <>
       <Script
-        src="https://embed.tawk.to/65d9cf218d261e1b5f64d05b/1hndd28n8"
+        src={`/api/tawk?p=65d9cf218d261e1b5f64d05b&w=1hndd28n8`}
         strategy="lazyOnload"
         onLoad={() => {
           if (window.Tawk_API) {

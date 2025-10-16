@@ -1,7 +1,8 @@
-// src/app/(routes)/[slug]/page.js
+// src/app/(routes)/[slug]/page.js (Updated with Curriculum component)
+
 import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
-import { Suspense } from "react";
+import ClientCourseSections from "@/components/CoursesComponents/ClientCourseSections";
 import {
   generateDynamicMetadata,
   generateDynamicJsonLd,
@@ -22,77 +23,60 @@ export async function generateStaticParams() {
   return params;
 }
 
-// Lazy-load components with sensible SSR defaults for SEO and LCP
-const DSHeader = dynamic(() => import("@/components/CoursesComponents/Header"), {
-  ssr: true,
-});
-const Why = dynamic(() => import("@/components/CoursesComponents/Why"), {
-  ssr: true,
-});
-const Counselor = dynamic(
-  () => import("@/components/CoursesComponents/Councelor")
-);
-const TrustUs = dynamic(() => import("@/components/CoursesComponents/Trustus"));
-const Certificate = dynamic(
-  () => import("@/components/HomePage/Certificate"),
-  { ssr: true }
-);
-const Program = dynamic(
-  () => import("@/components/CoursesComponents/ProgramHighlights")
-);
-const Description = dynamic(
-  () => import("@/components/CoursesComponents/Description"),
-  { ssr: true }
-);
-const FAQ = dynamic(() => import("@/components/CoursesComponents/FAQ"), {
-  ssr: true,
-});
-const CoursesRelated = dynamic(
-  () => import("@/components/CoursesComponents/RelatedCourses")
-);
-const SapModComponent = dynamic(
-  () => import("@/components/CoursesComponents/sapmod"),
-  { ssr: true }
-);
-const Modules = dynamic(() => import("@/components/CoursesComponents/Modules"), {
-  ssr: true
-});
-const Curriculum = dynamic(
-  () => import("@/components/CoursesComponents/Curriculam"),
-  { ssr: true }
-);
-const HrCard = dynamic(() => import("@/components/CoursesComponents/HRCard"), {
-  ssr: true
-});
+// ClientCourseSections is a client component that lazy-loads its parts internally
 
-// Helper: parse slug into course and city
+// Helper function to parse the slug into course and city components
 function parseSlug(slug) {
   const lastInIndex = slug.lastIndexOf("-in-");
   if (lastInIndex === -1) {
     return null;
   }
+
   let coursePart = slug.substring(0, lastInIndex);
   coursePart = coursePart.replace(
     /-course$|-training$|-developer$|-developer-course$|-developer-training$/,
     ""
   );
+
   const cityPart = slug.substring(lastInIndex + 4);
+
   return { courseSlug: coursePart, citySlug: cityPart };
 }
 
-// Metadata generation (fast path, no unnecessary awaits)
+// Generate metadata dynamically for each page
 export async function generateMetadata({ params }) {
-  const slug = params?.slug;
-  if (!slug) return {};
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug;
+
+  if (!slug) {
+    console.warn("❌ generateMetadata: Missing slug parameter.");
+    return {};
+  }
 
   const parsed = parseSlug(slug);
-  if (!parsed) return {};
+  if (!parsed) {
+    console.warn(
+      `❌ generateMetadata: Slug "${slug}" does not match expected pattern for dynamic course pages.`
+    );
+    return {};
+  }
 
   const { courseSlug, citySlug } = parsed;
-  if (!coursesData[courseSlug] || !citiesData[citySlug]) return {};
+
+  if (!coursesData[courseSlug] || !citiesData[citySlug]) {
+    console.warn(
+      `❌ generateMetadata: Course "${courseSlug}" or City "${citySlug}" not found in masterData. Returning empty metadata.`
+    );
+    return {};
+  }
 
   const metadata = generateDynamicMetadata(courseSlug, citySlug);
-  if (!metadata) return {};
+  if (!metadata) {
+    console.warn(
+      `❌ generateMetadata: Failed to generate metadata for "${slug}".`
+    );
+    return {};
+  }
 
   const metadataObject = {
     title: metadata.title,
@@ -103,7 +87,9 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical: metadata.canonical,
       languages: metadata.alternates.reduce((acc, alt) => {
-        if (alt.hreflang && alt.href) acc[alt.hreflang] = alt.href;
+        if (alt.hreflang && alt.href) {
+          acc[alt.hreflang] = alt.href;
+        }
         return acc;
       }, {}),
     },
@@ -149,116 +135,165 @@ export async function generateMetadata({ params }) {
   return metadataObject;
 }
 
-// Server-side placeholder processing to avoid client work
-function processPlaceholders(obj, cityNameToUse) {
-  if (typeof obj === "string") {
-    return obj.replace(/{city}/g, cityNameToUse);
-  }
-  if (Array.isArray(obj)) {
-    return obj.map((item) => processPlaceholders(item, cityNameToUse));
-  }
-  if (typeof obj === "object" && obj !== null) {
-    const newObj = {};
-    for (const key in obj) {
-      newObj[key] = processPlaceholders(obj[key], cityNameToUse);
-    }
-    return newObj;
-  }
-  return obj;
-}
-
-// Office info JSX (replaces string-based HTML injection)
-function OfficeInfo({ city, courseTitle }) {
-  if (!city?.hasOffice || !city?.office) return null;
-  const { address, phone, hours, rating, reviewCount, mapUrl } = city.office;
-  return (
-    <section className="our-local-presence">
-      <h3>Visit Our Training Center in {city.name}</h3>
-      <p>We&apos;re proud to offer in-person training at our state-of-the-art facility in {city.name}.</p>
-      <p><strong>Address:</strong> {address}</p>
-      <p><strong>Phone:</strong> {phone}</p>
-      <p><strong>Operating Hours:</strong> {hours.open} - {hours.close} daily</p>
-      <p>Rated <strong>{rating}/5</strong> by {reviewCount} students on Google.</p>
-      {mapUrl ? (
-        <p>
-          <a href={mapUrl} target="_blank" rel="noopener noreferrer">
-            Get Directions to our {courseTitle} Training Center
-          </a>
-        </p>
-      ) : null}
-    </section>
-  );
-}
-
 const CourseCityPage = async ({ params }) => {
-  const slug = params?.slug;
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug;
+
   if (!slug) return notFound();
 
   const parsed = parseSlug(slug);
-  if (!parsed) return notFound();
+  if (!parsed) {
+    console.warn(
+      `❌ CourseCityPage: Slug "${slug}" does not match course-city pattern. Returning notFound().`
+    );
+    return notFound();
+  }
 
   const { courseSlug, citySlug } = parsed;
+
   const course = coursesData[courseSlug];
   const city = citiesData[citySlug];
-  if (!course || !city) return notFound();
+
+  if (!course || !city) {
+    console.error(
+      `❌ CourseCityPage: Course "${courseSlug}" or City "${citySlug}" not found in masterData. Returning notFound().`
+    );
+    return notFound();
+  }
 
   const jsonLd = generateDynamicJsonLd(courseSlug, citySlug);
 
+  const processPlaceholders = (obj, cityNameToUse) => {
+    if (typeof obj === "string") {
+      return obj.replace(/{city}/g, cityNameToUse);
+    }
+    if (Array.isArray(obj)) {
+      return obj.map((item) => processPlaceholders(item, cityNameToUse));
+    }
+    if (typeof obj === "object" && obj !== null) {
+      const newObj = {};
+      for (const key in obj) {
+        newObj[key] = processPlaceholders(obj[key], cityNameToUse);
+      }
+      return newObj;
+    }
+    return obj;
+  };
+
   const headerData = processPlaceholders(course.header, city.name);
   const whyData = processPlaceholders(course.why, city.name);
-  const sapModData = course.sapMod ? processPlaceholders(course.sapMod, city.name) : null;
-  const modulesData = course.modulesData ? processPlaceholders(course.modulesData, city.name) : null;
+  const sapModData = course.sapMod
+    ? processPlaceholders(course.sapMod, city.name)
+    : null;
+  const modulesData = course.modulesData
+    ? processPlaceholders(course.modulesData, city.name)
+    : null;
   const certificateData = processPlaceholders(course.certificate, city.name);
   const faqData = processPlaceholders(course.faq, city.name);
-  const relatedCoursesData = processPlaceholders(course.relatedCourses, city.name);
+  const relatedCoursesData = processPlaceholders(
+    course.relatedCourses,
+    city.name
+  );
 
-  const descriptionContentData = processPlaceholders(course.descriptionContent, city.name);
+  // Handle description content - check if it's multi-section (like Digital Marketing) or single section
+  const descriptionContentData = processPlaceholders(
+    course.descriptionContent,
+    city.name
+  );
 
+  // Check if this is a multi-section course (like Digital Marketing)
   const isMultiSectionCourse =
     descriptionContentData &&
     (descriptionContentData.main ||
       descriptionContentData.ppc ||
       descriptionContentData.seo);
 
+  // Determine which curriculum component to use based on data structure
   const shouldUseNewCurriculum =
     modulesData && modulesData.tabs && Array.isArray(modulesData.tabs);
   const shouldUseLegacyModules = modulesData && !shouldUseNewCurriculum;
 
-  // Build JSX for previously injected dynamic body content to avoid innerHTML
-  const DynamicBodyContent = () => (
-    <div className="course-main-content">
-      <h1 className="visually-hidden">{course.title} Course in {city.name}</h1>
-      <h2 className="visually-hidden">Best {course.fullTitle} Training in {city.name}</h2>
-      <p className="visually-hidden">{course.description.replace(/{city}/g, city.name)}</p>
-
-      <section className="course-summary">
-        <h3>About Our {course.fullTitle} Course</h3>
-        <p>
-          Our comprehensive {course.title} course in {city.name} is designed to equip you with {course.modules.length} key modules, practical skills, and industry insights over {course.duration}.
-        </p>
-        <p>
-          Get ready for a successful career in roles such as {course.jobRoles.slice(0, 2).join(" or ")}.
-        </p>
+  // Generate dynamic content for the page body.
+  const dynamicBodyContent = `
+    <div class="course-main-content">
+      <!-- These elements now use the global 'visually-hidden' class -->
+      <h1 class="visually-hidden">${course.title} Course in ${city.name}</h1>
+      <h2 class="visually-hidden">Best ${course.fullTitle} Training in ${city.name}</h2>
+      <p class="visually-hidden">${course.description.replace(/{city}/g, city.name)}</p>
+      
+      <section class="course-summary">
+        <h3>About Our ${course.fullTitle} Course</h3>
+        <p>Our comprehensive ${course.title} course in ${city.name} is designed to equip you with ${course.modules.length} key modules, practical skills, and industry insights. With a duration of ${course.duration}, you'll gain expertise in areas like: ${course.modules.slice(0, 3).join(", ")}${course.modules.length > 3 ? "..." : ""}.</p>
+        <p>Get ready for a successful career in roles such as ${course.jobRoles.slice(0, 2).join(" or ")}.</p>
       </section>
 
-      <OfficeInfo city={city} courseTitle={course.title} />
-
-      <section className="career-path">
-        <h3>Career Opportunities After {course.fullTitle} Training</h3>
-        <p>Upon successful completion, you&apos;ll be prepared for diverse and rewarding career paths, including:</p>
+      ${renderOfficeSpecificContent(city, course.title)}
+      
+      <section class="career-path">
+        <h3>Career Opportunities After ${course.fullTitle} Training</h3>
+        <p>Upon successful completion of our ${course.title} course, you'll be prepared for diverse and rewarding career paths, including:</p>
         <ul>
-          {course.jobRoles.map((role, i) => (
-            <li key={i}>{role}</li>
-          ))}
+          ${course.jobRoles.map((role) => `<li>${role}</li>`).join("")}
         </ul>
       </section>
     </div>
-  );
+  `;
 
-  // Digital Marketing specialized layout
+  function renderOfficeSpecificContent(cityData, courseTitle) {
+    if (cityData.hasOffice && cityData.office) {
+      return `
+        <section class="our-local-presence">
+          <h3>Visit Our Training Center in ${cityData.name}</h3>
+          <p>We're proud to offer in-person training at our state-of-the-art facility in ${cityData.name}.</p>
+          <p><strong>Address:</strong> ${cityData.office.address}</p>
+          <p><strong>Phone:</strong> ${cityData.office.phone}</p>
+          <p><strong>Operating Hours:</strong> ${cityData.office.hours.open} - ${cityData.office.hours.close} daily</p>
+          <p>Rated <strong>${cityData.office.rating}/5</strong> by ${cityData.office.reviewCount} students on Google.</p>
+          ${cityData.office.mapUrl ? `<p><a href="${cityData.office.mapUrl}" target="_blank" rel="noopener noreferrer">Get Directions to our ${courseTitle} Training Center</a></p>` : ""}
+        </section>
+      `;
+    }
+    return "";
+  }
+
+  // Scroll handling script for hash navigation
+  const scrollScript = `
+    <script>
+      (function() {
+        function scrollToHash() {
+          const hash = window.location.hash.replace('#', '');
+          if (hash) {
+            setTimeout(() => {
+              const element = document.getElementById(hash);
+              if (element) {
+                element.scrollIntoView({ 
+                  behavior: 'smooth', 
+                  block: 'start',
+                  inline: 'nearest'
+                });
+              }
+            }, 500);
+          }
+        }
+        
+        // Handle initial load
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', scrollToHash);
+        } else {
+          scrollToHash();
+        }
+        
+        // Handle hash changes
+        window.addEventListener('hashchange', scrollToHash);
+      })();
+    </script>
+  `;
+
+  // Render Digital Marketing specific layout
   if (courseSlug === "digital-marketing" && isMultiSectionCourse) {
     return (
       <>
+        {/* Inject JSON-LD structured data (server-rendered) */}
         {jsonLd && (
           <script
             type="application/ld+json"
@@ -266,68 +301,39 @@ const CourseCityPage = async ({ params }) => {
           />
         )}
 
-        <DynamicBodyContent />
-
-        {/* Above-the-fold priority */}
-        <DSHeader data={headerData} />
-        <Why data={whyData} />
-        {sapModData && <SapModComponent data={sapModData} />}
-
-        {/* Curriculum: split + stream */}
-        {shouldUseNewCurriculum && (
-          <div id="curriculum" style={{ scrollMarginTop: "80px" }}>
-            <Suspense fallback={null}>
-              <Curriculum data={course} />
-            </Suspense>
-          </div>
-        )}
-        {shouldUseLegacyModules && (
-          <div id="modules" style={{ scrollMarginTop: "80px" }}>
-            <Suspense fallback={null}>
-              <Modules data={modulesData} />
-            </Suspense>
-          </div>
+        {/* Preload header background video to improve LCP */}
+        {headerData?.backgroundVideo && (
+          <link
+            rel="preload"
+            as="video"
+            href={headerData.backgroundVideo}
+            type="video/mp4"
+          />
         )}
 
-        {/* Counselor can hydrate client-side only */}
-        <Suspense fallback={null}>
-          <Counselor />
-        </Suspense>
+        {/* Inject scroll handling script */}
+        <div dangerouslySetInnerHTML={{ __html: scrollScript }} />
 
-        {/* Main description + anchored subsections */}
-        {descriptionContentData.main && <Description data={descriptionContentData.main} />}
+        {/* Render core dynamic content for the page body */}
+        <div dangerouslySetInnerHTML={{ __html: dynamicBodyContent }} />
 
-        <div id="pay-per-click" style={{ scrollMarginTop: "80px" }}>
-          {descriptionContentData.ppc && (
-            <Description data={descriptionContentData.ppc} sectionIndex={0} />
-          )}
-        </div>
-
-        <TrustUs />
-
-        <div id="search-engine-optimization" style={{ scrollMarginTop: "80px" }}>
-          {descriptionContentData.seo && (
-            <Description data={descriptionContentData.seo} sectionIndex={1} />
-          )}
-        </div>
-
-        <Certificate data={certificateData} />
-        <Program />
-
-        <div id="social-media-marketing" style={{ scrollMarginTop: "80px" }}>
-          {descriptionContentData.smm && (
-            <Description data={descriptionContentData.smm} sectionIndex={0} />
-          )}
-        </div>
-
-        <div id="advance-analytics" style={{ scrollMarginTop: "80px" }}>
-          {descriptionContentData.analytics && (
-            <Description data={descriptionContentData.analytics} sectionIndex={1} />
-          )}
-        </div>
-
-        <FAQ data={faqData} />
-        <CoursesRelated data={relatedCoursesData} currentCityName={city.name} />
+        {/* Render Client Components (lazy-loaded) */}
+        <ClientCourseSections
+          layoutType="digital"
+          headerData={headerData}
+          whyData={whyData}
+          sapModData={sapModData}
+          course={course}
+          modulesData={modulesData}
+          descriptionContentData={descriptionContentData}
+          certificateData={certificateData}
+          faqData={faqData}
+          relatedCoursesData={relatedCoursesData}
+          currentCityName={city.name}
+          courseCategory={course.category}
+          shouldUseNewCurriculum={shouldUseNewCurriculum}
+          shouldUseLegacyModules={shouldUseLegacyModules}
+        />
       </>
     );
   }
@@ -335,6 +341,7 @@ const CourseCityPage = async ({ params }) => {
   // Default layout for other courses (SAP, HR, Data Analytics, etc.)
   return (
     <>
+      {/* Inject JSON-LD structured data (server-rendered) */}
       {jsonLd && (
         <script
           type="application/ld+json"
@@ -342,42 +349,36 @@ const CourseCityPage = async ({ params }) => {
         />
       )}
 
-      <DynamicBodyContent />
-
-      {/* Above-the-fold priority */}
-      <DSHeader data={headerData} />
-      <Why data={whyData} />
-      {sapModData && <SapModComponent data={sapModData} />}
-
-      {/* Curriculum: stream in */}
-      {shouldUseNewCurriculum && (
-        <div id="curriculum" style={{ scrollMarginTop: "80px" }}>
-          <Suspense fallback={null}>
-            <Curriculum data={course} />
-          </Suspense>
-        </div>
-      )}
-      {shouldUseLegacyModules && (
-        <div id="modules" style={{ scrollMarginTop: "80px" }}>
-          <Suspense fallback={null}>
-            <Modules data={modulesData} />
-          </Suspense>
-        </div>
+      {/* Preload header background video to improve LCP */}
+      {headerData?.backgroundVideo && (
+        <link
+          rel="preload"
+          as="video"
+          href={headerData.backgroundVideo}
+          type="video/mp4"
+        />
       )}
 
-      {/* Defer non-critical UI */}
-      <Suspense fallback={null}>
-        <Counselor />
-        <TrustUs />
-        <Program />
-      </Suspense>
+      {/* Render core dynamic content for the page body */}
+      <div dangerouslySetInnerHTML={{ __html: dynamicBodyContent }} />
 
-      {/* Single description section */}
-      <Description data={descriptionContentData} />
-
-      <FAQ data={faqData} />
-      {course.category === "hr" && <HrCard />}
-      <CoursesRelated data={relatedCoursesData} currentCityName={city.name} />
+      {/* Render Client Components (lazy-loaded) */}
+      <ClientCourseSections
+        layoutType="default"
+        headerData={headerData}
+        whyData={whyData}
+        sapModData={sapModData}
+        course={course}
+        modulesData={modulesData}
+        descriptionContentData={descriptionContentData}
+        certificateData={certificateData}
+        faqData={faqData}
+        relatedCoursesData={relatedCoursesData}
+        currentCityName={city.name}
+        courseCategory={course.category}
+        shouldUseNewCurriculum={shouldUseNewCurriculum}
+        shouldUseLegacyModules={shouldUseLegacyModules}
+      />
     </>
   );
 };

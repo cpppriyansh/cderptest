@@ -65,6 +65,9 @@ export default function RootLayout({ children }) {
           debug={false} 
           forward={["dataLayer.push", "fbq"]} 
         />
+        {/* Preconnect for Tawk to speed up DNS/TLS */}
+        <link rel="preconnect" href="https://embed.tawk.to" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="//embed.tawk.to" />
         
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#1a365d" />
