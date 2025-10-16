@@ -2,7 +2,34 @@
 
 "use client";
 
-import { useState, useEffect} from "react"; // Removed useContext and Head
+import { useState, useEffect, useMemo } from "react";
+// TypewriterPlaceholderInput for animated placeholder text
+// Synchronized typewriter effect for all placeholders
+import { useRef } from "react";
+function useTypewriterSync(text, maxLen, duration = 3500) {
+  const [displayed, setDisplayed] = useState("");
+  const startTimeRef = useRef(Date.now());
+  useEffect(() => {
+    let frame;
+    function animate() {
+      const now = Date.now();
+      const elapsed = (now - startTimeRef.current) % duration;
+      const progress = elapsed / duration;
+      const chars = Math.floor(progress * maxLen);
+      setDisplayed(text.slice(0, chars));
+      frame = requestAnimationFrame(animate);
+    }
+    animate();
+    return () => cancelAnimationFrame(frame);
+  }, [text, maxLen, duration]);
+  return displayed;
+}
+
+function TypewriterPlaceholderInput({ placeholder, syncLen, ...props }) {
+  // syncLen: the max length among all placeholders
+  const animatedPlaceholder = useTypewriterSync(placeholder, syncLen);
+  return <input {...props} placeholder={animatedPlaceholder} />;
+}
 import styles from "@/styles/CoursesComponents/Header.module.css";
 import Btnform from "@/components/HomePage/Btnform"; // Assuming Btnform is a client component
 
@@ -212,17 +239,38 @@ const DSHeader = ({ data }) => {
           </div>
         </div>
         <div className={styles.buttons}>
-          {data.buttons.map((button, index) => (
-            <button
-              key={index}
-              className={
-                index === 0 ? styles.buttonStyle1 : styles.buttonStyle2
-              }
-              onClick={handleButtonClick}
-            >
-              {button.text}
-            </button>
-          ))}
+          {(() => {
+            const isITTraining = data.buttons.some(b => b.courseName === "IT Training Program");
+            if (isITTraining) {
+              // IT Training Program: both buttons small and shifted up
+              return (
+                <div style={{ marginTop: '-12px', display: 'flex', gap: '1rem' }}>
+                  {data.buttons.map((button, index) => (
+                    <button
+                      key={index}
+                      className={`${index === 0 ? styles.buttonStyle1 : styles.buttonStyle2} ${styles.smallBtn}`}
+                      onClick={handleButtonClick}
+                    >
+                      {button.text}
+                    </button>
+                  ))}
+                </div>
+              );
+            }
+            // Default: normal buttons
+            return data.buttons.map((button, index) => {
+              const btnClass = `${index === 0 ? styles.buttonStyle1 : styles.buttonStyle2}`;
+              return (
+                <button
+                  key={index}
+                  className={btnClass}
+                  onClick={handleButtonClick}
+                >
+                  {button.text}
+                </button>
+              );
+            });
+          })()}
         </div>
       </div>
 
@@ -238,60 +286,74 @@ const DSHeader = ({ data }) => {
         )}
 
         <form onSubmit={handleSubmit} className={styles.form}>
-          {data.form?.inputs?.map((input, index) => {
-            if (input.countryCode) {
-              const selectedCountry = countryCodes.find(
-                (country) => country.code === formData.countryCode
-              );
-              const maxLength = selectedCountry?.maxLength || 10;
-
-              return (
-                <div key={index} className={styles.phoneInputItDs}>
-                  <div className={styles.countryCodeWrapper}>
-                    <select
-                      id="countryCode"
-                      name="countryCode"
-                      value={formData.countryCode}
-                      onChange={handleChange}
-                      className={styles.selectCountryCode}
-                      disabled={isSubmitting}
-                    >
-                      {countryCodes.map(({ code, country }) => (
-                        <option key={code} value={code}>
-                          {code} ({country})
-                        </option>
-                      ))}
-                    </select>
+          {(() => {
+            // Find the max length among all placeholders for sync
+            const syncLen = Math.max(...(data.form?.inputs?.filter(i => !i.countryCode).map(i => i.placeholder.length) || [0]));
+            return data.form?.inputs?.map((input, index) => {
+              if (input.countryCode) {
+                const selectedCountry = countryCodes.find(
+                  (country) => country.code === formData.countryCode
+                );
+                const maxLength = selectedCountry?.maxLength || 10;
+                return (
+                  <div key={index} className={styles.phoneInputItDs}>
+                    <div className={styles.countryCodeWrapper}>
+                      <select
+                        id="countryCode"
+                        name="countryCode"
+                        value={formData.countryCode}
+                        onChange={handleChange}
+                        className={styles.selectCountryCode}
+                        disabled={isSubmitting}
+                      >
+                        {countryCodes.map(({ code, country }) => (
+                          <option key={code} value={code}>
+                            {code} ({country})
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    {/* Typewriter effect for phone input placeholder */}
+                    {(() => {
+                      // Find the max length among all placeholders for sync
+                      const allPlaceholders = ["Enter phone number", ...(data.form?.inputs?.filter(i => !i.countryCode).map(i => i.placeholder) || [])];
+                      const syncLen = Math.max(...allPlaceholders.map(p => p.length));
+                      return (
+                        <TypewriterPlaceholderInput
+                          type="tel"
+                          id="contact"
+                          name="contact"
+                          placeholder="Enter phone number"
+                          syncLen={syncLen}
+                          value={formData.contact}
+                          onChange={handleChange}
+                          maxLength={maxLength}
+                          required
+                          disabled={isSubmitting}
+                          className={styles.input}
+                        />
+                      );
+                    })()}
                   </div>
-                  <input
-                    type="tel"
-                    id="contact"
-                    name="contact"
-                    placeholder="Enter your phone number"
-                    value={formData.contact}
+                );
+              } else {
+                return (
+                  <TypewriterPlaceholderInput
+                    key={index}
+                    type={input.type}
+                    name={input.name}
+                    placeholder={input.placeholder}
+                    syncLen={syncLen}
+                    className={styles.input}
+                    value={formData[input.name] || ""}
                     onChange={handleChange}
-                    maxLength={maxLength}
-                    required
                     disabled={isSubmitting}
+                    required
                   />
-                </div>
-              );
-            } else {
-              return (
-                <input
-                  key={index}
-                  type={input.type}
-                  name={input.name}
-                  placeholder={input.placeholder}
-                  className={styles.input}
-                  value={formData[input.name] || ""}
-                  onChange={handleChange}
-                  disabled={isSubmitting}
-                  required
-                />
-              );
-            }
-          })}
+                );
+              }
+            });
+          })()}
 
           <button
             type="submit"

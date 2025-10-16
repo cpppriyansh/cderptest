@@ -49,15 +49,15 @@ export const coursesData = {
       subtitle: "Practical Based Job Oriented SAP Training in {city}",
       description:
         "Enroll in the best SAP FICO course in {city} and master financial accounting and controlling with expert-led training. Our SAP FICO training in {city} offers real-time Training, industry-relevant curriculum, and 100% placement support to help you build a successful career in SAP finance modules.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call Back", courseName: "SAP FICO Program" },
@@ -460,15 +460,15 @@ export const coursesData = {
       subtitle: "Get Certified with the best SAP training institute in {city}",
       description:
         "Grow Your Career with the Best SAP Course in {city}. Accelerate your professional journey with our industry-leading SAP training in {city}, featuring specialized courses in SAP FICO, SAP MM, and SAP SD. Our comprehensive and hands-on training program is designed to build deep expertise in core SAP modules like Financial Accounting, Materials Management, and Sales & Distribution. Whether you're a fresher or a working professional, we'll help you land your dream job in top MNCs.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SAP Training Program" },
@@ -718,15 +718,15 @@ export const coursesData = {
       subtitle: "Practical Based Job Oriented SAP Training in {city}",
       description:
         "The SAP ABAP Course in {city} focuses on learning Advanced Business Application Programming (ABAP), the programming language used for developing applications within the SAP environment. It covers key topics like reporting, interfaces, enhancements, and forms. Our SAP ABAP Training in {city} provides hands-on experience, preparing you for real-world SAP development projects and career opportunities in top companies.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SAP ABAP Program" },
@@ -1180,15 +1180,15 @@ export const coursesData = {
         "Learn SAP Ariba with our Expert trainers to get a Salary hike.",
       description:
         "Embark on a journey toward a successful career with our SAP Ariba Course in {city}. Tailored for newcomers and experienced professionals alike, this program offers an extensive syllabus designed to make you proficient in SAP Ariba. From gaining expertise in procurement and sourcing solutions to mastering supplier management and advanced analytics, this course equips you with the hands-on skills needed to thrive in the field.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SAP Ariba Program" },
@@ -1632,15 +1632,15 @@ export const coursesData = {
       subtitle: "Practical Based Job Oriented SAP Training in {city}",
       description:
         "The goal of the SAP BASIS Course in {city} is to give students a thorough understanding of the SAP BASIS, or Business Application Software Integrated Solution, which is an essential part of the SAP system for system management and administration. It addresses important subjects including transport management, system configuration, user administration, and system monitoring. Our SAP BASIS Course in {city} guarantees practical experience, readying you for prospects for professional advancement in prestigious SAP-based companies as well as real-world issues.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
-        // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+       // Used in: Header carousel/logos
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SAP BASIS Program" },
@@ -2092,15 +2092,15 @@ export const coursesData = {
       subtitle: "Practical Based Job Oriented SAP Training in {city}",
       description:
         "The SAP BW/BI Course in {city} at Connecting Dots ERP is designed to help you maximize your SAP BW/BI implementation. This course provides an in-depth understanding of operations and Info Providers while focusing on optimizing data load performance and query execution. Enroll now in our SAP BI/BW Classroom Training in {city} and SAP BI/BW Online Training to gain hands-on expertise and enhance your data management skills.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SAP BI Program" },
@@ -2550,15 +2550,15 @@ export const coursesData = {
       subtitle: "Practical Based Job Oriented SAP Training in {city}",
       description:
         "SAP Extended Warehouse Management (EWM) is a powerful module within the SAP Supply Chain Management suite that offers advanced features for efficient warehouse operations. Connecting Dots ERP's SAP EWM course in {city} will empower you to manage warehouse processes, from inventory control to outbound deliveries with industrial learning by MNC experienced trainer and hands-on learning of various tools.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SAP EWM Program" },
@@ -3012,15 +3012,15 @@ export const coursesData = {
       subtitle: "Practical Based Job Oriented SAP Training in {city}",
       description:
         "SAP S/4 HANA is SAP's next-generation ERP suite, designed to run on the in-memory HANA database, offering real-time data processing and analytics. It simplifies business processes and provides enhanced capabilities in areas like finance, supply chain, and procurement. Our SAP S/4 HANA Training in {city} equips you with hands-on knowledge of the platform, preparing you for roles in leading global organizations.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SAP S/4 HANA Program" },
@@ -3472,15 +3472,15 @@ export const coursesData = {
       subtitle: "Practical Based Job Oriented SAP Training in {city}",
       description:
         "The SAP HCM Course in {city} at Connecting Dots ERP offers in-depth training on managing human resources processes within organizations. This course covers core HR functions such as personnel management, payroll, time management, and organizational management using SAP HCM. With expert trainers and hands-on projects, this course equips you with the skills needed to excel in HR roles at top companies.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SAP HR/HCM Program" },
@@ -3932,15 +3932,15 @@ export const coursesData = {
       subtitle: "Practical Based Job Oriented SAP Training in {city}",
       description:
         "SAP MM Course in {city} covers Industry oriented curriculum with placement. SAP MM deals with Master Data, Material Valuation, Account Determination, and Material Requirement Planning.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
-        // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+       // Used in: Header carousel/logos
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SAP MM Program" },
@@ -4390,15 +4390,15 @@ export const coursesData = {
       subtitle: "Practical Based Job Oriented SAP Training in {city}",
       description:
         "SAP PM (Plant Maintenance) is a module that helps businesses efficiently manage maintenance activities, including equipment management, preventive maintenance, and repair orders to ensure optimal production performance. It integrates with other SAP modules like MM and PP for seamless operations. Our SAP PM Training in {city} provides practical insights and real-world applications, preparing you for maintenance management roles in various industries.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SAP PM Program" },
@@ -4847,15 +4847,15 @@ export const coursesData = {
       subtitle: "Practical Based Job Oriented SAP Training in {city}",
       description:
         "The SAP PP Course in {city} teaches you how to manage production planning and control processes within the SAP ERP system, including material requirements planning (MRP), bill of materials (BOM), and shop floor control. Our SAP PP Training in {city} provides practical knowledge and hands-on experience, preparing you for production and manufacturing roles in leading organizations.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SAP PP Program" },
@@ -5306,15 +5306,15 @@ export const coursesData = {
       subtitle: "Practical Based Job Oriented SAP Training in {city}",
       description:
         "Description: SAP Project Systems is a critical module within SAP ERP that focuses on managing projects across industries, ensuring efficient planning, execution, and control. With Connecting Dots ERP's SAP PS course in {city}, you'll learn how to streamline project management processes and gain practical skills to handle everything from project structuring to resource allocation and reporting. Our course is backed by expert trainers and real-world projects, this course is designed to make you proficient in project management roles.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SAP PS Program" },
@@ -5764,15 +5764,15 @@ export const coursesData = {
       subtitle: "Practical Based Job Oriented SAP Training in {city}",
       description:
         "SAP Quality Management is a very important module in SAP ERP, designed to streamline and optimize the quality control processes across the globe. With Connecting Dots ERP, the SAP QM course in {city} will provide you with advanced knowledge and practical skills to manage audits, quality inspections, and compliance within manufacturing and supply chain operations of various industries with numerous case studies.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SAP QM Program" },
@@ -6224,15 +6224,15 @@ export const coursesData = {
       subtitle: "Practical Based Job Oriented SAP Training in {city}",
       description:
         "SAP Supply Chain Management (SCM) is an essential module within SAP that enables businesses to efficiently manage their supply chain processes, from procurement to product delivery. Connecting Dots ERP’s SAP SCM course in {city} offers an advanced learning experience, equipping you with skills in supply chain planning, logistics, and order fulfillment. Learn from industry experts with practical, hands-on sessions that prepare you for real-world challenges.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SAP SCM Program" },
@@ -6685,15 +6685,15 @@ export const coursesData = {
       subtitle: "Practical Based Job Oriented SAP Training in {city}",
       description:
         "Enroll in the best SAP SD course in {city} and master sales & distribution with expert-led training. Our SAP SD training in {city} offers real-time projects, industry-relevant curriculum, and 100% placement support to launch your career in SAP SD modules.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SAP SD Program" },
@@ -7142,15 +7142,15 @@ export const coursesData = {
       subtitle: "Practical Based Job Oriented SAP Training in {city}",
       description:
         "SAP SuccessFactors is a top cloud-based human capital management or SAP HCM solution that helps organizations manage their workforce and optimize HR processes. Our SAP SuccessFactors course in {city} equips you with the skills to manage talent acquisition, employee performance, learning management, and workforce analytics.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966439/resh2_qx9lj7.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SAP Succesfactor Program" },
@@ -7610,15 +7610,15 @@ export const coursesData = {
         "Get Certified with the advance IT training institute in {city}",
       description:
         "Connecting Dots ERP offers an advanced IT course in {city} designed to equip you with the essential skills to excel in the fast-evolving tech industry. Our advance and detailed training program covers key modules such as Data Science, Data Analytics, Python, and Java, ensuring you gain the expertise to work with cutting-edge technologies and solve complex business problems. By mastering these modules, you'll be prepared to take on roles like Data Scientist, Data Analyst, Python Developer, and Java Developer. Our course is tailored to help you build a strong foundation and land your dream job in the dynamic field of IT.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966455/resh5_k4hotm.mp4 ",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "IT Training Program" },
@@ -7890,15 +7890,15 @@ export const coursesData = {
         "Take advantage of the Business Analytics Training Certificate Course to advance your profession quickly",
       description:
         "The Connecting Dots ERP's Business Analytics Course in {city} is intended to give students the tools they need to succeed in the industry. Important subjects covered in the course include business intelligence, data visualization, data analysis, and predictive analytics. Our business analytics training in {city} guarantees that you are ready for opportunities in prestigious firms that focus on data-driven decision-making careers by giving you practical experience working with real-world business data.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966455/resh5_k4hotm.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "Business Analytics Program" },
@@ -8429,15 +8429,15 @@ export const coursesData = {
         "Practical Based Job Oriented Data Analytics Training in {city}",
       description:
         "To evaluate both structured and unstructured data and turn it into insights that can be put to use, the Data Analytics Course in {city} focuses on teaching the methods and resources needed. In addition to focusing on developing abilities in data mining, predictive analysis, and statistical modeling, this program prepares graduates for positions as data scientists, analysts, and business analysts.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966455/resh5_k4hotm.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "Data Analytics Program" },
@@ -8946,15 +8946,15 @@ export const coursesData = {
         "We invite you to attend the Best Data Science Certification Program in {city}",
       description:
         "The complete Data Science Course in {city} given by Connecting Dots ERP is meant to give students the tools they need to succeed in the area. Predictive analytics, machine learning, data visualization, and data analysis are some of the important subjects covered in the course. With practical experience working with real-world data, our data science training in {city} makes sure you are ready for opportunities in top firms that focus on data-driven careers",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966455/resh5_k4hotm.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "Data Science Program" },
@@ -9469,15 +9469,15 @@ export const coursesData = {
       subtitle: "Project-based Job Oriented Full stack course in {city}",
       description:
         "Grow your potential with Connecting Dot's Full Stack course in {city}, where you'll learn essential development skills for a successful tech career. With hands-on training and secure placement support, this course equips you to thrive in the ever-evolving world of full-stack development.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966455/resh5_k4hotm.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "Full Stack Program" },
@@ -9999,15 +9999,15 @@ export const coursesData = {
         "We invite you to attend the Best Artificial Intelligence Certification Program in {city}",
       description:
         "Connecting Dots ERP's extensive Artificial Intelligence Course in {city} aims to give students the abilities they need to succeed in AI. The course covers important subjects, including AI-driven automation, machine learning, deep learning, and natural language processing. With practical experience working on actual ChatGPT and AI projects, our AI training in {city} guarantees that you are ready for employment prospects in prestigious companies that value innovation and AI-powered solutions",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966455/resh5_k4hotm.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "Chat GPT & AI" },
@@ -10522,15 +10522,15 @@ export const coursesData = {
       subtitle: "Project-based Job Oriented Java Course in {city}",
       description:
         "Grow your career with Connecting Dots ERP's Java course in {city}, designed to equip you with essential programming skills for a successful tech career. With hands-on training and job placement support, this course prepares you to thrive in the competitive world of Java development.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966455/resh5_k4hotm.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "Java Training Program" },
@@ -11048,15 +11048,15 @@ export const coursesData = {
       subtitle: "Project-based Job Oriented MERN Stack Course in {city}",
       description:
         "Enhance your career prospects with Connecting Dot's MERN stack course in {city}, where you'll master essential development skills using MongoDB, Express.js, React, and Node.js. With hands-on training and job placement support, this course prepares you for the fast-paced world of full-stack development.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966455/resh5_k4hotm.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "MERN Stack Program" },
@@ -11577,15 +11577,15 @@ export const coursesData = {
         "Learn Our advanced Python Course in {city} with practical training",
       description:
         "Unlock new career opportunities with Connecting Dot's Python course in {city}, designed to help you master one of the most versatile programming languages. Through hands-on training, expert mentorship, and real-world projects, this course prepares you for a wide range of programming roles, making you proficient in Python development and data handling.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966455/resh5_k4hotm.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "PYTHON Program" },
@@ -12094,15 +12094,15 @@ export const coursesData = {
       subtitle: "Join our Project-based Salesforce Training Program in {city}",
       description:
         "Accelerate your career with Connecting Dot's Salesforce course in {city}, designed to equip you with the essential skills required to master Salesforce CRM, one of the most in-demand platforms in the world. Through practical training and project-based learning, this course prepares you for a range of roles in CRM management, cloud solutions, and customer relationship management.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966455/resh5_k4hotm.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "Salesforce Program" },
@@ -12618,15 +12618,15 @@ export const coursesData = {
       subtitle: "Advanced Job-Oriented UI/UX Design Training in {city}",
       description:
         "Advance your design career with Connecting Dot's UI/UX design course in {city}, where you'll learn the fundamentals of user-centered design, including wireframing, prototyping, and user research. Through hands-on projects and expert guidance, this course prepares you for dynamic roles in the field of user interface and user experience design, with a focus on creativity and practical application.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966455/resh5_k4hotm.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "UI/UX Program" },
@@ -13143,15 +13143,15 @@ export const coursesData = {
         "Get Certified with the Data Visualization training institute in {city}",
       description:
         "We offers an advanced Data Visualization course in {city} designed to equip you with the essential skills to excel in the fast-evolving field of data analytics and visualization. Our detailed training program covers key modules such as data visualization techniques, tools like Tableau, Power BI, and advanced Excel, as well as best practices for creating compelling, insightful visualizations from complex datasets. By mastering these modules, you will be prepared to take on roles such as Data Visualization Specialist, Business Intelligence Analyst, or Data Analyst.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966498/resh4_txymph.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "Data Visualization Program" },
@@ -13530,15 +13530,15 @@ export const coursesData = {
       subtitle: "Job Oriented Power BI Classes in {city}",
       description:
         "Power BI is a powerful tool designed to help businesses turn raw data into actionable insights. Whether you're a beginner or a seasoned professional, our Power BI course in {city} offers an in-depth understanding of the platform, enabling you to harness the full potential of your data. From interactive dashboards to real-time analytics, Power BI makes it easier to make informed decisions. Get started today and elevate your data skills through our advanced Power BI classes in {city}.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966498/resh4_txymph.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "Power BI Program" },
@@ -13905,15 +13905,15 @@ export const coursesData = {
       subtitle: "Practical Based Job Oriented SQL Classes in {city}",
       description:
         "Learn the fundamentals and advanced concepts of SQL with Connecting Dots ERP Training Institute's complete course. Whether you're a beginner looking to build a strong foundation or a professional aiming to enhance your database management skills, this course offers in-depth lessons on data querying, manipulation, and optimization techniques. Learn how to manage complex databases, create dynamic reports, and implement SQL in real-world applications.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966498/resh4_txymph.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "SQL Training Program" },
@@ -14270,15 +14270,15 @@ export const coursesData = {
         "100% Practical Based Job Oriented Best Tableau Course in {city}",
       description:
         "Tableau is one of the most powerful data visualization tools, offering businesses and individuals the ability to analyze data in dynamic, interactive ways. Whether you're looking to enhance your skills with a Tableau certification Training in {city}, take a Tableau course, or explore Tableau tutorials, we provide everything you need to master the art of data storytelling.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966498/resh4_txymph.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "Tableau Program" },
@@ -14650,15 +14650,15 @@ export const coursesData = {
       subtitle: "Become a digital marketing Expert with our Advance Course",
       description:
         "Take the first step towards a thriving career with our Digital Marketing Course in {city}. Designed for beginners and professionals alike, this course covers everything you need to become a digital marketing expert. From becoming an expert in Pay-Per-Click (PPC) strategies to learning advanced SEO techniques, social media marketing, and cutting-edge analytical training, our program ensures you gain practical skills to excel in the digital world.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756970462/original-533b63432abbda9fe6902cd5f68a9f95_vgfqxa.webm",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
-        // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+       // Used in: Header carousel/logos
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         {
@@ -15072,15 +15072,15 @@ export const coursesData = {
       subtitle: "Get Certified with the best HR training institute in {city}",
       description:
         "Connecting Dots ERP offers a advance HR course in {city} designed to equip you with the essential skills to excel in Human Resources. Our advanced and detailed HR training program covers key modules such as Personnel Administration, Payroll, Time Management, and Organizational Management. By mastering these modules, you'll gain the expertise to streamline HR processes, optimize workforce management, and drive organizational success. Our course is tailored to help you land your dream job in the dynamic field of HR.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966166/resh1_tvid7w.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "HR Training Program" },
@@ -15390,15 +15390,15 @@ export const coursesData = {
       subtitle: "Join our Practical-based Core HR Training in {city}",
       description:
         "Enhance your career with Connecting Dot's Core HR course in {city}, tailored to provide you with the key competencies needed to thrive in the field of human resource management. Focusing on practical skills and hands-on learning, this course equips you for various roles such as recruitment, employee engagement, talent development, and HR data analysis, helping you become a valuable asset in any organization.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966166/resh1_tvid7w.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         { text: "Request Call back", courseName: "Core HR Training Program" },
@@ -15685,15 +15685,15 @@ export const coursesData = {
         "Become a Versatile HR Professional with Our HR Generalist Training in {city}",
       description:
         "Elevate your career in human resources with Connecting Dot's HR Generalist training in {city}, designed to provide you with a well-rounded understanding of key HR functions. This training program covers recruitment, employee relations, payroll management, performance appraisals, and labor laws, equipping you with the skills required to excel as an HR Generalist in any organization.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966166/resh1_tvid7w.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         {
@@ -15988,15 +15988,15 @@ export const coursesData = {
         "Master Data-Driven HR Decision Making with Our HR Analytics Training in {city}",
       description:
         "Upgrade your HR skills with Connecting Dot's HR Analytics course in {city}, designed to provide a comprehensive understanding of data analysis in human resource management. This course equips you with the tools to analyze employee data, improve HR processes, and make informed decisions. By integrating data-driven insights into HR operations, you will enhance talent management, recruitment, employee engagement, and retention strategies.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966166/resh1_tvid7w.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         {
@@ -16286,15 +16286,15 @@ export const coursesData = {
       subtitle: "Join our complete HR Management Training in {city}",
       description:
         "Elevate your career with Connecting Dot's HR Management course in {city}, designed to provide in-depth knowledge and hands-on experience in managing human resources effectively. This course covers key areas such as employee recruitment, talent development, performance management, and compliance with labor laws, equipping you with the skills necessary to thrive in HR roles.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966166/resh1_tvid7w.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         {
@@ -16587,15 +16587,15 @@ export const coursesData = {
       subtitle: "Join our Project-based HR Payroll Training in {city}",
       description:
         "Advance your career with Connecting Dot's HR Payroll course in {city}, meticulously designed to provide you with the essential skills to excel in payroll management within Human Resource Management. This practical, hands-on training focuses on vital areas like payroll processing, tax compliance, employee benefits, and HR systems, equipping you to efficiently manage payroll functions in any organization.",
-      backgroundVideo: "https://i.imgur.com/DpOvcpk.mp4",
+      backgroundVideo: "https://res.cloudinary.com/dujw4np0d/video/upload/v1756966166/resh1_tvid7w.mp4",
       features: ["Live Class", "1:1 mentorship", "Industry projects"],
       alumni: [
         // Used in: Header carousel/logos
-        { name: "Cognizant", logo: "/Headercarousel/cognizant1.avif" },
-        { name: "Delloite", logo: "/Headercarousel/deloitte.avif" },
-        { name: "Infosys", logo: "/Headercarousel/infosys2.avif" },
-        { name: "IBM", logo: "/Headercarousel/ibm1.avif" },
-        { name: "TCS", logo: "/Headercarousel/tcs1.avif" },
+        { name: "Amdocs", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/Amcads_wqaleh.avif" },
+        { name: "Infosys", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/infosys_yzq4ep.avif" },
+        { name: "Cognizant", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987102/cognyzent_oz9b1h.avif" },
+        { name: "TCS", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/TCS_zwdg9y.avif" },
+        { name: "IBM", logo: "https://res.cloudinary.com/dujw4np0d/image/upload/v1756987103/IBM_afiq0u.avif" },
       ],
       buttons: [
         {

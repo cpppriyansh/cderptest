@@ -1,3 +1,4 @@
+// components/HomePage/Certificate.js (Tailwind + original heading styles)
 "use client";
 
 import { useState } from "react";
@@ -5,10 +6,12 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import styles from "@/styles/HomePage/Certificate.module.css";
 
+// Dynamically import Btnform to prevent SSR-related issues
 const Btnform = dynamic(() => import("@/components/HomePage/Btnform"), {
   ssr: false,
 });
 
+// Certificate now directly receives the 'data' prop
 const Certificate = ({ data }) => {
   const [showForm, setShowForm] = useState(false);
   const handleButtonClick = () => setShowForm(true);
@@ -22,10 +25,12 @@ const Certificate = ({ data }) => {
           <div className={styles.titleUnderline}></div>
         </div>
 
+        {/* Main Green Background Box */}
         <div className={`bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white px-8 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-6 grid grid-cols-1 lg:grid-cols-2 items-center relative z-10 mx-4 sm:mx-6 md:mx-10 lg:mx-16 xl:mx-24 ${styles.certificateBox}`}>
+          {/* Left Side Content */}
           <div className="space-y-5">
             <h2 className="text-2xl text-center font-bold">Congratulations on Completing Your Training!</h2>
-            <span className="text-white text-xl text-center block">
+            <span className=" text-white text-xl text-center block">
               {data?.courseTitle || "SAP Training Certificate"}
             </span>
             <p className="text-gray-300 text-sm leading-relaxed text-center">
@@ -44,17 +49,20 @@ const Certificate = ({ data }) => {
             </div>
           </div>
 
+          {/* Right Side Certificate Image */}
           <div className="relative mt-10 lg:mt-0 flex justify-center">
             <div className="relative z-20 -my-10">
               <div className="certificate-wrapper">
-                <Image
-                  src={data?.image || "/Certificate/Certificate.avif"}
-                  alt={data?.alt || `${data?.courseTitle || "SAP Training"} Certificate`}
-                  width={1000}
-                  height={600}
-                  className="certificate-image w-full lg:max-w-lg h-auto lg:h-96 object-contain rounded-xl"
-                  priority
-                />
+                <div className="bg-white rounded-xl border-4 border-gray-200">
+                  <Image
+                    src={data?.image || "/Certificate/Certificate.avif"}
+                    alt={data?.alt || `${data?.courseTitle || "SAP Training"} Certificate`}
+                    width={1000}
+                    height={600}
+                    className="certificate-image w-full lg:max-w-lg h-auto lg:h-96 object-contain rounded-xl"
+                    priority
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -65,6 +73,7 @@ const Certificate = ({ data }) => {
       <style jsx>{`
         .dotted-bg {
           background-color: #ffffff;
+          /* light blue dots */
           background-image: radial-gradient(rgba(59, 130, 246, 0.18) 1.5px, transparent 1.5px);
           background-size: 18px 18px;
           background-position: 0 0;
@@ -72,7 +81,11 @@ const Certificate = ({ data }) => {
 
         .certificate-wrapper {
           position: relative;
-          box-shadow: -15px 0 25px -8px rgba(255, 255, 255, 0.3), 15px 0 25px -8px rgba(255, 255, 255, 0.3);
+          box-shadow: 
+            /* Subtle left white shadow */
+            -15px 0 25px -8px rgba(255, 255, 255, 0.3),
+            /* Subtle right white shadow */
+            15px 0 25px -8px rgba(255, 255, 255, 0.3);
         }
         
         .certificate-image {
@@ -81,6 +94,15 @@ const Certificate = ({ data }) => {
           background: white;
           border-radius: 0.75rem;
           border: 4px solid #e0e0e0;
+        }
+        
+        @keyframes flow {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
         }
         
         .sliding-button {
@@ -102,7 +124,12 @@ const Certificate = ({ data }) => {
         .sliding-button:hover::before {
           left: 100%;
         }
+        
+        .sliding-button:active::before {
+          left: 100%;
+        }
 
+        /* Mobile-specific styles */
         @media (max-width: 1024px) {
           .certificateBox {
             padding: 1.5rem !important;

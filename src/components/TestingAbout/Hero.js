@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState, useCallback} from "react";
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import dynamic from "next/dynamic";
 
 // Dynamically import IconCloud with no SSR and improved loading

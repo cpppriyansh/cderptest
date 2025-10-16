@@ -10,6 +10,9 @@ function Curriculum({ data }) {
   const [selectedTopicIndex, setSelectedTopicIndex] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formTrigger, setFormTrigger] = useState(""); // Track which button triggered the form
+  // Mobile topics toggle state must be declared before any early returns to keep hooks order stable
+  const [mobileTopicsExpanded, setMobileTopicsExpanded] = useState(false);
 
   // Get the curriculum data from the new structure
   const curriculumData = data?.modulesData;
@@ -23,8 +26,21 @@ function Curriculum({ data }) {
     }
   }, [curriculumData]);
 
-  // Form handling functions (simplified like Counselor component)
+
+
+  // Form handling functions
   const handleStartLearningClick = () => {
+    setFormTrigger("start-learning");
+    setShowForm(true);
+  };
+
+  const handleDownloadCurriculumClick = () => {
+    setFormTrigger("download-curriculum");
+    setShowForm(true);
+  };
+
+  const handleBannerClick = () => {
+    setFormTrigger("banner");
     setShowForm(true);
   };
 
@@ -36,15 +52,36 @@ function Curriculum({ data }) {
     setFormSubmitted(true);
     setShowForm(false);
 
-    // After form submission, redirect to learning platform
+    // After form submission, perform action based on what triggered the form
     setTimeout(() => {
-      if (curriculumData.globalActions?.startLearning) {
-        window.open(curriculumData.globalActions.startLearning, "_blank");
-      } else {
-        // Fallback URL or action
-        alert(
-          "Thank you for your interest! We'll contact you soon with learning details."
-        );
+      if (formTrigger === "start-learning") {
+        if (curriculumData.globalActions?.startLearning) {
+          window.open(curriculumData.globalActions.startLearning, "_blank");
+        } else {
+          alert(
+            "Thank you for your interest! We'll contact you soon with learning details."
+          );
+        }
+      } else if (formTrigger === "download-curriculum") {
+        if (curriculumData.globalActions?.downloadCurriculum) {
+          window.open(
+            curriculumData.globalActions.downloadCurriculum,
+            "_blank"
+          );
+        } else {
+          alert(
+            "Thank you for your interest! We'll send you the curriculum soon."
+          );
+        }
+      } else if (formTrigger === "banner") {
+        // You can customize this action - maybe open both links or a specific landing page
+        if (curriculumData.globalActions?.startLearning) {
+          window.open(curriculumData.globalActions.startLearning, "_blank");
+        } else {
+          alert(
+            "Thank you for your interest! We'll contact you soon with more information."
+          );
+        }
       }
     }, 1000);
   };
@@ -76,6 +113,11 @@ function Curriculum({ data }) {
   // Get current module
   const currentModule = currentTabData.modules[selectedModule];
   const tools = currentModule?.toolsAndTechnologies || [];
+  const topics = currentModule?.content || [];
+  // Mobile: show only up to 6 topics (first 2 static, next up to 4 expandable)
+  const topicsUpToSix = topics.slice(0, 6);
+  const firstTwoTopics = topicsUpToSix.slice(0, 2);
+  const remainingTopics = topicsUpToSix.slice(2);
 
   const handleTabChange = (tabType) => {
     setActiveTab(tabType);
@@ -90,10 +132,35 @@ function Curriculum({ data }) {
     setSelectedTopicIndex(null);
   };
 
+  // Get appropriate banner based on current module
+  const getBannerImage = () => {
+    if (curriculumData.title?.toLowerCase().includes('hr')) {
+      return "https://res.cloudinary.com/dudu879kr/image/upload/v1755506899/HRBanner_uvlszc.webp";
+    } else if (curriculumData.title?.toLowerCase().includes('tableau') || 
+               curriculumData.title?.toLowerCase().includes('power bi') ||
+               curriculumData.title?.toLowerCase().includes('sql')) {
+      return "https://res.cloudinary.com/dudu879kr/image/upload/v1755591500/white_and_blue_data_banner_ytbqtw.png";
+    } else {
+      return "https://res.cloudinary.com/dudu879kr/image/upload/v1752485069/ITBanner_vkag1x.webp";
+    }
+  };
+
+  const getBannerAlt = () => {
+    if (curriculumData.title?.toLowerCase().includes('hr')) {
+      return "HR Courses Banner";
+    } else if (curriculumData.title?.toLowerCase().includes('tableau') || 
+               curriculumData.title?.toLowerCase().includes('power bi') ||
+               curriculumData.title?.toLowerCase().includes('sql')) {
+      return "Data Visualization Banner";
+    } else {
+      return "IT Courses Banner";
+    }
+  };
+
   return (
     <div className="w-full max-w-[1800px] m-auto bg-gray-50 mb-4 sm:mb-8 lg:mb-10">
       {/* Wrapper container with proper spacing */}
-      <div className="min-h-[600px] max-h-[800px] flex flex-col bg-gray-50 rounded-lg overflow-hidden shadow-lg">
+      <div className="min-h-[600px] lg:max-h-[800px] flex flex-col bg-gray-50 rounded-lg overflow-visible lg:overflow-hidden shadow-lg">
         {/* Header with Title */}
         <div className="w-full flex justify-center items-center py-4 bg-white border-b border-gray-200 flex-shrink-0">
           <h1 className="text-lg sm:text-2xl lg:text-3xl font-extrabold uppercase tracking-tight text-center bg-gradient-to-r from-blue-900 via-cyan-700 to-blue-900 bg-clip-text text-transparent px-4">
@@ -102,7 +169,7 @@ function Curriculum({ data }) {
         </div>
 
         {/* Main Content Area */}
-        <div className="flex flex-1 bg-gray-50 overflow-hidden">
+        <div className="flex flex-1 bg-gray-50 overflow-visible lg:overflow-hidden">
           <div className="w-full bg-white flex flex-col">
             {/* Current Module Header */}
             <div className="flex-shrink-0 border-b border-gray-100">
@@ -159,7 +226,8 @@ function Curriculum({ data }) {
             </div>
 
             {/* Module Content */}
-            <div className="flex-1 overflow-y-auto">
+            {/* On mobile, remove outer scroll so only topics list can scroll. Keep scroll on lg+. */}
+            <div className="flex-1 overflow-y-visible lg:overflow-y-auto">
               <div className="p-4 sm:p-6 lg:p-8">
                 <div className="max-w-7xl mx-auto">
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
@@ -168,36 +236,78 @@ function Curriculum({ data }) {
                       <h3 className="text-base font-semibold text-gray-900">
                         Topics Covered
                       </h3>
-                      <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2">
-                        {currentModule?.content?.map((topic, index) => (
-                          <div
-                            key={index}
-                            className={`flex items-start p-3 rounded-lg border transition-all duration-200 cursor-pointer hover:shadow-sm ${
-                              selectedTopicIndex === index
-                                ? "border-[#162e5b] bg-blue-50"
-                                : "border-gray-200 hover:border-gray-300"
-                            }`}
-                            onClick={() =>
-                              setSelectedTopicIndex(
-                                selectedTopicIndex === index ? null : index
-                              )
-                            }
-                          >
+                      {/* Mobile layout: single scrollable container showing ~2 topics with visible scrollbar */}
+                      <div className="block lg:hidden">
+                        {/* Scrollable list (shows first 2 in view, rest via scroll; up to 6 total) */}
+                        <div
+                          className="space-y-3 max-h-40 overflow-y-scroll pr-2 rounded-md border border-gray-200 snap-y snap-mandatory show-scrollbar"
+                          style={{ WebkitOverflowScrolling: "touch", scrollbarGutter: "stable" }}
+                        >
+                          {topicsUpToSix.map((topic, index) => (
                             <div
-                              className="w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0"
-                              style={{ background: "#bacced" }}
-                            ></div>
-                            <div className="flex-1 min-w-0">
-                              <h4 className="text-sm font-medium text-gray-800 leading-relaxed">
-                                {topic}
-                              </h4>
-                              <p className="text-xs text-gray-600 mt-1 leading-relaxed">
-                                Comprehensive coverage with practical examples
-                                and hands-on exercises.
-                              </p>
+                              key={`m-${index}`}
+                              className={`flex items-start p-3 rounded-lg border transition-all duration-200 cursor-pointer hover:shadow-sm snap-start ${
+                                selectedTopicIndex === index
+                                  ? "border-[#162e5b] bg-blue-50"
+                                  : "border-gray-200 hover:border-gray-300"
+                              }`}
+                              onClick={() =>
+                                setSelectedTopicIndex(
+                                  selectedTopicIndex === index ? null : index
+                                )
+                              }
+                            >
+                              <div
+                                className="w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0"
+                                style={{ background: "#bacced" }}
+                              ></div>
+                              <div className="flex-1 min-w-0">
+                                <h4 className="text-sm font-medium text-gray-800 leading-relaxed">
+                                  {topic}
+                                </h4>
+                                <p className="text-xs text-gray-600 mt-1 leading-relaxed">
+                                  Comprehensive coverage with practical examples
+                                  and hands-on exercises.
+                                </p>
+                              </div>
                             </div>
-                          </div>
-                        ))}
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Desktop layout (unchanged): full list with its own scroll */}
+                      <div className="hidden lg:block">
+                        <div className="space-y-3 max-h-[400px] overflow-y-scroll pr-2 show-scrollbar">
+                          {currentModule?.content?.map((topic, index) => (
+                            <div
+                              key={index}
+                              className={`flex items-start p-3 rounded-lg border transition-all duration-200 cursor-pointer hover:shadow-sm ${
+                                selectedTopicIndex === index
+                                  ? "border-[#162e5b] bg-blue-50"
+                                  : "border-gray-200 hover:border-gray-300"
+                              }`}
+                              onClick={() =>
+                                setSelectedTopicIndex(
+                                  selectedTopicIndex === index ? null : index
+                                )
+                              }
+                            >
+                              <div
+                                className="w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0"
+                                style={{ background: "#bacced" }}
+                              ></div>
+                              <div className="flex-1 min-w-0">
+                                <h4 className="text-sm font-medium text-gray-800 leading-relaxed">
+                                  {topic}
+                                </h4>
+                                <p className="text-xs text-gray-600 mt-1 leading-relaxed">
+                                  Comprehensive coverage with practical examples
+                                  and hands-on exercises.
+                                </p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
 
@@ -235,27 +345,30 @@ function Curriculum({ data }) {
                         ))}
                       </div>
 
-                      {/* Banner */}
+                      {/* Dynamic Banner based on current module */}
                       {curriculumData.banner && (
                         <div className="my-6">
                           <img
-                            src="https://res.cloudinary.com/dudu879kr/image/upload/v1752485069/ITBanner_vkag1x.webp"
-                            alt="IT Courses Banner"
-                            className="w-full rounded-lg shadow-lg object-cover"
+                            src={getBannerImage()}
+                            alt={getBannerAlt()}
+                            className="w-full rounded-lg shadow-lg object-cover cursor-pointer hover:opacity-90 transition-opacity duration-200"
                             style={{ boxShadow: "0 0 24px 0 #1d3b75" }}
+                            onClick={handleBannerClick}
                           />
                         </div>
                       )}
 
                       {/* Action Buttons */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                        {/* Start Learning Button - Now opens form */}
+                        {/* Start Learning Button */}
                         <button
                           onClick={handleStartLearningClick}
                           className="px-4 py-3 rounded-lg text-white font-semibold text-sm bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                         >
                           <span className="flex items-center justify-center">
-                            {formSubmitted ? "Submitted!" : "Start Learning"}
+                            {formSubmitted && formTrigger === "start-learning"
+                              ? "Submitted!"
+                              : "Start Learning"}
                             <svg
                               className="w-4 h-4 ml-2"
                               fill="none"
@@ -272,22 +385,16 @@ function Curriculum({ data }) {
                           </span>
                         </button>
 
-                        {/* Download Curriculum Button */}
+                        {/* Download Curriculum Button - Now opens form */}
                         <button
-                          onClick={() => {
-                            if (
-                              curriculumData.globalActions?.downloadCurriculum
-                            ) {
-                              window.open(
-                                curriculumData.globalActions.downloadCurriculum,
-                                "_blank"
-                              );
-                            }
-                          }}
+                          onClick={handleDownloadCurriculumClick}
                           className="px-4 py-3 rounded-lg border-2 border-blue-500 text-blue-500 font-semibold text-sm hover:bg-blue-500 hover:text-white transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                         >
                           <span className="flex items-center justify-center">
-                            Download Curriculum
+                            {formSubmitted &&
+                            formTrigger === "download-curriculum"
+                              ? "Submitted!"
+                              : "Download Curriculum"}
                             <svg
                               className="w-4 h-4 ml-2"
                               fill="none"
@@ -313,7 +420,7 @@ function Curriculum({ data }) {
         </div>
       </div>
 
-      {/* Simple Form Connection (same as Counselor component) */}
+      {/* Form Component */}
       {showForm && (
         <Btnform onClose={handleCloseForm} onSubmit={handleFormSubmit} />
       )}
@@ -335,7 +442,9 @@ function Curriculum({ data }) {
                 d="M5 13l4 4L19 7"
               />
             </svg>
-            Thank you! We'll contact you soon.
+            {formTrigger === "download-curriculum"
+              ? "Thank you! We'll send you the curriculum soon."
+              : "Thank you! We'll contact you soon."}
           </div>
         </div>
       )}
