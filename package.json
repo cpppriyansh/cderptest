@@ -74,12 +74,11 @@
   },
   "browserslist": {
     "production": [
-      "last 2 Chrome versions",
-      "last 2 Firefox versions",
-      "last 2 Safari versions",
-      "last 2 Edge versions",
-      "not ios_saf < 15",
-      "not safari < 15",
+      "chrome >= 93",
+      "edge >= 93",
+      "firefox >= 92",
+      "safari >= 15.4",
+      "ios_saf >= 15.4",
       "not dead",
       "not op_mini all"
     ],

@@ -7,10 +7,7 @@ const nextConfig = {
 
   // ✅ SIMPLIFIED: Experimental features
   experimental: {
-    optimizeCss: false, // Disable to prevent build issues
-    // Build only for modern evergreen browsers
-    legacyBrowsers: false,
-    browsersListForSwc: true,
+    optimizeCss: true,
   },
 
   // ✅ FIXED: Image configuration
@@ -63,6 +60,8 @@ const nextConfig = {
   // Enable Next.js CSS optimization pipeline
   optimizeFonts: true,
   swcMinify: true,
+  compress: true,
+  poweredByHeader: false,
 
   // ✅ REMOVED: Webpack configuration with Critical CSS plugin (causing constructor error)
   // webpack: (config, { isServer }) => {

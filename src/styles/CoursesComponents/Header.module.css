@@ -1,3 +1,9 @@
+/* critical: minimal above-the-fold rules first */
+.containerItDsHeader{position:relative;display:flex;justify-content:space-between;padding:70px;background-blend-mode:overlay;background-color:rgba(249,249,249,0.75);width:100%;max-width:1800px;height:600px;margin:0 auto;overflow:hidden;contain:layout paint}
+.backgroundVideo{position:absolute;top:0;left:0;width:100vw;height:125%;object-fit:cover;z-index:-1;min-width:100%;min-height:100%;will-change:transform,opacity}
+.leftSectionItDs{max-width:50%;contain:content}
+
+/* rest of styles */
 @media (max-width: 320px) {
   .form {
     width: 100vw !important;
@@ -46,6 +52,7 @@
   height: 600px;
   margin: 0 auto;
   overflow: hidden;
+  contain: layout paint; /* limit reflow scope */
 }
 
 .backgroundVideo {
@@ -58,10 +65,12 @@
   z-index: -1;
   min-width: 100%;
   min-height: 100%;
+  will-change: transform, opacity; /* hint for compositor */
 }
 
 .leftSectionItDs {
   max-width: 50%;
+  contain: content; /* isolate layout/paint */
 }
 
 .leftSectionItDs h1 {

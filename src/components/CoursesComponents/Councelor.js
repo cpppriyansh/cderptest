@@ -3,7 +3,8 @@
 import React, { useEffect, useState } from "react";
 import Btnform from "@/components/HomePage/Btnform";
 import styles from "@/styles/CoursesComponents/Councelor.module.css";
-import AOS from 'aos'
+import dynamic from "next/dynamic";
+const AOSModule = dynamic(() => import('aos'), { ssr: false });
 import 'aos/dist/aos.css'
 
 const Councelor = () => {
@@ -18,9 +19,20 @@ const Councelor = () => {
   }
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      AOS.init({ duration: 100 });
-    }
+    let mounted = true;
+    (async () => {
+      if (typeof window !== "undefined") {
+        const AOS = (await import('aos')).default;
+        // Defer init to idle time to avoid layout thrash during LCP
+        const init = () => AOS.init({ duration: 150, once: true, startEvent: 'load' });
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(() => mounted && init(), { timeout: 2000 });
+        } else {
+          setTimeout(() => mounted && init(), 800);
+        }
+      }
+    })();
+    return () => { mounted = false; };
   }, []);
 
   return (

@@ -137,7 +137,7 @@ export default function RootLayout({ children }) {
         {/* Ahrefs Analytics - Offloaded to Web Worker */}
         <Script
           id="ahrefs-analytics"
-          src="https://analytics.ahrefs.com/analytics.js"
+          src="/api/ahrefs"
           data-key={AHREFS_KEY}
           type="text/partytown"
         />

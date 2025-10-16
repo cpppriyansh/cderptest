@@ -12,6 +12,9 @@ import { coursesData, citiesData } from "@/lib/masterData";
 // Enable ISR to keep pages fresh without full SSR on every request
 export const revalidate = 86400; // 24 hours
 
+// Reduce TTFB by using Edge runtime and auto region placement
+// Note: Edge runtime conflicts with generateStaticParams; using default runtime
+
 // Prebuild known course-city slugs to improve TTFB for popular pages
 export async function generateStaticParams() {
   const params = [];
@@ -310,6 +313,14 @@ const CourseCityPage = async ({ params }) => {
             type="video/mp4"
           />
         )}
+        {headerData?.backgroundPoster && (
+          <link
+            rel="preload"
+            as="image"
+            href={headerData.backgroundPoster}
+            // poster is often an image; let browser pick type
+          />
+        )}
 
         {/* Inject scroll handling script */}
         <div dangerouslySetInnerHTML={{ __html: scrollScript }} />
@@ -356,6 +367,13 @@ const CourseCityPage = async ({ params }) => {
           as="video"
           href={headerData.backgroundVideo}
           type="video/mp4"
+        />
+      )}
+      {headerData?.backgroundPoster && (
+        <link
+          rel="preload"
+          as="image"
+          href={headerData.backgroundPoster}
         />
       )}
 

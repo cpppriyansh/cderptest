@@ -10,17 +10,22 @@ function useTypewriterSync(text, maxLen, duration = 3500) {
   const [displayed, setDisplayed] = useState("");
   const startTimeRef = useRef(Date.now());
   useEffect(() => {
-    let frame;
-    function animate() {
-      const now = Date.now();
-      const elapsed = (now - startTimeRef.current) % duration;
-      const progress = elapsed / duration;
-      const chars = Math.floor(progress * maxLen);
-      setDisplayed(text.slice(0, chars));
-      frame = requestAnimationFrame(animate);
-    }
-    animate();
-    return () => cancelAnimationFrame(frame);
+    let rafId;
+    let last = 0;
+    const minFrameMs = 1000 / 30; // throttle to ~30fps to reduce reflow
+    const animate = (t) => {
+      if (!last || t - last >= minFrameMs) {
+        last = t;
+        const now = Date.now();
+        const elapsed = (now - startTimeRef.current) % duration;
+        const progress = elapsed / duration;
+        const chars = Math.floor(progress * maxLen);
+        setDisplayed(text.slice(0, chars));
+      }
+      rafId = requestAnimationFrame(animate);
+    };
+    rafId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId);
   }, [text, maxLen, duration]);
   return displayed;
 }
@@ -30,7 +35,7 @@ function TypewriterPlaceholderInput({ placeholder, syncLen, ...props }) {
   const animatedPlaceholder = useTypewriterSync(placeholder, syncLen);
   return <input {...props} placeholder={animatedPlaceholder} />;
 }
-import styles from "@/styles/CoursesComponents/Header.module.css";
+import styles from "@/styles/CoursesComponents/Header.module.css?module";
 import Btnform from "@/components/HomePage/Btnform"; // Assuming Btnform is a client component
 
 const countryCodes = [
@@ -205,12 +210,16 @@ const DSHeader = ({ data }) => {
       <video
         className={styles.backgroundVideo}
         preload="auto"
-        fetchPriority="high"
+        fetchpriority="high"
         autoPlay
         loop
         muted
         playsInline
         poster={data.backgroundPoster || undefined}
+        opacity={0.5}
+        style={{
+          opacity: 0.5,
+        }}
       >
         <source src={data.backgroundVideo} type="video/mp4" />
       </video>
