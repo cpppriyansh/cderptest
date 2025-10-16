@@ -162,7 +162,7 @@ const OrbitalTrail = () => {
         </h2>
         <div style={underlineStyle} />
 
-        <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8">
+        <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8 md:mt-16 lg:mt-0">
           {/* Orbital animation */}
           <div className={`relative ${isMobile ? 'w-72 h-72' : 'w-96 h-96'} flex items-center justify-center`}>
             <div className="absolute w-full h-full rounded-full opacity-20"

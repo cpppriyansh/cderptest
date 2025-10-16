@@ -1,10 +1,12 @@
 import React, { Suspense } from "react";
-import { getQuizByTopic } from "@/data/quizzes/page";
+import { getQuizByTopic } from "@/utils/quizUtils";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import QuizContent from "@/components/quiz/QuizContent";
 
 export async function generateMetadata({ params }) {
-  const { topic } = params;
+  // Ensure params is resolved
+  const resolvedParams = await Promise.resolve(params);
+  const { topic } = resolvedParams;
   const quiz = topic ? getQuizByTopic(topic) : null;
 
   if (!quiz) {
@@ -69,10 +71,14 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function QuizPage({ params }) {
+export default async function QuizPage({ params }) {
+  // Ensure params is resolved
+  const resolvedParams = await Promise.resolve(params);
+  console.log('QuizPage params:', resolvedParams); // Debug log
+  
   return (
     <Suspense fallback={<LoadingSpinner />}>
-      <QuizContent params={params} />
+      <QuizContent params={resolvedParams} />
     </Suspense>
   );
 }

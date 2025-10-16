@@ -246,7 +246,14 @@ export default function HomePage() {
         
           <OurStats />
         
-          <Achievements />
+          
+      <Achievements 
+        grayscale={false}
+        overlayBlurColor="transparent"
+        segments={24}
+        fit={0.5}
+      />
+    
         
           <FeedbackAndReviews />
         

@@ -1,63 +1,138 @@
-// components/HomePage/Certificate.js (Updated Certificate)
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import styles from "@/styles/HomePage/Certificate.module.css";
-import { Button } from "react-bootstrap";
 import dynamic from "next/dynamic";
+import styles from "@/styles/HomePage/Certificate.module.css";
 
-// Dynamically import Btnform to prevent SSR-related issues
 const Btnform = dynamic(() => import("@/components/HomePage/Btnform"), {
   ssr: false,
 });
 
-// Certificate now directly receives the 'data' prop
 const Certificate = ({ data }) => {
   const [showForm, setShowForm] = useState(false);
   const handleButtonClick = () => setShowForm(true);
   const handleCloseForm = () => setShowForm(false);
 
-  // Simplified loading/error handling as data is passed directly
-  if (!data) {
-    return (
-      <div /* Add loading/error styling */>
-        <p>No certificate data available (check masterData.js or prop passing).</p>
-      </div>
-    );
-  }
-
   return (
-    <div className={styles.certificateSection}>
-      <h2 className={styles.certificateTitle}>Certificate</h2>
-      <div className={styles.titleUnderline}></div>
-      <div className={styles.certificateContent}>
-        <div className={styles.certificateImage}>
-          <Image
-            src={data.image} // Use data from props
-            alt={data.alt || `${data.courseTitle} Certificate`} // Use data from props
-            width={500}
-            height={300}
-            layout="intrinsic"
-          />
+    <div className="relative w-full max-w-[1800px] mx-auto overflow-hidden bg-white dotted-bg pt-3 py-14">
+      <div className="max-w-[1800px] mx-auto relative">
+        <div className="text-center mb-3 px-4 sm:px-2 md:px-8 lg:px-16 xl:px-20">
+          <h2 className={styles.certificateTitle}>Certificate</h2>
+          <div className={styles.titleUnderline}></div>
         </div>
-        <div className={styles.certificateText}>
-          <h2>Congratulations on Completing Your Training!</h2>
-          <h4 className={styles.certificateSubtitle}>
-            {data.courseTitle} {/* Use data from props */}
-          </h4>
-          <p>{data.completionText}</p> {/* Use data from props */}
-          <p>{data.description}</p> {/* Use data from props */}
-          <div
-            className="mb-3 btnContainer"
-          >
-            <Button className={styles.outlineBtn} onClick={handleButtonClick}>
-              Get your Certificate
-            </Button>
+
+        <div className={`bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white px-8 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-6 grid grid-cols-1 lg:grid-cols-2 items-center relative z-10 mx-4 sm:mx-6 md:mx-10 lg:mx-16 xl:mx-24 ${styles.certificateBox}`}>
+          <div className="space-y-5">
+            <h2 className="text-2xl text-center font-bold">Congratulations on Completing Your Training!</h2>
+            <span className="text-white text-xl text-center block">
+              {data?.courseTitle || "SAP Training Certificate"}
+            </span>
+            <p className="text-gray-300 text-sm leading-relaxed text-center">
+              The Connecting Dots SAP Certification Course is designed to enhance your expertise in SAP systems and set you on the path to a successful career in ERP. Our program goes beyond theoretical learning, offering hands-on practical sessions and real-world scenarios across various SAP modules.
+              <br />
+              With expert guidance and a focus on practical application, you'll be well-equipped to thrive in the dynamic world of SAP and meet the evolving needs of modern businesses.
+            </p>
+            <div className="mt-6 flex justify-center">
+              <button
+                onClick={handleButtonClick}
+                className="sliding-button bg-white border-2 border-[#0d2b27] text-[#0d2b27] font-semibold py-1 px-4 text-xs rounded-full shadow-lg transition-all duration-500 ease-in-out sm:py-2 sm:px-5 sm:text-sm lg:py-3 lg:px-7 lg:text-base hover:bg-gradient-to-r hover:from-blue-900 hover:to-blue-700 hover:text-white hover:scale-105 hover:shadow-xl active:scale-95"
+              >
+                <span className="sm:hidden">Get Certificate</span>
+                <span className="hidden sm:inline">Get Your Certificate</span>
+              </button>
+            </div>
           </div>
-          {showForm && <Btnform onClose={handleCloseForm} />}
+
+          <div className="relative mt-10 lg:mt-0 flex justify-center">
+            <div className="relative z-20 -my-10">
+              <div className="certificate-wrapper">
+                <Image
+                  src={data?.image || "/Certificate/Certificate.avif"}
+                  alt={data?.alt || `${data?.courseTitle || "SAP Training"} Certificate`}
+                  width={1000}
+                  height={600}
+                  className="certificate-image w-full lg:max-w-lg h-auto lg:h-96 object-contain rounded-xl"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </div>
+        {showForm && <Btnform onClose={handleCloseForm} />}
       </div>
+
+      <style jsx>{`
+        .dotted-bg {
+          background-color: #ffffff;
+          background-image: radial-gradient(rgba(59, 130, 246, 0.18) 1.5px, transparent 1.5px);
+          background-size: 18px 18px;
+          background-position: 0 0;
+        }
+
+        .certificate-wrapper {
+          position: relative;
+          box-shadow: -15px 0 25px -8px rgba(255, 255, 255, 0.3), 15px 0 25px -8px rgba(255, 255, 255, 0.3);
+        }
+        
+        .certificate-image {
+          position: relative;
+          z-index: 2;
+          background: white;
+          border-radius: 0.75rem;
+          border: 4px solid #e0e0e0;
+        }
+        
+        .sliding-button {
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .sliding-button::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+          transition: left 0.8s;
+        }
+        
+        .sliding-button:hover::before {
+          left: 100%;
+        }
+
+        @media (max-width: 1024px) {
+          .certificateBox {
+            padding: 1.5rem !important;
+          }
+
+          .certificate-wrapper {
+            margin-top: 1rem !important;
+          }
+
+          .certificate-image {
+            height: auto !important;
+            max-width: 100% !important;
+            max-height: 300px !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .certificateBox {
+            padding: 1rem !important;
+          }
+
+          .certificate-wrapper {
+            margin-top: 0.5rem !important;
+          }
+
+          .certificate-image {
+            max-height: 250px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };
