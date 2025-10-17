@@ -33,7 +33,7 @@ const rubik = Rubik({
 // --- Constants ---
 const GTM_ID = "GTM-MB68QM2V";
 const FB_PIXEL_ID = "3414178115554916";
-const AHREFS_KEY = "h5nofTpYPf65FI8/61ypeA";
+const AHREFS_KEY = "GO9/n+0kqNt/v3P+gIXeHg/61ypeA";
 
 // --- SITE-WIDE METADATA ---
 export const metadata = {
@@ -46,7 +46,7 @@ export const metadata = {
     google: "KRKFsO9AAW2a8qImif8Wj4uzzjmWGA0R6o7IZFJcmPo",
     other: {
       "ahrefs-site-verification":
-        "f3b13167d2161bfb1fc945b8ecb8c0e6855cf9394e9e96e12104db099fbbcab0",
+        "2e4a5544d39fb390cae326f00bcaca1570f754a57923aa22bdf08313fe9404ed",
     },
   },
   manifest: "/site.webmanifest",
