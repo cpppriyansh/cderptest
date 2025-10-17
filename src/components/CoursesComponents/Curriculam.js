@@ -163,9 +163,9 @@ function Curriculum({ data }) {
       <div className="min-h-[600px] lg:max-h-[800px] flex flex-col bg-gray-50 rounded-lg overflow-visible lg:overflow-hidden shadow-lg">
         {/* Header with Title */}
         <div className="w-full flex justify-center items-center py-4 bg-white border-b border-gray-200 flex-shrink-0">
-          <h1 className="text-lg sm:text-2xl lg:text-3xl font-extrabold uppercase tracking-tight text-center bg-gradient-to-r from-blue-900 via-cyan-700 to-blue-900 bg-clip-text text-transparent px-4">
+          <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold uppercase tracking-tight text-center bg-gradient-to-r from-blue-900 via-cyan-700 to-blue-900 bg-clip-text text-transparent px-4">
             {curriculumData.title}
-          </h1>
+          </h2>
         </div>
 
         {/* Main Content Area */}

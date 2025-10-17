@@ -229,6 +229,9 @@ export default function HomePage() {
 
       {/* Main Page Content */}
       <main className="flex-col justify-center">
+        <h1 className="visually-hidden">
+          Professional SAP & IT Training Institute
+        </h1>
         {/* Above the fold - critical content */}
         <HeaderCarousel />
         <Marquee />

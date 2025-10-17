@@ -1,155 +1,48 @@
-/* Critical above-the-fold CSS - Load immediately */
-/* Only include styles needed for the initial viewport */
+/* File: styles/critical.css (new file) */
 
-/* Critical header styles */
-.containerItDsHeader {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  padding: 70px;
-  background-blend-mode: overlay;
-  background-color: rgba(249, 249, 249, 0.75);
-  width: 100%;
-  max-width: 1800px;
-  height: 600px;
-  margin: 0 auto;
-  overflow: hidden;
-  contain: layout paint;
-}
-
-.backgroundVideo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 125%;
-  object-fit: cover;
-  z-index: -1;
-  min-width: 100%;
-  min-height: 100%;
-  will-change: transform, opacity;
-}
-
-.leftSectionItDs {
-  max-width: 50%;
-  contain: content;
-}
-
-.leftSectionItDs h1 {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #1e3a8a;
-  margin-bottom: 1rem;
-}
-
-.leftSectionItDs h2 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #000000;
-  margin-bottom: 0.5rem;
-  text-align: justify;
-}
-
-.leftSectionItDs h2 span {
-  color: #1f2937;
-}
-
-.leftSectionItDs p {
-  color: #000000;
-  margin-bottom: 1rem;
-  text-align: justify;
-}
-
-/* Critical button styles */
-.buttonStyle1 {
-  background: linear-gradient(90deg, #2563eb 0%, #1e3a8a 100%);
-  color: #fff;
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 0.7rem 2rem;
-  border-radius: 8px;
-  border: none;
-  box-shadow: 0 2px 8px rgba(37,99,235,0.07);
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
-}
-
-.buttonStyle2 {
-  background: #fff;
-  color: #2563eb;
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 0.7rem 2rem;
-  border-radius: 8px;
-  border: 1px solid #2563eb;
-  box-shadow: 0 2px 8px rgba(37,99,235,0.07);
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
-}
-
-/* Critical form styles */
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  background: transparent;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(37,99,235,0.07);
-  padding: 2.2rem 2.5rem;
-  align-items: stretch;
-  position: relative;
-  z-index: 1;
-}
-
-.form input {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  background: #f9fafb;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.submitButtonItDs {
-  background: linear-gradient(90deg, #eb5a25c2 0%, hsl(10, 64%, 33%) 100%);
-  color: #fff;
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  font-size: 1.08rem;
-  font-weight: 600;
-  padding: 0.75rem 2.2rem;
-  border-radius: 9999px;
-  border: none;
-  margin-top: 1.2rem;
-  box-shadow: 0 2px 8px rgba(37,99,235,0.08);
-  cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
-}
-
-/* Critical responsive styles */
-@media (max-width: 768px) {
-  .containerItDsHeader {
+/* Core styles needed for above-the-fold content */
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  /* Critical styles for Chevron component */
+  .containerCH {
+    padding: 20px;
+    margin: 20px auto;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    height: auto;
-    padding: 0.5rem;
+    max-width: 1800px;
+    width: 97.5%;
+    padding-bottom: 50px;
+  }
+  
+  .containerCH h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-shadow: 0 0 0px #fff, 0 0 10px #fff, 0 0 10px #0073e6, 0 0 20px #182e4a, 0 0 20px #182e4a, 0 0 30px #182e4a, 0 0 30px #182e4a;
+    background: linear-gradient(90deg, #fff 35%, rgba(3, 163, 196, 1) 49%, #fff 62%);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+  }
+  
+  .titleUnderline {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #a76b2e, #f18436);
+    margin: 15px auto 25px;
+    border-radius: 2px;
     margin-bottom: 2rem;
   }
   
-  .leftSectionItDs {
-    max-width: 100%;
-    width: 100%;
-    margin-bottom: 2rem;
+  /* Only basic styles for phases - detailed styling can be loaded later */
+  .phases {
+    text-align: center;
+    margin-top: 10px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 7px 5px 5px #000000;
   }
-  
-  .leftSectionItDs h1 {
-    font-size: 1.75rem;
-  }
-  
-  .leftSectionItDs h2 {
-    font-size: 1.2rem;
-  }
-}

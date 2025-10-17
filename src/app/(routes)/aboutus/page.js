@@ -245,9 +245,12 @@ const AboutUsPage = () => {
         <meta name="twitter:description" content="Premier SAP and IT training institute with expert-led courses and placement assistance." />
         <meta name="twitter:site" content="@connectingdotserp" />
         <meta name="twitter:image" content="https://connectingdotserp.com/images/about-hero.jpg" />
+    
       </Head>
 
       <div className="min-h-screen bg-white">
+        <h1 className="sr-only">Connecting Dots ERP</h1>
+
         <Hero />
         <AchievementsSection />
         <SAPCompassDial />

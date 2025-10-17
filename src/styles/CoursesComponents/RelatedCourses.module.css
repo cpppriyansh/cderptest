@@ -3,7 +3,7 @@
   background-color: #ffffff;
   max-width: 1800px;
   width: 97.5%;
-  height: auto;
+  height: auto; /* Adjust height dynamically */
   margin: 0 auto;
 }
 
@@ -11,7 +11,13 @@
   font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: 2px;
-  background: linear-gradient(90deg, rgba(1, 1, 98, 1) 35%, rgb(3, 111, 133) 49%, rgba(2, 2, 85, 1) 62%);
+  background: rgb(1, 1, 98);
+  background: linear-gradient(
+    90deg,
+    rgba(1, 1, 98, 1) 35%,
+    rgb(3, 111, 133) 49%,
+    rgba(2, 2, 85, 1) 62%
+  );
   -webkit-background-clip: text;
   color: transparent;
   position: relative;
@@ -28,7 +34,7 @@
 }
 
 .relatedCourseCard {
-  width: 18%;
+  width: 18%; /* Adjusted for 5 per row */
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
@@ -109,7 +115,7 @@
 
 @media (max-width: 1024px) {
   .relatedCourseCard {
-    width: 30%;
+    width: 30%; /* Show 3 cards in a row on tablets */
   }
 }
 
@@ -118,7 +124,7 @@
     justify-content: center;
   }
   .relatedCourseCard {
-    width: 45%;
+    width: 45%; /* Show 2 cards in a row */
   }
   .relatedCoursesTitleh2 {
     font-size: 1.8rem;
@@ -127,17 +133,20 @@
 
 @media (max-width: 480px) {
   .relatedCourseCard {
-    width: 80%;
-    margin: 10px auto;
+    width: 80%; /* Adjust width */
+    margin: 10px auto; /* Center cards */
   }
+
   .relatedCourseIcon {
-    max-width: 70%;
+    max-width: 70%; /* Increase icon size */
   }
+
   .relatedCoursesTitleh2 {
-    font-size: 1.6rem;
-    letter-spacing: 4px;
+    font-size: 1.6rem; /* Adjust title size */
+    letter-spacing: 4px; /* Reduce spacing */
   }
 }
+
 
 @media (max-width: 350px) {
   .relatedCourseCard {

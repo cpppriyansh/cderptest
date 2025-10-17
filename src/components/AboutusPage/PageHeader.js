@@ -1,4 +1,4 @@
-"use client";
+
 import React, { useRef, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import styles from "@/styles/AboutPage/PageHeader.module.css";
@@ -220,14 +220,10 @@ const PageHeader = ({
       >
         <div ref={textSectionRef} className={styles.textSection}>
           <div className={styles.contentContainer}>
-            <div
-              className={`${styles.titleWrapper} ${
-                isVisible ? styles.animateTitle : ""
-              }`}
-            >
-              <h1 className={styles.title}>Connecting Dots ERP</h1>
-              <div className={styles.titleUnderline}></div>
-            </div>
+              <div className={`${styles.titleWrapper}`}>
+      <h1 className={styles.title}>Connecting Dots ERP</h1>
+      <div className={styles.titleUnderline}></div>
+    </div>
 
             <p
               className={`${styles.description} ${

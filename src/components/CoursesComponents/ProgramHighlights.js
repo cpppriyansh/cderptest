@@ -184,7 +184,7 @@ setTimeout(() => {
       <div className="md:hidden min-h-* text-white p-4 relative z-10">
         <div className="max-w-sm mx-auto">
           <div className="text-center mb-8">
-            <h1
+            <div
   className="text-2xl font-extrabold tracking-wider mb-3 text-white text-center"
   style={{
     textShadow: '0 0 16px #fff, 0 0 32px #80d8ff',
@@ -194,7 +194,7 @@ setTimeout(() => {
   }}
 >
   PROGRAM HIGHLIGHTS
-</h1>
+</div>
 <div 
             style={{
               width: '80px',

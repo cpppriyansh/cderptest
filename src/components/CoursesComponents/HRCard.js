@@ -21,7 +21,7 @@ const HrCard = () => {
   
   return (
     <div className={styles.cardsSection}>
-      <h1 className={styles.cardsTitle}>HR Courses We Offer</h1>
+      <h2 className={styles.cardsTitle}>HR Courses We Offer</h2>
       <div className={styles.pageContent}>
         {hrCards.map((card, index) => (
           <div key={index} className={styles.card}>

@@ -446,7 +446,7 @@
   width: 50%;
 }
 
-.leftSideH3 h1 {
+.leftSideH3 h2 {
   font-size: 38px;
   margin-top: 0px;
   margin-bottom: 20px;
@@ -627,7 +627,7 @@
   padding: 50px;
 }
 
-.leftSideH h1 {
+.leftSideH h2 {
   font-size: 48px;
   margin-bottom: 20px;
   font-weight: bold;
@@ -755,7 +755,7 @@
     height: auto;
     padding: 20px;
   }
-  .leftSideH3 h1,
+  .leftSideH3 h2,
   .leftSideH3 h2 {
     font-size: 36px;
     width: 100%;
@@ -797,7 +797,7 @@
     text-align: center;
     padding-left: 0px;
   }
-  .carouselText2 h1 {
+  .carouselText2 h2 {
     font-size: 1.8rem;
   }
   .carouselText2 h2 {
@@ -875,7 +875,7 @@
   .carouselSlide4 {
     height: 340px;
   }
-  .leftSideH3 h1,
+  .leftSideH3 h2,
   .leftSideH3 h2 {
     display: none;
   }
@@ -916,7 +916,7 @@
     padding: 2px;
     text-align: center;
   }
-  .leftSideH h1 {
+  .leftSideH h2 {
     font-size: 24px;
   }
   .leftSideH p {
@@ -994,7 +994,7 @@
     margin: 20px 0px 10px 0px;
   }
 
-  .carouselText2 h1 {
+  .carouselText2 h2 {
     font-size: 1.3rem;
     text-align: center;
   }
@@ -1042,7 +1042,7 @@
     margin: 20px 0px 10px 0px;
   }
 
-  .carouselText2 h1 {
+  .carouselText2 h2 {
     font-size: 1.3rem;
     text-align: center;
   }
@@ -1082,7 +1082,7 @@
     margin: 20px 0px 10px 0px;
   }
 
-  .carouselText2 h1 {
+  .carouselText2 h2 {
     font-size: 1rem;
     text-align: center;
   }

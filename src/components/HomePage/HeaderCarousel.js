@@ -95,9 +95,9 @@ CompanyLogos.displayName = "CompanyLogos";
 const CareerSlide = memo(({ onButtonClick }) => (
   <div className={styles.carouselSlide}>
     <div className={styles.carouselText}>
-      <h1>
+      <h2 style={{ fontSize: "3.5rem", lineHeight: "1.08", fontWeight: 700 }}>
         Unlock your <span className={styles.highlight}>Career</span> potential
-      </h1>
+      </h2>
       <h2>
         <span className={styles.highlight}>No.1 Training &</span> Placement
         Center

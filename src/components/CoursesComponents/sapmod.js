@@ -164,7 +164,7 @@ const SapModComponent = ({ data }) => {
       <div className="bg-[#2d2d2d] flex flex-col items-center py-8 sm:py-12 px-4 sm:px-6 lg:px-8 min-h-[600px]">
         {/* Header */}
         <div className="w-full max-w-6xl mb-6 sm:mb-8">
-          <h1
+          <h2
             className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white text-center"
             style={{
               fontFamily: "Inter, Segoe UI, Roboto, Arial, sans-serif",
@@ -172,7 +172,7 @@ const SapModComponent = ({ data }) => {
             }}
           >
             SYLLABUS
-          </h1>
+          </h2>
         </div>
 
         <div className="flex flex-col md:flex-row gap-6 sm:gap-8 w-full max-w-6xl items-start">

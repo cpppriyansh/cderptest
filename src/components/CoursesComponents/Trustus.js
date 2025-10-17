@@ -6,7 +6,7 @@ import { Star, Users, Building, TrendingUp, Award, Globe } from "lucide-react";
 const TrustUs = () => {
   // Using actual logo filenames from public directory
   const logoFilenames = [
-    "airmeet.avif", "Aru.avif", "ask.avif", "bharatgri.avif", "Baj.avif",
+    "airmeet.avif", "Aru.avif", "ask.avif", "bharatgri.avif", "Accenture.avif",
     "Binary.avif", "bostonbyte.avif", "caprium.avif", "capita.avif", "crisil.avif",
     "cummins.avif", "Dconverge.avif", "dream11.avif", "eatfit.avif", "exl.avif",
     "firstcry.avif", "genius.avif", "gns(1).avif", "God.avif", "hdfc.avif",
@@ -105,7 +105,7 @@ const TrustUs = () => {
       <div className="trustusOuter container px-4 max-w-6xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-4 sm:mb-6">
-          <h1 className="trustusTitle font-bold mb-1 sm:mb-2 tracking-wider" style={{
+          <h2 className="trustusTitle font-bold mb-1 sm:mb-2 tracking-wider" style={{
             background: 'linear-gradient(90deg, rgba(1, 1, 98, 1) 35%, rgb(3, 111, 133) 49%, rgba(2, 2, 85, 1) 62%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
@@ -116,7 +116,7 @@ const TrustUs = () => {
             marginBottom: '0.25rem',
           }}>
             Organisations Trust Us
-          </h1>
+          </h2>
           <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-900 via-blue-500 to-blue-900 mx-auto mb-3 sm:mb-4 rounded"></div>
         </div>
  

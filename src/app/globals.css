@@ -1,3 +1,5 @@
+/* src/app/globals.css */
+
 /* Tailwind CSS directives - KEEP THESE */
 @tailwind base;
 @tailwind components;
@@ -13,6 +15,8 @@
   --secondary-dark2: #191825;
   --transparent-pink: #e384ff;
   --gradient-angle: 0deg;
+
+  /* 🚀 NEW: Reference font variables for consistent use across your entire CSS */
   font-family: var(--font-lato), var(--font-rubik), Arial, sans-serif;
 }
 
@@ -25,6 +29,7 @@
 
 /* Base Body Styles - KEEP THESE */
 body {
+  /* Use the CSS variables from next/font. Include fallbacks. */
   font-family: var(--font-lato), var(--font-rubik), Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -40,12 +45,13 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Specific highlight classes - KEEP THESE if used early on the page */
+/* Specific highlight class - KEEP THIS if it's used very early on the page */
 .highlight-span-cards {
   color: #113b6b;
   font-weight: bold;
 }
 
+/* Specific highlight class - KEEP THIS if it's used very early on the page */
 .txtHighlight {
   color: #2277d3;
   font-weight: bold;
@@ -53,8 +59,9 @@ html {
 
 /* Tailwind Layers - KEEP THESE */
 @layer base {
+  /* Keep your design system variables here */
   :root {
-    --background: 0 0% 100%;
+    --background: 0 0% 100%; /* light mode colors */
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
@@ -81,6 +88,7 @@ html {
     --radius: 0.5rem;
   }
   .dark {
+    /* dark mode colors */
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
@@ -138,7 +146,7 @@ input:-webkit-autofill:active {
   }
 }
 
-/* SEO and accessibility classes */
+
 .course-main-content {
   position: absolute;
   width: 1px;
