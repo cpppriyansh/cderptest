@@ -60,6 +60,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${lato.variable} ${rubik.variable}`}>
       <head>
+        {/* Critical CSS - Load immediately for above-the-fold content */}
+        <link rel="preload" href="/src/styles/critical.css" as="style" onLoad="this.onload=null;this.rel='stylesheet'" />
+        <noscript><link rel="stylesheet" href="/src/styles/critical.css" /></noscript>
+        
         {/* Partytown Component - MUST be in <head> */}
         <Partytown 
           debug={false} 
@@ -140,6 +144,50 @@ export default function RootLayout({ children }) {
           src="/api/ahrefs"
           data-key={AHREFS_KEY}
           type="text/partytown"
+        />
+        
+        {/* Defer non-critical CSS loading */}
+        <Script
+          id="defer-css"
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Defer non-critical CSS loading
+              function loadCSS(href) {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = href;
+                document.head.appendChild(link);
+              }
+              
+              // Load non-critical CSS after page load
+              window.addEventListener('load', function() {
+                setTimeout(function() {
+                  // Load remaining CSS modules that aren't critical
+                  var nonCriticalCSS = [
+                    '/src/styles/CoursesComponents/Councelor.module.css',
+                    '/src/styles/CoursesComponents/RelatedCourses.module.css',
+                    '/src/styles/CoursesComponents/FAQ.module.css',
+                    '/src/styles/CoursesComponents/Description.module.css',
+                    '/src/styles/CoursesComponents/Why.module.css',
+                    '/src/styles/CoursesComponents/Trustus.module.css',
+                    '/src/styles/CoursesComponents/ProgramHighlights.module.css',
+                    '/src/styles/CoursesComponents/Certification.module.css',
+                    '/src/styles/CoursesComponents/Modules.module.css',
+                    '/src/styles/CoursesComponents/CurriculumAccordion.module.css',
+                    '/src/styles/CoursesComponents/HRCard.module.css',
+                    '/src/styles/CoursesComponents/InterviewQuestion.module.css',
+                    '/src/styles/CoursesComponents/Learningpath.module.css',
+                    '/src/styles/CoursesComponents/Projects.module.css',
+                    '/src/styles/CoursesComponents/sapmod.module.css'
+                  ];
+                  
+                  nonCriticalCSS.forEach(function(href) {
+                    loadCSS(href);
+                  });
+                }, 100);
+              });
+            `,
+          }}
         />
       </body>
     </html>

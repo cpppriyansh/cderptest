@@ -55,7 +55,7 @@ const Certificate = ({ data }) => {
               <div className="certificate-wrapper">
                 <div className="bg-white rounded-xl border-4 border-gray-200">
                   <Image
-                    src={data?.image || "/Certificate/Certificate.avif"}
+                    src={"/Certificate/Certificate.avif"}
                     alt={data?.alt || `${data?.courseTitle || "SAP Training"} Certificate`}
                     width={1000}
                     height={600}

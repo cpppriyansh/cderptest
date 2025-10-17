@@ -8,12 +8,12 @@ const premiumClients = [
   "Accenture.avif", "wipro.avif", "infosys.avif", "google.avif",
   "microsoft.avif", "cognizant.avif", "tcs.avif", "amdocs.avif",
   "ibm.avif", "paytm.avif", "capgemini.avif", "swiggy.avif",
-  "hdfc.avif", "God.avif", "BAJAJ.avif", "bharatpe.avif", "pizza-hut.avif",
+  "hdfc.avif", "God.avif", "bajaj.avif", "bharatpe.avif", "pizza-hut.avif",
 ];
 
 const enterpriseClients = [
   "exl.avif", "volkswagon.avif", "jindal.avif", "john-deere.avif",
-  "bostonbyte.avif", "sharechat.avif", "leapfinance.avif",
+  "bostonbyte.avif", "sharechat.webp", "leapfinance.avif",
   "moneytap.avif", "whitehat.avif", "cummins.avif",
 ];
 

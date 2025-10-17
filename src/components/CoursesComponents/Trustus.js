@@ -172,7 +172,7 @@ const TrustUs = () => {
                         >
                           <img
                             src={src}
-                            alt={`Client Logo ${index + 1}`}
+                            alt={src.split('/').pop().replace(/\.\w+$/, '').replace(/[\W_]+/g, ' ').trim()}
                             loading="lazy"
                             decoding="async"
                             className="trustusLogoImg w-full h-full object-cover p-3 hover:scale-105 transition-transform duration-200"

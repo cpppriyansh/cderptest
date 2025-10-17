@@ -1,8 +1,7 @@
 .counselorContainer {
   max-width: 1800px;
   width: 97.5%;
-  margin: 0 auto;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
   position: relative;
   overflow: hidden;
 }
@@ -75,7 +74,6 @@
   color: #ffffff;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
   .counselorContainer {
     display: none;
