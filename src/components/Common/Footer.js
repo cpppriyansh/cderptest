@@ -73,6 +73,7 @@ const footerSections = [
       { href: "/sitemap", text: "CITY SITEMAP" },
       { href: "/all-course-links", text: "ALL COURSES" },
       { href: "/sitemap.xml", text: "SITEMAP" },
+      { href: "/quiz", text: "QUIZ" },
     ],
   },
   {

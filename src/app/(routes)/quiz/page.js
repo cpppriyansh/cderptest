@@ -49,5 +49,11 @@ export const metadata = {
 };
 
 export default function QuizPage() {
-  return <QuizClientContent />;
+  return (
+    <>
+      <h1 className="sr-only">Choose your quiz topic</h1>
+      <QuizClientContent />
+    </>
+  );
 }
+

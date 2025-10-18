@@ -390,6 +390,7 @@ export default function QuizContent({ params }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4 ">
       <div className="max-w-4xl mx-auto">
+        <h1 className="sr-only">QUIZ Begin</h1>
         {/* Back Button */}
         <button
           onClick={() => router.push("/quiz")}

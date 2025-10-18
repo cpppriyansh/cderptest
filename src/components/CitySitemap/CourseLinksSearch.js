@@ -1569,506 +1569,506 @@ export default function CourseLinksSearch() {
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-pune"
+          href="/data-visualization-course-in-pune"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Pune
+          Data visualization Course In Pune
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-mumbai"
+          href="/data-visualization-course-in-mumbai"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Mumbai
+          Data visualization Course In Mumbai
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-delhi"
+          href="/data-visualization-course-in-delhi"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Delhi
+          Data visualization Course In Delhi
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-kolkata"
+          href="/data-visualization-course-in-kolkata"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Kolkata
+          Data visualization Course In Kolkata
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-chennai"
+          href="/data-visualization-course-in-chennai"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Chennai
+          Data visualization Course In Chennai
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-bangalore"
+          href="/data-visualization-course-in-bangalore"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Bangalore
+          Data visualization Course In Bangalore
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-hyderabad"
+          href="/data-visualization-course-in-hyderabad"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Hyderabad
+          Data visualization Course In Hyderabad
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-ahmedabad"
+          href="/data-visualization-course-in-ahmedabad"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Ahmedabad
+          Data visualization Course In Ahmedabad
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-jaipur"
+          href="/data-visualization-course-in-jaipur"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Jaipur
+          Data visualization Course In Jaipur
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-lucknow"
+          href="/data-visualization-course-in-lucknow"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Lucknow
+          Data visualization Course In Lucknow
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-kanpur"
+          href="/data-visualization-course-in-kanpur"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Kanpur
+          Data visualization Course In Kanpur
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-nagpur"
+          href="/data-visualization-course-in-nagpur"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Nagpur
+          Data visualization Course In Nagpur
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-patna"
+          href="/data-visualization-course-in-patna"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Patna
+          Data visualization Course In Patna
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-indore"
+          href="/data-visualization-course-in-indore"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Indore
+          Data visualization Course In Indore
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-bhopal"
+          href="/data-visualization-course-in-bhopal"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Bhopal
+          Data visualization Course In Bhopal
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-visakhapatnam"
+          href="/data-visualization-course-in-visakhapatnam"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Visakhapatnam
+          Data visualization Course In Visakhapatnam
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-vadodara"
+          href="/data-visualization-course-in-vadodara"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Vadodara
+          Data visualization Course In Vadodara
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-ludhiana"
+          href="/data-visualization-course-in-ludhiana"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Ludhiana
+          Data visualization Course In Ludhiana
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-agra"
+          href="/data-visualization-course-in-agra"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Agra
+          Data visualization Course In Agra
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-nashik"
+          href="/data-visualization-course-in-nashik"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Nashik
+          Data visualization Course In Nashik
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-rajkot"
+          href="/data-visualization-course-in-rajkot"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Rajkot
+          Data visualization Course In Rajkot
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-varanasi"
+          href="/data-visualization-course-in-varanasi"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Varanasi
+          Data visualization Course In Varanasi
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-kerala"
+          href="/data-visualization-course-in-kerala"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Kerala
+          Data visualization Course In Kerala
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-surat"
+          href="/data-visualization-course-in-surat"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Surat
+          Data visualization Course In Surat
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-dehradun"
+          href="/data-visualization-course-in-dehradun"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Dehradun
+          Data visualization Course In Dehradun
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-madurai"
+          href="/data-visualization-course-in-madurai"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Madurai
+          Data visualization Course In Madurai
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-mysore"
+          href="/data-visualization-course-in-mysore"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Mysore
+          Data visualization Course In Mysore
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-pondicherry"
+          href="/data-visualization-course-in-pondicherry"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Pondicherry
+          Data visualization Course In Pondicherry
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-ranchi"
+          href="/data-visualization-course-in-ranchi"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Ranchi
+          Data visualization Course In Ranchi
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-coimbatore"
+          href="/data-visualization-course-in-coimbatore"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Coimbatore
+          Data visualization Course In Coimbatore
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-chandigarh"
+          href="/data-visualization-course-in-chandigarh"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Chandigarh
+          Data visualization Course In Chandigarh
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-bhubaneswar"
+          href="/data-visualization-course-in-bhubaneswar"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Bhubaneswar
+          Data visualization Course In Bhubaneswar
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-tirupati"
+          href="/data-visualization-course-in-tirupati"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Tirupati
+          Data visualization Course In Tirupati
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-vizag"
+          href="/data-visualization-course-in-vizag"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Vizag
+          Data visualization Course In Vizag
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-trivandrum"
+          href="/data-visualization-course-in-trivandrum"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Trivandrum
+          Data visualization Course In Trivandrum
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-jalandhar"
+          href="/data-visualization-course-in-jalandhar"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Jalandhar
+          Data visualization Course In Jalandhar
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-mohali"
+          href="/data-visualization-course-in-mohali"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Mohali
+          Data visualization Course In Mohali
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-raipur"
+          href="/data-visualization-course-in-raipur"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Raipur
+          Data visualization Course In Raipur
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-cochin"
+          href="/data-visualization-course-in-cochin"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Cochin
+          Data visualization Course In Cochin
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-mangalore"
+          href="/data-visualization-course-in-mangalore"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Mangalore
+          Data visualization Course In Mangalore
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-katraj"
+          href="/data-visualization-course-in-katraj"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Katraj
+          Data visualization Course In Katraj
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-pimpri-chinchwad"
+          href="/data-visualization-course-in-pimpri-chinchwad"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Pimpri Chinchwad
+          Data visualization Course In Pimpri Chinchwad
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-shivaji-nagar"
+          href="/data-visualization-course-in-shivaji-nagar"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Shivaji Nagar
+          Data visualization Course In Shivaji Nagar
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-koregaon-park"
+          href="/data-visualization-course-in-koregaon-park"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Koregaon Park
+          Data visualization Course In Koregaon Park
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-viman-nagar"
+          href="/data-visualization-course-in-viman-nagar"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Viman Nagar
+          Data visualization Course In Viman Nagar
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-pimple-saudagar"
+          href="/data-visualization-course-in-pimple-saudagar"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Pimple Saudagar
+          Data visualization Course In Pimple Saudagar
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-baner"
+          href="/data-visualization-course-in-baner"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Baner
+          Data visualization Course In Baner
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-hinjewadi"
+          href="/data-visualization-course-in-hinjewadi"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Hinjewadi
+          Data visualization Course In Hinjewadi
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-wakad"
+          href="/data-visualization-course-in-wakad"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Wakad
+          Data visualization Course In Wakad
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-kothrud"
+          href="/data-visualization-course-in-kothrud"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Kothrud
+          Data visualization Course In Kothrud
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-hadapsar"
+          href="/data-visualization-course-in-hadapsar"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Hadapsar
+          Data visualization Course In Hadapsar
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-aundh"
+          href="/data-visualization-course-in-aundh"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Aundh
+          Data visualization Course In Aundh
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-navi-mumbai"
+          href="/data-visualization-course-in-navi-mumbai"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Navi Mumbai
+          Data visualization Course In Navi Mumbai
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-thane"
+          href="/data-visualization-course-in-thane"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Thane
+          Data visualization Course In Thane
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-kalyan"
+          href="/data-visualization-course-in-kalyan"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Kalyan
+          Data visualization Course In Kalyan
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-bandra"
+          href="/data-visualization-course-in-bandra"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Bandra
+          Data visualization Course In Bandra
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-andheri"
+          href="/data-visualization-course-in-andheri"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Andheri
+          Data visualization Course In Andheri
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-powai"
+          href="/data-visualization-course-in-powai"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Powai
+          Data visualization Course In Powai
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-worli"
+          href="/data-visualization-course-in-worli"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Worli
+          Data visualization Course In Worli
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-chembur"
+          href="/data-visualization-course-in-chembur"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Chembur
+          Data visualization Course In Chembur
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-malad"
+          href="/data-visualization-course-in-malad"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Malad
+          Data visualization Course In Malad
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-vile-parle"
+          href="/data-visualization-course-in-vile-parle"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Vile Parle
+          Data visualization Course In Vile Parle
         </Link>
       </div>
       <div className="col">
         <Link
-          href="/data-visualisation-course-in-matunga"
+          href="/data-visualization-course-in-matunga"
           className="text-blue-600 hover:text-blue-800 no-underline block p-3 border border-gray-200 rounded-lg bg-gray-50 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-in-out"
         >
-          Data Visualisation Course In Matunga
+          Data visualization Course In Matunga
         </Link>
       </div>
       <div className="col">

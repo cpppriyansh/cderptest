@@ -72,12 +72,20 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function QuizPage({ params }) {
-  // Ensure params is resolved
   const resolvedParams = await Promise.resolve(params);
-  console.log('QuizPage params:', resolvedParams); // Debug log
-  
+  const { topic } = resolvedParams;
+
+  // Format topic like "math-quiz" => "Math Quiz"
+  const formattedTopic = topic
+    ? topic
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ")
+    : "Quiz";
+
   return (
     <Suspense fallback={<LoadingSpinner />}>
+      <h1 className="sr-only">{formattedTopic} Quiz</h1>
       <QuizContent params={resolvedParams} />
     </Suspense>
   );
