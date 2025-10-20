@@ -51,7 +51,7 @@ const countryCodes = [
   { code: "+39", country: "Italy", minLength: 10, maxLength: 10 },
   { code: "+55", country: "Brazil", minLength: 10, maxLength: 11 },
   { code: "+34", country: "Spain", minLength: 9, maxLength: 9 },
-  { code: "+27", country: "South Africa", minLength: 9, maxLength: 9 },
+  { code: "+27", country: "South Afric", minLength: 9, maxLength: 9 },
   { code: "+971", country: "UAE", minLength: 9, maxLength: 9 },
   { code: "+62", country: "Indonesia", minLength: 10, maxLength: 12 },
   { code: "+90", country: "Turkey", minLength: 10, maxLength: 10 },
