@@ -52,7 +52,7 @@ const CareerHeroSlide = ({ onOpenForm }) => {
             {/* Left Content */}
             <div className={`space-y-3 sm:space-y-4 md:space-y-6 transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
               
-              <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-6xl xl:text-6xl font-bold leading-tight text-white">
+              <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-6xl xl:text-6xl font-bold leading-tight text-white">
                 <span className="block sm:inline">
                 Secure your{" "}
                   <span className="text-[#93C5FD] relative inline-block">
@@ -60,7 +60,7 @@ const CareerHeroSlide = ({ onOpenForm }) => {
                    </span>
                 </span>{" "}
                 <span className="block sm:inline">with Live Classes </span>
-              </h1>
+              </h2>
 
               <div className="flex items-center space-x-1 sm:space-x-2 flex-wrap">
                 <span className="text-gray-100 font-normal text-sm sm:text-base md:text-lg lg:text-xl">From Industry Experts</span>

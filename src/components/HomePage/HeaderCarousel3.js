@@ -235,9 +235,9 @@ const QuizCompo = ({ onReady }) => {
           <div className="text-center bg-gradient-to-r from-blue-50 to-purple-50 p-3 rounded-lg">
             <div className="flex items-center justify-center gap-2">
               <Brain className="w-5 h-5 text-blue-600 animate-pulse" />
-              <h1 className="text-lg font-bold bg-gradient-to-r from-blue-600 via-blue-400 to-blue-200 bg-clip-text text-transparent">
+              <h2 className="text-lg font-bold bg-gradient-to-r from-blue-600 via-blue-400 to-blue-200 bg-clip-text text-transparent">
                 Quick Quiz
-              </h1>
+              </h2>
             </div>
             <p className="text-sm text-gray-100">
               Question {currentQuestionIndex + 1} of {quizQuestions.length} • Score: {score}
@@ -327,9 +327,9 @@ const QuizCompo = ({ onReady }) => {
             <div className="flex items-center gap-3 mt-12">
               <Brain className="w-8 h-8 text-white" />
               <div>
-                <h1 className="text-3xl font-bold bg-white bg-clip-text text-transparent">
+                <h2 className="text-3xl font-bold bg-white bg-clip-text text-transparent">
                   Interactive Quiz Preview
-                </h1>
+                </h2>
                 <p className="text-gray-400 text-lg">
                   Question {currentQuestionIndex + 1} of {quizQuestions.length} • Score: {score}/{quizQuestions.length}
                 </p>

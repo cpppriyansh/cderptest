@@ -421,11 +421,11 @@ const CareerMentorsComponent = () => {
           <div className="space-y-6 sm:space-y-4 md:space-y-6 pt-12 pb-12 overflow-visible min-h-[600px]">
             <div className="text-center px-2 mt-8">
               <div className="relative inline-block">
-                <h1 className="text-2xl sm:text-3xl font-black leading-tight text-gray-800">
+                <h2 className="text-2xl sm:text-3xl font-black leading-tight text-gray-800">
                   <span className="text-white">Professional</span>
                   <span className="text-[#8dacbb]">SAP & IT</span>
                   <span className="text-white">Training Institute</span>
-                </h1>
+                </h2>
                 
                 <div className="absolute -left-2 sm:-left-4 top-0 bottom-0 w-0.5 sm:w-1 bg-gradient-to-b from-blue-500 via-indigo-500 to-purple-600 rounded-full">
                   <div className="absolute top-0 left-0 w-full h-2 sm:h-3 bg-blue-500 rounded-full animate-pulse"></div>
@@ -454,11 +454,11 @@ const CareerMentorsComponent = () => {
           <div className="h-full flex flex-col justify-center">
             <div className="text-center px-4 py-6 flex-shrink-0">
               <div className="relative inline-block">
-                <h1 className="text-2xl md:text-4xl font-black leading-tight text-gray-800">
+                <h2 className="text-2xl md:text-4xl font-black leading-tight text-gray-800">
                   <span className="text-white">Professional </span>
                   <span className="text-[#8dacbb]">SAP & IT </span>
                   <span className="text-white">Training Institute</span>
-                </h1>
+                </h2>
                 
                 <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-indigo-500 to-purple-600 rounded-full">
                   <div className="absolute top-0 left-0 w-full h-4 bg-blue-500 rounded-full animate-pulse"></div>
@@ -513,7 +513,7 @@ const CareerMentorsComponent = () => {
               
               <div className="space-y-6">
                 <div className="relative">
-                  <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black leading-tight">
+                  <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black leading-tight">
                     <span className="block text-white mb-3 lg:mb-4">
                     Professional
                     </span>
@@ -523,7 +523,7 @@ const CareerMentorsComponent = () => {
                     <span className="block text-white text-3xl lg:text-4xl xl:text-5xl">
                     Training Institute
                     </span>
-                  </h1>
+                  </h2>
                   
                   <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-indigo-500 to-purple-600 rounded-full">
                     <div className="absolute top-0 left-0 w-full h-6 bg-blue-500 rounded-full animate-pulse"></div>
