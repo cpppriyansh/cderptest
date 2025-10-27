@@ -401,11 +401,11 @@ function generateCityLinks(city) {
     },
     {
       id: "data-viz",
-      name: "Data Visualisation Courses",
+      name: "Data Visualization Courses",
       courses: [
         {
-          name: "Data Visualisation Course",
-          slug: `/data-visualisation-course-in-${city}`,
+          name: "Data Visualization Course",
+          slug: `/data-visualization-course-in-${city}`,
         },
         { name: "Tableau", slug: `/tableau-training-in-${city}` },
         { name: "Power BI", slug: `/power-bi-course-in-${city}` },
@@ -979,7 +979,7 @@ export default function CityPage({ params }) {
         {/* Data Visualization Courses Section */}
         <div>
           <h2>Data Visualization Courses in {cityInfo.name}</h2>
-          <Link href={`/data-visualisation-course-in-${city}`}>
+          <Link href={`/data-visualization-course-in-${city}`}>
             Data Visualization Course in {cityInfo.name} - Complete Data Viz
             Training
           </Link>

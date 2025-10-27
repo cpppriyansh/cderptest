@@ -35,7 +35,7 @@ function TypewriterPlaceholderInput({ placeholder, syncLen, ...props }) {
   const animatedPlaceholder = useTypewriterSync(placeholder, syncLen);
   return <input {...props} placeholder={animatedPlaceholder} />;
 }
-import styles from "@/styles/CoursesComponents/Header.module.css?module";
+import styles from "@/styles/CoursesComponents/Header.module.css";
 import Btnform from "@/components/HomePage/Btnform"; // Assuming Btnform is a client component
  
 const countryCodes = [
@@ -208,21 +208,18 @@ const DSHeader = ({ data }) => {
  
       {/* 🔹 Background Video */}
       <video
-        className={styles.backgroundVideo}
-        preload="auto"
-        fetchpriority="high"
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster={data.backgroundPoster || undefined}
-        opacity={0.5}
-        style={{
-          opacity: 0.5,
-        }}
-      >
-        <source src={data.backgroundVideo} type="video/mp4" />
-      </video>
+  className="absolute top-0 left-0 w-full h-full object-cover opacity-25 z-0"
+  preload="auto"
+  fetchpriority="high"
+  autoPlay
+  loop
+  muted
+  playsInline
+  poster={data.backgroundPoster || undefined}
+>
+  <source src={data.backgroundVideo} type="video/mp4" />
+</video>
+
  
       <div className={styles.leftSectionItDs}>
       <h2>

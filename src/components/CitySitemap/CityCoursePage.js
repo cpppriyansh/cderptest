@@ -67,9 +67,9 @@ const getCourseCategories = (city) => [
   },
   {
     id: "data-viz",
-    name: "Data Visualisation Courses",
+    name: "Data Visualization Courses",
     courses: [
-      { name: "Data Visualisation Course", slug: `/data-visualisation-course-in-${city}` },
+      { name: "Data Visualization Course", slug: `/data-visualization-course-in-${city}` },
       { name: "Tableau", slug: `/tableau-training-in-${city}` },
       { name: "Power BI", slug: `/power-bi-course-in-${city}` },
       { name: "SQL", slug: `/sql-course-in-${city}` },

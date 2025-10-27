@@ -64,27 +64,27 @@ const QuizCompo = ({ onReady }) => {
     {
       question: "Which master data directly influences purchasing in SAP MM?",
       options: ["Material master and vendor master", "Cost center and work center", "BOM and routing", "Customer master and pricing condition records"],
-      correctAnswer: 1
+      correctAnswer: 0
     },
     {
       question: "What does SAP stand for?",
       options: ["Systems, Analytics, Platforms", "Systems Applications and Products in Data Processing", "Software for Accounting Processes", "Standard Application Platform"],
-      correctAnswer: 2
+      correctAnswer: 1
     },
     {
       question: "Which is SAP’s modern real-time ERP suite?",
-      options: ["SAP R/3", "SAP ECC", "SAP S/4HANA", "SAP BW"],
+      options: ["SAP R/3", "SAP ECC", "SAP BW", "SAP S/4HANA"],
       correctAnswer: 3
     },
     {
       question: "In the MM procurement cycle, which document usually comes first?",
       options: ["Purchase Order", "Goods Receipt", "Purchase Requisition", "Invoice"],
-      correctAnswer: 3
+      correctAnswer: 2
     },
     {
       question: "Which module handles customer-to-cash?",
       options: ["MM", "PP", "SD", "QM"],
-      correctAnswer: 3
+      correctAnswer: 2
     }
   ];
 

@@ -13177,11 +13177,11 @@ export const coursesData = {
 
     // Data for Why Component
     why: {
-      title: "Why Data Visualisation Course in {city}?",
+      title: "Why Data Visualization Course in {city}?",
       cards: [
         {
           title:
-            'What is <span class="highlight-span-cards">Data Visualisation?</span>',
+            'What is <span class="highlight-span-cards">Data Visualization?</span>',
           content:
             "Data Visualization is essential in today's data-driven world, helping organizations turn complex data into clear, actionable insights. If you're looking to build a career in this field, our Data Visualization course in {city} provides comprehensive training in key visualization tools like Tableau, Power BI, SQL, and advanced Excel. You'll learn to analyze and visualize data effectively, create interactive dashboards, and communicate findings that drive decision-making. With a focus on industry-relevant skills and hands-on practice, this Data Visualization training in {city} equips you with the knowledge to excel in the fast-growing field of data analytics and visualization, preparing you for roles in data analysis, business intelligence, and more.",
         },
@@ -13193,7 +13193,7 @@ export const coursesData = {
         },
         {
           title:
-            'Why take the <span class="highlight-span-cards">Data Visualisation Training</span> in {city}?',
+            'Why take the <span class="highlight-span-cards">Data Visualization Training</span> in {city}?',
           content:
             "A Data Analyst must possess a diverse skill set to analyze, interpret, and visualize data effectively to support data-driven decisions. Our Data Visualization course in {city} offers advanced training in key data visualization tools and techniques, preparing you to transform complex data sets into clear, actionable insights. You will gain hands-on experience in tools like Tableau, Power BI, and advanced Excel, as well as in data cleaning, statistical analysis, and report creation. Upon completing the course, you will be qualified to take on roles such as:",
           listItems: [

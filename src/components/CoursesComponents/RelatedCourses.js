@@ -81,7 +81,7 @@ const CoursesRelated = ({ data, currentCityName }) => {
 
     // IT & General
     "IT Course": "it-course",
-    "Data Visualisation": "data-visualization-course",
+    "Data Visualization": "data-visualization-course",
 
     // Add any other course mappings you might have
   };

@@ -102,11 +102,11 @@ function getHeaderData(courseSlug, city) {
       "power-bi": { pageType: "powerbi", pageId: "POWERBI" },
       "tableau-training": { pageType: "tableau", pageId: "TABLEAU" },
       "sql-course": { pageType: "sql", pageId: "SQL" },
-      "data-visualisation": {
+      "data-visualization": {
         pageType: "datavisualheader",
         pageId: "DataVisualHeader",
       },
-      "data-visualisation-course": {
+      "data-visualization-course": {
         pageType: "datavisualheader",
         pageId: "DataVisualHeader",
       }, // Added for specificity

@@ -41,7 +41,7 @@ const PopupForm = ({ onSubmitData }) => {
     { value: "SAP Course", label: "SAP Course" },
     { value: "IT Course", label: "IT Course" },
     { value: "Digital Marketing", label: "Digital Marketing" },
-    { value: "Data Visualisation", label: "Data Visualisation" },
+    { value: "Data Visualization", label: "Data Visualization" },
     { value: "HR Course", label: "HR Course" },
   ];
 
