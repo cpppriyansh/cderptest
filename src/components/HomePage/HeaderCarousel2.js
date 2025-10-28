@@ -423,7 +423,7 @@ const CareerMentorsComponent = () => {
         
         {/* Mobile Layout */}
         {isMobile && (
-          <div className="space-y-6 sm:space-y-4 md:space-y-6 pt-3 pb-12 overflow-visible min-h-[600px]">
+          <div className="space-y-2 sm:space-y-4 md:space-y-6 pt-3 pb-12 overflow-visible min-h-[600px]">
             <div className="text-center px-2 mt-8">
               <div className="relative inline-block">
                 <h2 className="text-2xl sm:text-3xl font-black leading-tight text-gray-800">
