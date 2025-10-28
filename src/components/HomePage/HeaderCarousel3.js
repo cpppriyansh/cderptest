@@ -86,6 +86,7 @@ const QuizCompo = ({ onReady }) => {
   ];
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
@@ -197,7 +198,7 @@ const QuizCompo = ({ onReady }) => {
   <CircularProgressStep 
     currentStep={currentQuestionIndex + 1}
     totalSteps={quizQuestions.length}
-    size={window.innerWidth < 640 ? 60 : 80}
+    size={isMobile ? 60 : 80}
     strokeWidth={6}
   />
 </div>

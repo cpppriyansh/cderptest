@@ -17,7 +17,7 @@ const CareerHeroSlide = ({ onOpenForm }) => {
     <div className="relative w-full min-h-[650px] sm:min-h-[700px] md:min-h-[750px] lg:min-h-[800px]">
       
       {/* Wave Background */}
-      <div className="absolute inset-0 bg-white sm:bg-[#182E4A]">
+      <div className="absolute inset-0 sm:bg-[#182E4A]">
         {/* Top white wave */}
 <svg
   className="hidden sm:block absolute bottom-50 left-0 w-full"
@@ -55,7 +55,7 @@ const CareerHeroSlide = ({ onOpenForm }) => {
             <div className={`space-y-3 sm:space-y-4 md:space-y-5 transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
               
               {/* ✅ FIXED: Responsive font sizes */}
-              <h2 className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-black sm:text-white mt-25 pt-20">
+              <h2 className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-gray-900 sm:text-white mt-25 pt-20">
                 <span className="block sm:inline">
                   Secure your{" "}
                   <span className="text-blue-800 sm:text-[#93C5FD] relative inline-block">
