@@ -39,6 +39,37 @@
     margin-bottom: 0.5rem !important;
     display: block !important;
   }
+    /* Prevent large gaps caused by justified text on very small screens */
+  .leftSectionItDs h1,
+  .leftSectionItDs h2 {
+    text-align: left !important;
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+    white-space: normal !important;
+  }
+  .leftSectionItDs h2 span {
+    text-align: left !important;
+  }
+}
+/* Broader mobile fix: apply to typical phone widths to avoid justification gaps */
+@media (max-width: 480px) {
+  .leftSectionItDs h1,
+  .leftSectionItDs h2,
+  .leftSectionItDs p {
+    text-align: left !important;
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+    white-space: normal !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    hyphens: auto !important;
+  }
+  /* ensure any inline spans also left-align */
+  .leftSectionItDs h2 span,
+  .leftSectionItDs h1 span {
+    text-align: left !important;
+    display: inline !important;
+  }
 }
 .containerItDsHeader {
   position: relative;

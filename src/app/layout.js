@@ -1,18 +1,15 @@
-// src/app/layout.js - With Partytown Integration
+// src/app/layout.js - With Partytown Integration (Fixed)
 
 import { Lato, Rubik } from "next/font/google";
 import Script from "next/script";
 import { Partytown } from "@builder.io/partytown/react";
 import "./globals.css";
 
-// Static imports for components that are part of the main layout
 import Navbar from "@/components/Common/Navbar";
 import Footer from "@/components/Common/Footer";
 import CallAdvisorsStrip from "@/components/Common/CallAdvisorsStrip";
 import Marquee from "@/components/Common/Marquee";
 import ServerPing from "@/components/ServerPing";
-
-// This wrapper will contain all our client-side logic, like Context Providers
 import ClientLayoutWrapper from "@/components/ClientLayoutWrapper";
 
 // --- Font Setup ---
@@ -35,7 +32,7 @@ const GTM_ID = "GTM-MB68QM2V";
 const FB_PIXEL_ID = "3414178115554916";
 const AHREFS_KEY = "GO9/n+0kqNt/v3P+gIXeHg/61ypeA";
 
-// --- SITE-WIDE METADATA ---
+// --- Metadata ---
 export const metadata = {
   title: {
     default: "Connecting Dots ERP | SAP Training Institute",
@@ -60,47 +57,55 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${lato.variable} ${rubik.variable}`}>
       <head>
-        {/* Partytown Component - MUST be in <head> */}
+        {/* ✅ FIXED: Initialize dataLayer BEFORE Partytown */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];`,
+          }}
+        />
+
+        {/* ✅ FIXED: Added lib prop to Partytown */}
         <Partytown 
           debug={false} 
           forward={["dataLayer.push", "fbq"]} 
+          lib="/~partytown/"
         />
-        {/* Preconnect for Tawk to speed up DNS/TLS */}
+
+        {/* Preconnect for Tawk */}
         <link rel="preconnect" href="https://embed.tawk.to" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="//embed.tawk.to" />
-        
+
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#1a365d" />
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
-      <body
-        className={`body bg-black ${lato.className} ${rubik.className}`}
-        suppressHydrationWarning={true}
-      >
-        {/* GTM noscript fallback - Required for users with JavaScript disabled */}
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
 
-        {/* Server Ping Component - optional via env flag to reduce JS */}
+      <body className={`body bg-black ${lato.className} ${rubik.className}`}>
+        {/* GTM noscript fallback */}
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `
+              <iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+            `,
+          }}
+        />
+
+        {/* Optional Server Ping */}
         {process.env.NEXT_PUBLIC_ENABLE_PING === "true" && <ServerPing />}
 
-        {/* Server-Side Rendered Components */}
+        {/* Static Components */}
         <CallAdvisorsStrip />
         <Marquee />
         <Navbar />
 
-        {/* The ClientLayoutWrapper contains the CityProvider and wraps the children */}
+        {/* Client-Side Wrapper */}
         <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
 
         <Footer />
 
-        {/* GTM Script - Offloaded to Web Worker */}
+        {/* --- Partytown Scripts --- */}
+        {/* GTM - Offloaded to Web Worker */}
         <Script
           id="gtm-script"
           type="text/partytown"
@@ -134,12 +139,12 @@ export default function RootLayout({ children }) {
           }}
         />
 
-        {/* Ahrefs Analytics - Offloaded to Web Worker */}
+        {/* ✅ FIXED: Ahrefs WITHOUT Partytown (API routes don't work in web workers) */}
         <Script
           id="ahrefs-analytics"
           src="/api/ahrefs"
           data-key={AHREFS_KEY}
-          type="text/partytown"
+          strategy="afterInteractive"
         />
       </body>
     </html>

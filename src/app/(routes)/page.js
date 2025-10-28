@@ -159,7 +159,7 @@ const jsonLd = {
       "@id": "https://connectingdotserp.com/#product",
       name: "SAP Course",
       description: "Comprehensive SAP covering all modules.",
-      image: "https://i.imgur.com/HbmlQ9u.png",
+      image: "https://res.cloudinary.com/dubeuisom/image/upload/v1758623118/sap_5_o5zehc.png",
       url: "https://connectingdotserp.com/",
       brand: {
         "@type": "Brand",
@@ -194,7 +194,7 @@ const jsonLd = {
       embedUrl: "https://youtu.be/7YRbfuv7R3k?si=cqdu5buZ-Ya_-O8R",
       uploadDate: "2025-04-03",
       duration: "PT5M",
-      thumbnailUrl: "https://i.imgur.com/HbmlQ9u.png",
+      thumbnailUrl: "https://res.cloudinary.com/dubeuisom/image/upload/v1758623118/sap_5_o5zehc.png",
       publisher: {
         "@type": "Organization",
         name: "Connecting Dots ERP",

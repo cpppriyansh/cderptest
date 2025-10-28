@@ -5,7 +5,7 @@ import CareerHeroSlide from './HeaderCarousel1';
 import HeaderCarousel3 from "./HeaderCarousel2";
 import QuizComponent from "./HeaderCarousel3";
 
-// Dynamically import Btnform with SSR disabled to avoid window is not defined errors
+// Dynamically import Btnform with SSR disabled
 const Btnform = dynamic(() => import('./Btnform'), { ssr: false });
 
 const HeaderCarousel = () => {
@@ -63,8 +63,8 @@ const HeaderCarousel = () => {
 
   return (
     <div className="w-full max-w-[1800px] mx-auto overflow-hidden relative">
-      {/* Main carousel container with consistent height */}
-      <div className="relative min-h-[600px] md:min-h-[700px] lg:min-h-[800px] bg-white overflow-hidden">
+      {/* ✅ FIXED: Mobile-optimized carousel container */}
+      <div className="relative min-h-[650px] sm:min-h-[700px] md:min-h-[750px] lg:min-h-[800px] bg-white overflow-hidden">
         {/* Slide content */}
         {components.map(({ component: Component }, index) => (
           <div
@@ -77,16 +77,17 @@ const HeaderCarousel = () => {
           </div>
         ))}
         
-        {/* Dots indicator - Positioned absolutely at the bottom */}
-        <div className="absolute bottom-4 left-0 right-0 z-10">
-          <div className="flex justify-center space-x-2">
+        {/* ✅ FIXED: Better positioned dots for mobile */}
+        <div className="absolute bottom-3 sm:bottom-4 md:bottom-6 left-0 right-0 z-20">
+          <div className="flex justify-center space-x-2 sm:space-x-3">
             {components.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                aria-label={`Go to slide ${index + 1}`}
+                className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${
                   currentSlide === index
-                    ? 'bg-black scale-125 ring-2 ring-offset-2 ring-white/50'
+                    ? 'bg-black scale-110 sm:scale-125 ring-2 ring-offset-1 sm:ring-offset-2 ring-white/50'
                     : 'bg-black/50 hover:bg-black/70'
                 }`}
               />

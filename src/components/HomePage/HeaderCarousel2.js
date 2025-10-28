@@ -388,8 +388,13 @@ const CareerMentorsComponent = () => {
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden flex">
-      <div className="absolute inset-0 bg-gradient-to-r from-[#182E4A] via-[#182E4A] to-[#182E4A]">
-        <svg
+      <div
+  className="
+    absolute inset-0 
+    bg-white 
+    sm:bg-gradient-to-r sm:from-[#182E4A] sm:via-[#182E4A] sm:to-[#182E4A]
+  "
+>  <svg
           className="absolute bottom-50 left-0 w-full"
           viewBox="0 0 1440 800"
           preserveAspectRatio="none"
@@ -418,13 +423,13 @@ const CareerMentorsComponent = () => {
         
         {/* Mobile Layout */}
         {isMobile && (
-          <div className="space-y-6 sm:space-y-4 md:space-y-6 pt-12 pb-12 overflow-visible min-h-[600px]">
+          <div className="space-y-6 sm:space-y-4 md:space-y-6 pt-3 pb-12 overflow-visible min-h-[600px]">
             <div className="text-center px-2 mt-8">
               <div className="relative inline-block">
                 <h2 className="text-2xl sm:text-3xl font-black leading-tight text-gray-800">
-                  <span className="text-white">Professional</span>
-                  <span className="text-[#8dacbb]">SAP & IT</span>
-                  <span className="text-white">Training Institute</span>
+                  <span className="text-black sm:text-white">Professional </span>
+                  <span className="text-gray-800 sm:text-[#8dacbb]">SAP & IT </span>
+                  <span className="text-black sm:text-white">Training Institute</span>
                 </h2>
                 
                 <div className="absolute -left-2 sm:-left-4 top-0 bottom-0 w-0.5 sm:w-1 bg-gradient-to-b from-blue-500 via-indigo-500 to-purple-600 rounded-full">

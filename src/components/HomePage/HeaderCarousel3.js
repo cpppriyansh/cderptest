@@ -24,7 +24,6 @@ const CircularProgressStep = ({
         height={size}
         className="transform -rotate-90"
       >
-        {/* Background Circle */}
         <circle
           cx={center}
           cy={center}
@@ -34,7 +33,6 @@ const CircularProgressStep = ({
           strokeWidth={strokeWidth}
         />
         
-        {/* Progress Circle */}
         <circle
           cx={center}
           cy={center}
@@ -49,10 +47,9 @@ const CircularProgressStep = ({
         />
       </svg>
       
-      {/* Center Text */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-sm font-semibold text-gray-100">
-          {currentStep} of {totalSteps}
+        <span className="text-xs sm:text-sm font-semibold text-gray-100">
+          {currentStep}/{totalSteps}
         </span>
       </div>
     </div>
@@ -72,7 +69,7 @@ const QuizCompo = ({ onReady }) => {
       correctAnswer: 1
     },
     {
-      question: "Which is SAP’s modern real-time ERP suite?",
+      question: "Which is SAP's modern real-time ERP suite?",
       options: ["SAP R/3", "SAP ECC", "SAP BW", "SAP S/4HANA"],
       correctAnswer: 3
     },
@@ -89,41 +86,22 @@ const QuizCompo = ({ onReady }) => {
   ];
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState('');
-  const [charIndex, setCharIndex] = useState(0);
-  const [isTyping, setIsTyping] = useState(true);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [score, setScore] = useState(0);
   const [answered, setAnswered] = useState(false);
-  const [showOptions, setShowOptions] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const currentQuestion = quizQuestions[currentQuestionIndex];
-  const typingDelay = 3;
 
   useEffect(() => {
-    if (!isTyping) return;
-
-    if (charIndex < currentQuestion.question.length) {
-      const timer = setTimeout(() => {
-        setDisplayedText(currentQuestion.question.substring(0, charIndex + 1));
-        setCharIndex(prev => prev + 1);
-      }, typingDelay);
-
-      return () => clearTimeout(timer);
-    } else {
-      setIsTyping(false);
-      setTimeout(() => {
-        setShowOptions(true);
-        if (currentQuestionIndex === 0 && typeof onReady === 'function') {
-          onReady();
-        }
-      }, 25);
+    if (typeof onReady === 'function') {
+      onReady();
     }
-  }, [charIndex, currentQuestion.question, isTyping, currentQuestionIndex, onReady]);
+  }, [onReady]);
 
+  // Auto-advance timer
   useEffect(() => {
     if (answered || showFeedback) return;
     
@@ -134,17 +112,14 @@ const QuizCompo = ({ onReady }) => {
     return () => clearTimeout(questionTimer);
   }, [currentQuestionIndex, answered, showFeedback]);
 
+  // Reset state on question change
   useEffect(() => {
     if (isTransitioning) return;
     
     setIsTransitioning(true);
-    setShowOptions(false);
     setShowFeedback(false);
     
     setTimeout(() => {
-      setDisplayedText('');
-      setCharIndex(0);
-      setIsTyping(true);
       setSelectedAnswer(null);
       setIsCorrect(false);
       setAnswered(false);
@@ -188,10 +163,9 @@ const QuizCompo = ({ onReady }) => {
   };
 
   return (
-    <div className="relative w-full min-h-[600px] md:min-h-[700px] lg:min-h-[800px] overflow-hidden">
+    <div className="relative w-full min-h-[650px] sm:min-h-[700px] md:min-h-[780px] lg:min-h-[800px] overflow-hidden">
       {/* Wave Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#182E4A] via-[#182E4A] to-[#182E4A]">
-        {/* Top Left Circle SVG */}
+      <div className="absolute inset-0 bg-white sm:bg-gradient-to-r from-[#182E4A] via-[#182E4A] to-[#182E4A]">
         <svg
           className="absolute bottom-50 left-0 w-full"
           viewBox="0 0 1440 800"
@@ -204,7 +178,6 @@ const QuizCompo = ({ onReady }) => {
           />
         </svg>
 
-        {/* Bottom cream wave */}
         <svg
           className="absolute bottom-0 left-0 w-full"
           viewBox="0 0 1440 800"
@@ -218,116 +191,146 @@ const QuizCompo = ({ onReady }) => {
         </svg>
       </div>
 
-      <div className="container mx-auto mt-20 px-4 sm:px-2 md:px-8 lg:px-12 py-4 sm:py-8 md:py-12 lg:py-16 flex flex-col justify-center relative z-10">
-        {/* Circular Progress Bar */}
-        <div className="absolute top-0 mt-5 right-20 z-10">
-          <CircularProgressStep 
-            currentStep={currentQuestionIndex + 1}
-            totalSteps={quizQuestions.length}
-            size={80}
-            strokeWidth={6}
-          />
-        </div>
+      <div className="container mx-auto px-3 sm:px-4 md:px-8 lg:px-12 py-4 sm:py-6 md:py-8 lg:py-12 flex flex-col justify-center relative z-10">
+        
+       <div className="hidden sm:block absolute top-2 sm:top-4 right-3 sm:right-6 md:right-12 lg:right-20 z-20">
+  <CircularProgressStep 
+    currentStep={currentQuestionIndex + 1}
+    totalSteps={quizQuestions.length}
+    size={window.innerWidth < 640 ? 60 : 80}
+    strokeWidth={6}
+  />
+</div>
 
-        {/* Mobile Layout */}
-        <div className="block lg:hidden space-y-3 sm:space-y-4 md:space-y-6 mt-4">
-          {/* Header */}
-          <div className="text-center bg-gradient-to-r from-blue-50 to-purple-50 p-3 rounded-lg">
+
+        {/* Mobile Layout - OPTIMIZED */}
+        <div className="block lg:hidden space-y-3 pt-2 sm:pt-4">
+          {/* Header - Compact */}
+          <div className="text-center bg-gradient-to-r from-blue-50 to-purple-50 p-2.5 sm:p-3 rounded-lg">
             <div className="flex items-center justify-center gap-2">
-              <Brain className="w-5 h-5 text-blue-600 animate-pulse" />
-              <h2 className="text-lg font-bold bg-gradient-to-r from-blue-600 via-blue-400 to-blue-200 bg-clip-text text-transparent">
+              <Brain className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 animate-pulse" />
+              <h2 className="text-base sm:text-lg font-bold bg-gradient-to-r from-blue-800 via-blue-600 to-blue-400 bg-clip-text text-transparent">
                 Quick Quiz
               </h2>
             </div>
-            <p className="text-sm text-gray-100">
+            <p className="text-xs sm:text-sm text-gray-600">
               Question {currentQuestionIndex + 1} of {quizQuestions.length} • Score: {score}
             </p>
           </div>
 
-          {/* Question Section */}
-          <div className="space-y-4">
-            <div className="min-h-[60px] flex items-center justify-center">
-              <h2 className="text-base sm:text-lg font-bold text-gray-100 leading-relaxed text-center">
-                {displayedText}
-                
+          {/* Question Section - Compact */}
+          <div className="space-y-3">
+            <div className="min-h-[50px] sm:min-h-[60px] flex items-center justify-center px-2">
+              <h2 className="text-md sm:text-base md:text-lg font-bold text-black leading-snug text-center">
+                {currentQuestion.question}
               </h2>
             </div>
-            
-            {/* Options */}
-            <div className={`grid grid-cols-2 gap-3 transition-all duration-500 ease-out transform ${
-              showOptions && !isTransitioning ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-6 scale-95'
+
+            {/* Options - Compact Grid */}
+            <div className={`grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 transition-all duration-500 ease-out transform ${
+              !isTransitioning ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
             }`}>
               {currentQuestion.options.map((option, index) => (
                 <button
                   key={index}
                   onClick={() => handleOptionClick(index)}
                   disabled={showFeedback || answered || isTransitioning}
-                  style={{ transitionDelay: `${index * 150}ms` }}
-                  className={`w-full p-3 sm:p-4 min-h-[48px] sm:min-h-[56px] rounded-xl text-left font-medium transition-all duration-500 transform hover:scale-[1.02] active:scale-95 ${
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                  className={`w-full p-2.5 sm:p-3 min-h-[44px] sm:min-h-[52px] rounded-lg sm:rounded-xl text-left text-xs sm:text-sm font-medium transition-all duration-300 transform active:scale-95 ${
                     showFeedback
                       ? index === currentQuestion.correctAnswer
-                        ? 'bg-gradient-to-r from-green-100 to-emerald-100 border-2 border-green-400 text-green-800 shadow-lg scale-105'
+                        ? 'bg-gradient-to-r from-green-100 to-emerald-100 border-2 border-green-400 text-green-800 shadow-lg'
                         : index === selectedAnswer && !isCorrect
-                        ? 'bg-gradient-to-r from-red-100 to-pink-100 border-2 border-red-400 text-red-800 shadow-lg scale-105'
-                        : 'bg-gray-50 text-gray-500 border-2 border-gray-200 scale-95 opacity-60'
-                      : 'bg-white hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 border-2 border-gray-200 hover:border-blue-300 text-gray-700 shadow-sm hover:shadow-md'
+                        ? 'bg-gradient-to-r from-red-100 to-pink-100 border-2 border-red-400 text-red-800 shadow-lg'
+                        : 'bg-gray-50 text-gray-500 border-2 border-gray-200 opacity-60'
+                      : 'bg-white hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 border-2 border-gray-200 hover:border-blue-300 text-gray-700 shadow-sm'
                   }`}
                 >
                   <div className="flex items-start gap-2">
-                    <span className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
+                    <span className={`flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 ${
                       showFeedback && index === currentQuestion.correctAnswer
-                        ? 'bg-green-500 text-white scale-110'
+                        ? 'bg-green-500 text-white'
                         : showFeedback && index === selectedAnswer && !isCorrect
-                        ? 'bg-red-500 text-white scale-110'
-                        : 'bg-gradient-to-r from-blue-300 to-blue-500 text-white'
+                        ? 'bg-red-500 text-white'
+                        : 'bg-gradient-to-r from-blue-400 to-blue-600 text-white'
                     }`}>
                       {String.fromCharCode(65 + index)}
                     </span>
-                    <span className="flex-1 break-words whitespace-normal text-xs sm:text-sm leading-tight">{option}</span>
+                    <span className="flex-1 break-words leading-tight">{option}</span>
                     {showFeedback && index === currentQuestion.correctAnswer && (
-                      <CheckCircle className="w-5 h-5 text-green-600 animate-bounce" />
+                      <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 flex-shrink-0" />
                     )}
                     {showFeedback && index === selectedAnswer && !isCorrect && (
-                      <XCircle className="w-5 h-5 text-red-600 animate-pulse" />
+                      <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-600 flex-shrink-0" />
                     )}
                   </div>
                 </button>
               ))}
             </div>
 
-            {/* Feedback */}
+            {/* Feedback - Compact */}
             {showFeedback && (
-              <div className={`p-3 sm:p-4 rounded-xl text-center font-bold animate-bounceIn shadow-lg transition-all duration-500 transform ${
+              <div className={`p-2.5 sm:p-3 rounded-lg sm:rounded-xl text-center text-xs sm:text-sm font-bold animate-bounceIn shadow-lg transition-all duration-500 transform ${
                 isCorrect 
-                  ? 'bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border border-green-200 scale-105' 
-                  : 'bg-gradient-to-r from-red-100 to-pink-100 text-red-800 border border-red-200 scale-105'
+                  ? 'bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border border-green-200' 
+                  : 'bg-gradient-to-r from-red-100 to-pink-100 text-red-800 border border-red-200'
               }`}>
                 <div className="flex items-center justify-center gap-2">
                   {isCorrect ? (
                     <>
-                      <Trophy className="w-5 h-5 animate-bounce" />
-                      <span>🎉 Excellent! You got it right!</span>
+                      <Trophy className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span>🎉 Excellent!</span>
                     </>
                   ) : (
                     <>
-                      <XCircle className="w-5 h-5 animate-pulse" />
-                      <span>💪 Good try! Keep learning!</span>
+                      <XCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span>💪 Keep learning!</span>
                     </>
                   )}
                 </div>
               </div>
             )}
           </div>
+
+          {/* Mobile Quiz Button - Sticky Bottom */}
+          <div className="sticky bottom-0 left-0 right-0 bg-gradient-to-r from-blue-50/95 to-purple-50/95 backdrop-blur-sm p-3 rounded-t-xl shadow-2xl border-t-2 border-blue-200 mt-4">
+            <Link href="/quiz" passHref>
+              <button className="w-full flex items-center bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-2.5 sm:py-3 rounded-full justify-center gap-2 cursor-pointer hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg">
+                <Zap className="w-5 h-5 text-white" />
+                <span className="text-white font-bold text-sm sm:text-base">
+                  Start Full Quiz
+                </span>
+                <ChevronRight className="w-5 h-5 text-white" />
+              </button>
+            </Link>
+
+            {/* Question Indicators */}
+            <div className="flex justify-center space-x-1.5 sm:space-x-2 mt-3">
+              {quizQuestions.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleQuestionSelect(index)}
+                  disabled={isTransitioning}
+                  aria-label={`Go to question ${index + 1}`}
+                  className={`h-2 sm:h-2.5 rounded-full transition-all duration-300 disabled:cursor-not-allowed ${
+                    index === currentQuestionIndex 
+                      ? 'bg-gradient-to-r from-blue-400 to-blue-600 w-6 sm:w-8 shadow-md' 
+                      : 'bg-gray-300 w-2 sm:w-2.5 hover:bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Desktop Layout */}
-        <div className="hidden lg:flex items-center justify-center min-h-*">
-          <div className="flex-1 space-y-4 lg:space-y-6 max-w-4xl mx-auto">
+        {/* Desktop Layout - UNCHANGED BUT OPTIMIZED */}
+        <div className="hidden lg:flex items-center justify-center gap-8">
+          <div className="flex-1 space-y-6 max-w-4xl">
             {/* Header */}
-            <div className="flex items-center gap-3 mt-12">
-              <Brain className="w-8 h-8 text-white" />
+            <div className="flex items-center gap-3 mt-28">
+              <Brain className="w-10 h-10 text-white" />
               <div>
-                <h2 className="text-3xl font-bold bg-white bg-clip-text text-transparent">
+                <h2 className="text-3xl font-bold text-gray-200">
                   Interactive Quiz Preview
                 </h2>
                 <p className="text-gray-400 text-lg">
@@ -336,49 +339,49 @@ const QuizCompo = ({ onReady }) => {
               </div>
             </div>
 
-            {/* Question */}
+            {/* Question - No Typewriter */}
             <div className="min-h-[80px] flex items-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-100 leading-tight">
-                {displayedText}
+                {currentQuestion.question}
               </h2>
             </div>
 
             {/* Options - Desktop Grid */}
-            <div className={`grid grid-cols-2 gap-4 transition-all duration-600 ease-out transform ${
-              showOptions && !isTransitioning ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
+            <div className={`grid grid-cols-2 gap-4 transition-all duration-500 ease-out transform ${
+              !isTransitioning ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
               {currentQuestion.options.map((option, index) => (
                 <button
                   key={index}
                   onClick={() => handleOptionClick(index)}
                   disabled={showFeedback || answered || isTransitioning}
-                  style={{ transitionDelay: `${index * 200}ms` }}
-                  className={`p-4 lg:p-6 rounded-xl text-left font-semibold transition-all duration-500 transform hover:scale-105 active:scale-95 ${
+                  style={{ transitionDelay: `${index * 150}ms` }}
+                  className={`p-3 lg:p-5 rounded-xl text-left font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 ${
                     showFeedback
                       ? index === currentQuestion.correctAnswer
                         ? 'bg-gradient-to-r from-green-100 to-emerald-100 border-2 border-green-400 text-green-800 shadow-xl'
                         : index === selectedAnswer && !isCorrect
                         ? 'bg-gradient-to-r from-red-100 to-pink-100 border-2 border-red-400 text-red-800 shadow-xl'
-                        : 'bg-gray-50 text-gray-500 border-2 border-gray-200 scale-95 opacity-60'
+                        : 'bg-gray-50 text-gray-500 border-2 border-gray-200 opacity-60'
                       : 'bg-white hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 border-2 border-gray-200 hover:border-blue-300 text-gray-700 shadow-md hover:shadow-xl'
                   }`}
                 >
                   <div className="flex items-center gap-4">
                     <span className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300 ${
                       showFeedback && index === currentQuestion.correctAnswer
-                        ? 'bg-green-500 text-white scale-125'
+                        ? 'bg-green-500 text-white scale-110'
                         : showFeedback && index === selectedAnswer && !isCorrect
-                        ? 'bg-red-500 text-white scale-125'
-                        : 'bg-gradient-to-r from-blue-300 to-blue-500 text-white'
+                        ? 'bg-red-500 text-white scale-110'
+                        : 'bg-gradient-to-r from-blue-400 to-blue-600 text-white'
                     }`}>
                       {String.fromCharCode(65 + index)}
                     </span>
                     <span className="flex-1">{option}</span>
                     {showFeedback && index === currentQuestion.correctAnswer && (
-                      <CheckCircle className="w-6 h-6 text-green-600 animate-bounce" />
+                      <CheckCircle className="w-6 h-6 text-green-600" />
                     )}
                     {showFeedback && index === selectedAnswer && !isCorrect && (
-                      <XCircle className="w-6 h-6 text-red-600 animate-pulse" />
+                      <XCircle className="w-6 h-6 text-red-600" />
                     )}
                   </div>
                 </button>
@@ -387,20 +390,20 @@ const QuizCompo = ({ onReady }) => {
 
             {/* Desktop Feedback */}
             {showFeedback && (
-              <div className={`p-4 rounded-xl text-center font-bold text-base lg:text-lg animate-bounceIn shadow-xl transition-all duration-500 transform ${
+              <div className={`p-4 rounded-xl text-center font-bold text-lg animate-bounceIn shadow-xl ${
                 isCorrect 
-                  ? 'bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border border-green-200 scale-105' 
-                  : 'bg-gradient-to-r from-red-100 to-pink-100 text-red-800 border border-red-200 scale-105'
+                  ? 'bg-gradient-to-r from-green-100 to-emerald-100 text-green-800' 
+                  : 'bg-gradient-to-r from-red-100 to-pink-100 text-red-800'
               }`}>
                 <div className="flex items-center justify-center gap-3">
                   {isCorrect ? (
                     <>
-                      <Trophy className="w-6 h-6 animate-bounce" />
+                      <Trophy className="w-6 h-6" />
                       <span>Outstanding! Perfect answer!</span>
                     </>
                   ) : (
                     <>
-                      <XCircle className="w-6 h-6 animate-pulse" />
+                      <XCircle className="w-6 h-6" />
                       <span>Great effort! Keep going!</span>
                     </>
                   )}
@@ -408,12 +411,13 @@ const QuizCompo = ({ onReady }) => {
               </div>
             )}
 
-            {/* Desktop Navigation Controls */}
+            {/* Desktop Navigation */}
             <div className="flex items-center justify-center gap-6 py-4">
               <button
                 onClick={handlePrevQuestion}
                 disabled={isTransitioning}
-                className="p-3 rounded-full bg-blue-100 hover:bg-blue-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-md hover:shadow-lg"
+                aria-label="Previous question"
+                className="p-3 rounded-full bg-blue-100 hover:bg-blue-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
               >
                 <ChevronRight className="w-6 h-6 text-blue-600 rotate-180" />
               </button>
@@ -424,10 +428,11 @@ const QuizCompo = ({ onReady }) => {
                     key={index}
                     onClick={() => handleQuestionSelect(index)}
                     disabled={isTransitioning}
+                    aria-label={`Go to question ${index + 1}`}
                     className={`w-10 h-10 rounded-full text-sm font-bold transition-all duration-300 ${
                       index === currentQuestionIndex
-                        ? 'bg-blue-500 text-white scale-110 shadow-lg'
-                        : 'bg-gray-200 hover:bg-gray-300 text-gray-600 hover:scale-105'
+                        ? 'bg-blue-500 text-white scale-110'
+                        : 'bg-gray-200 hover:bg-gray-300 text-gray-600'
                     }`}
                   >
                     {index + 1}
@@ -438,22 +443,15 @@ const QuizCompo = ({ onReady }) => {
               <button
                 onClick={handleNextQuestion}
                 disabled={isTransitioning}
-                className="p-3 rounded-full bg-blue-100 hover:bg-blue-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-md hover:shadow-lg"
+                aria-label="Next question"
+                className="p-3 rounded-full bg-blue-100 hover:bg-blue-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
               >
                 <ChevronRight className="w-6 h-6 text-blue-600" />
               </button>
             </div>
-
-            {/* Desktop Quiz Button */}
-            <div className="flex justify-center pt-4">
-              <Link href="/quiz" passHref>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-300 to-blue-600 blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 -z-10"></div>
-              </Link>
-            </div>
           </div>
           
-          {/* Right Side - Animation Space */}
+          {/* Right Side - Animation & Button */}
           <div className="flex-1 flex flex-col items-center justify-center gap-6">
             <div className="w-full max-w-[700px]">
               <DotLottieReact
@@ -463,66 +461,27 @@ const QuizCompo = ({ onReady }) => {
               />
             </div>
 
-            {/* Button Content */}
             <Link href="/quiz" passHref>
-              <button className="relative flex items-center bg-blue-600 p-3 rounded-full justify-center gap-3 cursor-pointer hover:bg-blue-700 transition-colors duration-300">
+              <button className="flex items-center bg-blue-600 px-6 py-3 rounded-full justify-center gap-3 cursor-pointer hover:bg-blue-700 transition-all duration-300 shadow-xl">
                 <Zap className="w-6 h-6 text-white" />
                 <span className="text-white font-extrabold">
-                  Start Quiz
+                  Start Full Quiz
                 </span>
-                <ChevronRight className="w-6 h-6 text-white group-hover:translate-x-2 transition-transform duration-300" />
+                <ChevronRight className="w-6 h-6 text-white" />
               </button>
             </Link>
-          </div>
-        </div>
-
-        {/* Mobile Bottom Section - Quiz Button and Indicators */}
-        <div className="lg:hidden sticky bottom-4 z-50 mt-4 pb-2">
-          <div className="bg-gradient-to-r from-blue-50/80 to-purple-50/80 p-4 rounded-lg shadow-xl backdrop-blur-sm">
-            {/* Eye-catching Quiz Button */}
-            <div className="flex justify-center mb-4">
-              <Link href="/quiz" passHref>
-                <button className="relative flex items-center bg-blue-600 px-6 py-3 rounded-full justify-center gap-3 cursor-pointer hover:bg-blue-700 transition-colors duration-300 shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                  <span className="relative flex items-center justify-center gap-3">
-                    <Zap className="w-6 h-6 text-white animate-bounce" />
-                    <span className="text-white font-extrabold">
-                      Start Quiz
-                    </span>
-                    <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:translate-x-2 transition-transform duration-300" />
-                  </span>
-                </button>
-              </Link>
-            </div>
-
-            {/* Question Indicators - Mobile */}
-            <div className="flex justify-center space-x-2">
-              {quizQuestions.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleQuestionSelect(index)}
-                  disabled={isTransitioning}
-                  className={`h-3 rounded-full transition-all duration-500 disabled:cursor-not-allowed ${
-                    index === currentQuestionIndex 
-                      ? 'bg-gradient-to-r from-blue-300 to-blue-600 w-8 shadow-lg' 
-                      : 'bg-gray-300 w-3 hover:bg-gray-400 hover:w-4'
-                  }`}
-                />
-              ))}
-            </div>
           </div>
         </div>
 
         <style jsx>{`
           @keyframes bounceIn {
             0% { opacity: 0; transform: scale(0.3); }
-            50% { transform: scale(1.1); }
-            70% { transform: scale(0.9); }
+            50% { transform: scale(1.05); }
             100% { opacity: 1; transform: scale(1); }
           }
           
           .animate-bounceIn {
-            animation: bounceIn 0.8s ease-out;
+            animation: bounceIn 0.6s ease-out;
           }
         `}</style>
       </div>
