@@ -180,7 +180,7 @@ const CityCoursePage = ({ city, cityInfo }) => {
       
       {/* City Header Section */}
       <div className={styles.cityHeader}>
-        <h1>Courses in {cityInfo.name}</h1>
+        <h1>Professional Courses in {cityInfo.name} </h1>
         <p>{cityInfo.description}</p>
         
         {/* Search Bar */}

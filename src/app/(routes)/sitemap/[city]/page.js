@@ -483,7 +483,9 @@ function generateCityLinks(city) {
 }
 
 export async function generateMetadata({ params }) {
-  const city = params.city.toLowerCase();
+  // Make sure to await the params if they're async
+  const cityParam = await Promise.resolve(params.city);
+  const city = cityParam.toLowerCase();
 
   if (!cityData[city]) {
     return {
@@ -819,8 +821,10 @@ function generateCityJsonLd(city, cityInfo) {
   };
 }
 
-export default function CityPage({ params }) {
-  const city = params.city.toLowerCase();
+export default async function CityPage({ params }) {
+  // Make sure to await the params if they're async
+  const cityParam = await Promise.resolve(params.city);
+  const city = cityParam.toLowerCase();
 
   if (!cityData[city]) {
     notFound();
@@ -846,10 +850,7 @@ export default function CityPage({ params }) {
 
       {/* Server-side rendered links for SEO - hidden from users but visible to crawlers */}
       <div style={{ display: "none" }} aria-hidden="true">
-        <h1>
-          Professional Courses in {cityInfo.name} - Connecting Dots ERP Training
-          Institute
-        </h1>
+        
 
         {/* All course links for SEO */}
         <div>
