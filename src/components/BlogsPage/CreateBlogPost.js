@@ -10,12 +10,15 @@ import {
   Bold, Italic, Underline, Link, AlignLeft, AlignCenter, AlignRight, AlignJustify, List, Type, Palette, Code, Quote, Video, Indent, Outdent, BookOpen
 } from 'lucide-react';
 
-// Import React-Quill
+// Import React-Quill from react-quill-new
 import dynamic from 'next/dynamic';
-import 'react-quill/dist/quill.snow.css';
+import 'react-quill-new/dist/quill.snow.css';
 
 // Dynamically import ReactQuill to avoid SSR issues
-const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+const ReactQuill = dynamic(() => import('react-quill-new'), { 
+  ssr: false,
+  loading: () => <div>Loading editor...</div> 
+});
 
 // Backend base URL - should match your Express server
 const API_BASE = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5002';
