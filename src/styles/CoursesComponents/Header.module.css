@@ -1,9 +1,3 @@
-/* critical: minimal above-the-fold rules first */
-.containerItDsHeader{position:relative;display:flex;justify-content:space-between;padding:70px;background-blend-mode:overlay;background-color:rgba(249,249,249,0.75);width:100%;max-width:1800px;height:600px;margin:0 auto;overflow:visible}
-.backgroundVideo{position:absolute;top:0;left:0;width:100vw;height:125%;object-fit:cover;z-index:-1;min-width:100%;min-height:100%;will-change:transform,opacity}
-.leftSectionItDs{max-width:50%;contain:content}
-
-/* rest of styles */
 @media (max-width: 320px) {
   .form {
     width: 100vw !important;
@@ -39,37 +33,6 @@
     margin-bottom: 0.5rem !important;
     display: block !important;
   }
-    /* Prevent large gaps caused by justified text on very small screens */
-  .leftSectionItDs h1,
-  .leftSectionItDs h2 {
-    text-align: left !important;
-    word-spacing: normal !important;
-    letter-spacing: normal !important;
-    white-space: normal !important;
-  }
-  .leftSectionItDs h2 span {
-    text-align: left !important;
-  }
-}
-/* Broader mobile fix: apply to typical phone widths to avoid justification gaps */
-@media (max-width: 480px) {
-  .leftSectionItDs h1,
-  .leftSectionItDs h2,
-  .leftSectionItDs p {
-    text-align: left !important;
-    word-spacing: normal !important;
-    letter-spacing: normal !important;
-    white-space: normal !important;
-    -webkit-hyphens: auto !important;
-    -ms-hyphens: auto !important;
-    hyphens: auto !important;
-  }
-  /* ensure any inline spans also left-align */
-  .leftSectionItDs h2 span,
-  .leftSectionItDs h1 span {
-    text-align: left !important;
-    display: inline !important;
-  }
 }
 .containerItDsHeader {
   position: relative;
@@ -82,7 +45,7 @@
   max-width: 1800px;
   height: 600px;
   margin: 0 auto;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .backgroundVideo {
@@ -95,12 +58,10 @@
   z-index: -1;
   min-width: 100%;
   min-height: 100%;
-  will-change: transform, opacity; /* hint for compositor */
 }
 
 .leftSectionItDs {
   max-width: 50%;
-  contain: content; /* isolate layout/paint */
 }
 
 .leftSectionItDs h1 {

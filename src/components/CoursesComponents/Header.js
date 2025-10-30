@@ -1,7 +1,7 @@
 // components/CoursesComponents/Header.js (Updated DSHeader)
- 
+
 "use client";
- 
+
 import { useState, useEffect, useMemo } from "react";
 // TypewriterPlaceholderInput for animated placeholder text
 // Synchronized typewriter effect for all placeholders
@@ -10,26 +10,21 @@ function useTypewriterSync(text, maxLen, duration = 3500) {
   const [displayed, setDisplayed] = useState("");
   const startTimeRef = useRef(Date.now());
   useEffect(() => {
-    let rafId;
-    let last = 0;
-    const minFrameMs = 1000 / 30; // throttle to ~30fps to reduce reflow
-    const animate = (t) => {
-      if (!last || t - last >= minFrameMs) {
-        last = t;
-        const now = Date.now();
-        const elapsed = (now - startTimeRef.current) % duration;
-        const progress = elapsed / duration;
-        const chars = Math.floor(progress * maxLen);
-        setDisplayed(text.slice(0, chars));
-      }
-      rafId = requestAnimationFrame(animate);
-    };
-    rafId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(rafId);
+    let frame;
+    function animate() {
+      const now = Date.now();
+      const elapsed = (now - startTimeRef.current) % duration;
+      const progress = elapsed / duration;
+      const chars = Math.floor(progress * maxLen);
+      setDisplayed(text.slice(0, chars));
+      frame = requestAnimationFrame(animate);
+    }
+    animate();
+    return () => cancelAnimationFrame(frame);
   }, [text, maxLen, duration]);
   return displayed;
 }
- 
+
 function TypewriterPlaceholderInput({ placeholder, syncLen, ...props }) {
   // syncLen: the max length among all placeholders
   const animatedPlaceholder = useTypewriterSync(placeholder, syncLen);
@@ -37,7 +32,7 @@ function TypewriterPlaceholderInput({ placeholder, syncLen, ...props }) {
 }
 import styles from "@/styles/CoursesComponents/Header.module.css";
 import Btnform from "@/components/HomePage/Btnform"; // Assuming Btnform is a client component
- 
+
 const countryCodes = [
   { code: "+91", country: "India", minLength: 10, maxLength: 10 },
   { code: "+1", country: "USA", minLength: 10, maxLength: 10 },
@@ -51,7 +46,7 @@ const countryCodes = [
   { code: "+39", country: "Italy", minLength: 10, maxLength: 10 },
   { code: "+55", country: "Brazil", minLength: 10, maxLength: 11 },
   { code: "+34", country: "Spain", minLength: 9, maxLength: 9 },
-  { code: "+27", country: "South Afric", minLength: 9, maxLength: 9 },
+  { code: "+27", country: "South Africa", minLength: 9, maxLength: 9 },
   { code: "+971", country: "UAE", minLength: 9, maxLength: 9 },
   { code: "+62", country: "Indonesia", minLength: 10, maxLength: 12 },
   { code: "+90", country: "Turkey", minLength: 10, maxLength: 10 },
@@ -60,14 +55,14 @@ const countryCodes = [
   { code: "+31", country: "Netherlands", minLength: 9, maxLength: 9 },
   { code: "+52", country: "Mexico", minLength: 10, maxLength: 10 },
 ];
- 
+
 // DSHeader now directly receives the 'data' prop (already processed with city placeholders replaced)
 const DSHeader = ({ data }) => {
   const [formData, setFormData] = useState({ countryCode: "+91", contact: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState({ text: "", type: "" });
   const [showForm, setShowForm] = useState(false);
- 
+
   // Clear status message after 5 seconds
   useEffect(() => {
     if (statusMessage.text) {
@@ -77,7 +72,7 @@ const DSHeader = ({ data }) => {
       return () => clearTimeout(timer);
     }
   }, [statusMessage]);
- 
+
   // If data is null or undefined, render a loading/error state
   if (!data) {
     return (
@@ -86,10 +81,10 @@ const DSHeader = ({ data }) => {
       </div>
     );
   }
- 
+
   const handleChange = (event) => {
     const { name, value } = event.target;
- 
+
     if (name === "contact") {
       const digitsOnly = value.replace(/\D/g, "");
       setFormData((prevData) => ({ ...prevData, [name]: digitsOnly }));
@@ -97,7 +92,7 @@ const DSHeader = ({ data }) => {
       setFormData((prevData) => ({ ...prevData, [name]: value }));
     }
   };
- 
+
   const validateForm = () => {
     if (!formData.name || !formData.email || !formData.contact) {
       setStatusMessage({
@@ -106,11 +101,11 @@ const DSHeader = ({ data }) => {
       });
       return false;
     }
- 
+
     const selectedCountry = countryCodes.find(
       (country) => country.code === formData.countryCode
     );
- 
+
     if (!selectedCountry) {
       setStatusMessage({
         text: "Invalid country code",
@@ -118,9 +113,9 @@ const DSHeader = ({ data }) => {
       });
       return false;
     }
- 
+
     const { minLength, maxLength } = selectedCountry;
- 
+
     if (
       formData.contact.length < minLength ||
       formData.contact.length > maxLength
@@ -131,7 +126,7 @@ const DSHeader = ({ data }) => {
       });
       return false;
     }
- 
+
     const phoneRegex = /^\d+$/;
     if (!phoneRegex.test(formData.contact)) {
       setStatusMessage({
@@ -140,7 +135,7 @@ const DSHeader = ({ data }) => {
       });
       return false;
     }
- 
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       setStatusMessage({
@@ -149,20 +144,20 @@ const DSHeader = ({ data }) => {
       });
       return false;
     }
- 
+
     return true;
   };
- 
+
   const handleSubmit = async (event) => {
     event.preventDefault();
- 
+
     if (!validateForm()) {
       return;
     }
- 
+
     setIsSubmitting(true);
     setStatusMessage({ text: "", type: "" });
- 
+
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/api/submit`,
@@ -172,16 +167,16 @@ const DSHeader = ({ data }) => {
           body: JSON.stringify(formData),
         }
       );
- 
+
       if (!response.ok) {
         throw new Error("Submission failed. Please try again.");
       }
- 
+
       setStatusMessage({
         text: "Form submitted successfully!",
         type: "success",
       });
- 
+
       setFormData({
         name: "",
         email: "",
@@ -198,36 +193,28 @@ const DSHeader = ({ data }) => {
       setIsSubmitting(false);
     }
   };
- 
+
   const handleButtonClick = () => setShowForm(true);
   const handleCloseForm = () => setShowForm(false);
- 
+
   return (
     <div className={styles.containerItDsHeader}>
       {/* Removed <Head> component here as metadata is handled by page.js */}
- 
+
       {/* 🔹 Background Video */}
       <video
-  className="absolute top-0 left-0 w-full h-full object-cover opacity-25 z-0"
-  preload="auto"
-  fetchpriority="high"
-  autoPlay
-  loop
-  muted
-  playsInline
-  poster={data.backgroundPoster || undefined}
->
-  <source src={data.backgroundVideo} type="video/mp4" />
-</video>
+        className={styles.backgroundVideo}
+        src={data.backgroundVideo} // Use data from props
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
 
- 
       <div className={styles.leftSectionItDs}>
-      <h2>
-          <span className={styles.dsHeaderSpan} style={{ color: 'red', fontSize: '32px' }}>
-            {data.title}
-          </span>
-        </h2>
-
+        <h1>
+          <span className={styles.dsHeaderSpan}>{data.title}</span>
+        </h1>
         <h2>
           <span className={styles.dsHeaderSpan2}>{data.subtitle}</span>
         </h2>
@@ -286,10 +273,10 @@ const DSHeader = ({ data }) => {
           })()}
         </div>
       </div>
- 
+
       <div className={styles.rightSectionItDs}>
         <h3>{data.form.title}</h3>
- 
+
         {statusMessage.text && (
           <div
             className={`${styles.statusMessage} ${styles[statusMessage.type]}`}
@@ -297,7 +284,7 @@ const DSHeader = ({ data }) => {
             {statusMessage.text}
           </div>
         )}
- 
+
         <form onSubmit={handleSubmit} className={styles.form}>
           {(() => {
             // Find the max length among all placeholders for sync
@@ -367,7 +354,7 @@ const DSHeader = ({ data }) => {
               }
             });
           })()}
- 
+
           <button
             type="submit"
             className={`${styles.submitButtonItDs} ${isSubmitting ? styles.loading : ""}`}
@@ -384,12 +371,10 @@ const DSHeader = ({ data }) => {
           </button>
         </form>
       </div>
- 
+
       {showForm && <Btnform onClose={handleCloseForm} />}
     </div>
   );
 };
- 
+
 export default DSHeader;
- 
- 

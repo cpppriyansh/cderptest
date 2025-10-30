@@ -10,6 +10,8 @@ import Footer from "@/components/Common/Footer";
 import CallAdvisorsStrip from "@/components/Common/CallAdvisorsStrip";
 import Marquee from "@/components/Common/Marquee";
 import ServerPing from "@/components/ServerPing";
+
+import ConditionalAuthProvider from "@/app/conditionalprovider";
 import ClientLayoutWrapper from "@/components/ClientLayoutWrapper";
 
 // --- Font Setup ---
@@ -100,7 +102,11 @@ export default function RootLayout({ children }) {
         <Navbar />
 
         {/* Client-Side Wrapper */}
-        <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
+        <ConditionalAuthProvider>
+          <ClientLayoutWrapper>
+            {children}
+          </ClientLayoutWrapper>
+        </ConditionalAuthProvider>
 
         <Footer />
 
