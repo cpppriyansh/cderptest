@@ -5,12 +5,12 @@ const nextConfig = {
     NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
   },
 
-  // ✅ SIMPLIFIED: Experimental features
+  // Experimental features
   experimental: {
     optimizeCss: true,
   },
 
-  // ✅ FIXED: Image configuration
+  // Image configuration
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -20,70 +20,51 @@ const nextConfig = {
       {
         protocol: "http",
         hostname: "blog-page-panel.onrender.com",
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "imgur.com",
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "i.imgur.com",
+        pathname: "/**",
       },
       {
-        protocol: "https",
+        // ✅ FIXED: Changed 'https://' to 'https'
+        protocol: "https", 
         hostname: "images.unsplash.com",
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "plus.unsplash.com",
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "res.cloudinary.com",
+        pathname: "/**",
       },
-    ],
-    domains: [
-      "i.imgur.com",
-      "imgur.com",
-      "blog-page-panel.onrender.com",
-      "images.unsplash.com",
-      "plus.unsplash.com",
-      "res.cloudinary.com",
     ],
   },
 
-  // ✅ FIXED: Compiler optimizations
+  // Compiler optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
 
-  // Enable Next.js CSS optimization pipeline
-  optimizeFonts: true,
-  swcMinify: true,
+  // ❌ REMOVED: Unrecognized top-level keys
+  // optimizeFonts: true,
+  // swcMinify: true,
+  
+  // These are enabled by default in modern Next.js
   compress: true,
   poweredByHeader: false,
 
-  // ✅ REMOVED: Webpack configuration with Critical CSS plugin (causing constructor error)
-  // webpack: (config, { isServer }) => {
-  //   if (!isServer) {
-  //     import('critical').then(({ CriticalPlugin }) => {
-  //       config.plugins.push(
-  //         new CriticalPlugin({
-  //           base: 'out/',
-  //           src: 'index.html',
-  //           target: { css: 'critical.css' },
-  //           inline: true,
-  //           minify: true,
-  //         })
-  //       );
-  //     }).catch((err) => {
-  //       console.warn('Critical plugin could not be loaded:', err);
-  //     });
-  //   }
-  //   return config;
-  // },
-
-  // ✅ FIXED: Headers for proper caching
+  // Headers for caching
   async headers() {
     return [
       {
@@ -120,7 +101,7 @@ const nextConfig = {
     ];
   },
 
-  // ✅ FIXED: Rewrites
+  // Rewrites
   async rewrites() {
     return [
       {
@@ -144,7 +125,7 @@ const nextConfig = {
     ];
   },
 
-  // ✅ FIXED: Redirects
+  // Redirects
   async redirects() {
     return [
       {
