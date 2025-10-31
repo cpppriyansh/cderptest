@@ -213,6 +213,8 @@ const PopupForm = ({ onSubmitData }) => {
       "/dashboard",
       "/blogsadmin",
       "/superadmin",
+      "/blog-admin",
+      "/blog-admin/users",
     ];
 
     const currentPath = pathname?.toLowerCase() || "";

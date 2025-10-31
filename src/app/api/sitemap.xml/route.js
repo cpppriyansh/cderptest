@@ -109,7 +109,6 @@ export async function GET() {
     "hr-generalist-course-in",
   ];
 
-  const quizPages = ["react", "javascript", "nextjs"];
 
   // Generate course and city URLs
   const courseUrls = courses.flatMap((course) =>
@@ -148,17 +147,7 @@ export async function GET() {
       <priority>0.6</priority>
     </url>
     `,
-    // Individual quiz pages
-    ...quizPages.map(
-      (quiz) => `
-      <url>
-        <loc>${baseUrl}/quiz/${quiz}</loc>
-        <lastmod>${new Date().toISOString().split("T")[0]}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-      </url>
-    `
-    ),
+    
   ];
 
   // Static pages (Home & About Us)
@@ -190,6 +179,14 @@ export async function GET() {
     `
     <url>
       <loc>${baseUrl}/sitemap</loc>
+      <lastmod>${new Date().toISOString().split("T")[0]}</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>0.9</priority>
+    </url>
+    `,
+    `
+    <url>
+      <loc>${baseUrl}/blogs</loc>
       <lastmod>${new Date().toISOString().split("T")[0]}</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.9</priority>

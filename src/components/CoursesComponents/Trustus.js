@@ -8,7 +8,7 @@ const TrustUs = () => {
   const logoFilenames = [
     "airmeet.avif", "Aru.avif", "ask.avif", "bharatgri.avif", "Accenture.avif",
     "Binary.avif", "bostonbyte.avif", "caprium.avif", "capita.avif", "crisil.avif",
-    "cummins.avif", "Dconverge.avif", "dream11.avif", "eatfit.avif", "exl.avif",
+    "cummins.avif", "Dconverge.avif", "eatfit.avif", "exl.avif",
     "firstcry.avif", "genius.avif", "gns(1).avif", "God.avif", "hdfc.avif",
     "homelane.avif", "Ibmm.avif", "intelliswift.avif", "iss.avif", "jindal.avif",
     "john.avif", "Kelly (1).avif", "Koh.avif", "leapfinance.avif",
