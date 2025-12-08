@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
 
 export default function Achievement() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -144,17 +143,12 @@ export default function Achievement() {
         <div className={`${isScrolling ? '' : 'absolute inset-0'} rounded-sm relative`} style={isScrolling ? { height: `${cardHeight}px` } : { transform: 'translateZ(-2px)' }}>
           {/* Image container */}
           <div className="absolute rounded-sm overflow-hidden bg-black" style={{ inset: '7px' }}>
-          <div className={`absolute inset-0 ${imageClass}`} style={imageStyle}>
-            <Image
-              src={card.image}
-              alt={card.title || 'Card'}
-              fill
-              sizes={`(max-width: 768px) ${card.width || 145}px, ${card.width || 145}px`}
-              className="object-cover"
-              quality={75}
-              loading="lazy"
-            />
-          </div>
+          <img 
+            src={card.image}
+            alt={card.title || 'Card'}
+            className={`absolute inset-0 w-full h-full ${imageClass}`}
+            style={imageStyle}
+          />
 
           {highlightBottom && (
             <>
