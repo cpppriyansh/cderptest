@@ -1,5 +1,4 @@
 // src/app/layout.js - With Partytown Integration (Fixed)
-
 import { Lato, Rubik } from "next/font/google";
 import Script from "next/script";
 import { Partytown } from "@builder.io/partytown/react";
@@ -77,7 +76,6 @@ export default function RootLayout({ children }) {
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msvalidate.01" content="9ACF89BD41333B26F8C154D46FDD8E5D" />
       </head>
-
       <body className={`body bg-black ${lato.className} ${rubik.className}`}>
         {/* GTM noscript fallback */}
         <noscript

@@ -54,6 +54,7 @@ import Floatingcontact from "@/components/Floatingcontact";
 import BottomMenu from "@/components/BottomMenu";
 import ScrollToTop from "@/components/ScrollToTop";
 import CourseLoader from "@/components/CourseLoader";
+import PerformanceWrapper from "@/components/PerformanceWrapper";
 
 // 2. ACCEPT THE { children } PROP
 export default function ClientLayoutWrapper({ children }) {
@@ -111,8 +112,9 @@ export default function ClientLayoutWrapper({ children }) {
 
   return (
     <CityProvider>
-      {/* 4. RENDER THE ACTUAL PAGE CONTENT HERE */}
-      {children}
+      <PerformanceWrapper>
+        {/* 4. RENDER THE ACTUAL PAGE CONTENT HERE */}
+        {children}
 
       {/* All of your global client-side components */}
       <BackgroundAnimation />
@@ -140,6 +142,7 @@ export default function ClientLayoutWrapper({ children }) {
 
       {!shouldHideComponent && <WaveComponent />}
       <BottomMenu />
+      </PerformanceWrapper>
     </CityProvider>
   );
 }

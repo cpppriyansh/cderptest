@@ -1,61 +1,53 @@
-// /src/hooks/useOptimizePerformance.js
+"use client";
 
 import { useEffect } from "react";
 
 /**
- * A global performance optimization hook to:
- * - Reduce forced reflows
- * - Throttle scroll events
- * - Debounce resize events
- * - Batch DOM reads & writes in rAF
+ * Globally optimizes scroll + resize behavior
+ * to reduce forced reflows, layout thrashing, and TBT.
+ * Safe with Next.js App Router + Partytown scripts.
  */
 
 export default function useOptimizePerformance() {
-  
-  // Scroll Throttle (Prevents layout thrashing)
+
+  // 🚀 Throttle Scroll + Avoid Layout Thrash
   useEffect(() => {
     let ticking = false;
 
-    const handleScroll = () => {
+    const onScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          document.body.dataset.scrollY = window.scrollY.toString();
+          // Store only values, do NOT change layout!
+          document.documentElement.dataset.scrollY = String(window.scrollY);
           ticking = false;
         });
         ticking = true;
       }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  
-  // Resize Debounce (Prevents repeated reflows)
-  useEffect(() => {
-    let resizeTimeout = null;
 
-    const handleResize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        document.body.dataset.windowWidth = window.innerWidth.toString();
+  // 📏 Debounce Resize Events
+  useEffect(() => {
+    let timer;
+    const onResize = () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        document.documentElement.dataset.windowWidth = String(window.innerWidth);
       }, 150);
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, []);
 
 
-  // Smooth DOM writes without layout re-calc issues
+  // ✨ Set initial measurement instantly on mount
   useEffect(() => {
-    const updateLayout = () => {
-      document.body.dataset.scrollY = window.scrollY.toString();
-      document.body.dataset.windowWidth = window.innerWidth.toString();
-    };
-
-    const raf = requestAnimationFrame(updateLayout);
-    return () => cancelAnimationFrame(raf);
+    document.documentElement.dataset.scrollY = String(window.scrollY);
+    document.documentElement.dataset.windowWidth = String(window.innerWidth);
   }, []);
-
 }
