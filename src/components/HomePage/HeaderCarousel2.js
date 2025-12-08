@@ -17,84 +17,84 @@ const CareerMentorsComponent = () => {
   const containerRef = useRef(null);
   const rafRef = useRef(null);
 
-  // Memoized companies data
+  // Memoized companies data with optimized Cloudinary URLs
   const companies = useMemo(() => [
     { 
       name: 'Cisco', 
       mentors: 8, 
       experience: '12+',
       color: '#1e3a8a',
-      logo: 'https://res.cloudinary.com/drvug594q/image/upload/v1754119549/A_czofnz.avif'
+      logo: 'https://res.cloudinary.com/drvug594q/image/upload/w_100,h_100,c_fit,q_auto,f_auto/v1754119549/A_czofnz.avif'
     },
     { 
       name: 'Accenture', 
       mentors: 12, 
       experience: '11+',
       color: '#5b21b6',
-      logo: 'https://res.cloudinary.com/drvug594q/image/upload/v1754119549/B_ur486e.avif'
+      logo: 'https://res.cloudinary.com/drvug594q/image/upload/w_100,h_100,c_fit,q_auto,f_auto/v1754119549/B_ur486e.avif'
     },
     { 
       name: 'Amdocs', 
       mentors: 6, 
       experience: '13+',
       color: '#1f2937',
-      logo: 'https://res.cloudinary.com/duz9xipfm/image/upload/v1762153226/DOX-148df523_n8rgrn_hffbit.avif'
+      logo: 'https://res.cloudinary.com/duz9xipfm/image/upload/w_100,h_100,c_fit,q_auto,f_auto/v1762153226/DOX-148df523_n8rgrn_hffbit.avif'
     },
     { 
-      name: 'Meta', 
+      name: 'Cognizant', 
       mentors: 7, 
       experience: '9+',
       color: '#1d4ed8',
-      logo: 'https://res.cloudinary.com/duz9xipfm/image/upload/v1762153105/CTSH-82a8444b_s0dbpx_gxn6sj.avif'
+      logo: 'https://res.cloudinary.com/duz9xipfm/image/upload/w_100,h_100,c_fit,q_auto,f_auto/v1762153105/CTSH-82a8444b_s0dbpx_gxn6sj.avif'
     },
     { 
-      name: 'Netflix', 
+      name: 'Infosys', 
       mentors: 5, 
       experience: '8+',
       color: '#b91c1c',
-      logo: 'https://res.cloudinary.com/drvug594q/image/upload/v1754119548/F_ik0hbh.avif'
+      logo: 'https://res.cloudinary.com/drvug594q/image/upload/w_100,h_100,c_fit,q_auto,f_auto/v1754119548/F_ik0hbh.avif'
     },
     { 
-      name: 'Tesla', 
+      name: 'Wipro', 
       mentors: 4, 
       experience: '14+',
       color: '#7f1d1d',
-      logo: 'https://res.cloudinary.com/drvug594q/image/upload/v1754119538/G_ea3rjb.avif'
+      logo: 'https://res.cloudinary.com/drvug594q/image/upload/w_100,h_100,c_fit,q_auto,f_auto/v1754119538/G_ea3rjb.avif'
     },
     { 
-      name: 'Spotify', 
+      name: 'IBM', 
       mentors: 6, 
       experience: '7+',
       color: '#047857',
-      logo: 'https://res.cloudinary.com/drvug594q/image/upload/v1754119538/H_ulxtbz.avif'
+      logo: 'https://res.cloudinary.com/drvug594q/image/upload/w_100,h_100,c_fit,q_auto,f_auto/v1754119538/H_ulxtbz.avif'
     },
     { 
-      name: 'Adobe', 
+      name: 'TCS', 
       mentors: 8, 
       experience: '11+',
       color: '#b91c1c',
-      logo: 'https://res.cloudinary.com/duz9xipfm/image/upload/v1762153488/TCS_wordmark_2020_coekk1_rkyfry.avif'
+      logo: 'https://res.cloudinary.com/duz9xipfm/image/upload/w_100,h_100,c_fit,q_auto,f_auto/v1762153488/TCS_wordmark_2020_coekk1_rkyfry.avif'
     },
     { 
-      name: 'Salesforce', 
+      name: 'BMW', 
       mentors: 9, 
       experience: '10+',
       color: '#0369a1',
-      logo: 'https://res.cloudinary.com/drvug594q/image/upload/v1754119537/J_nek9z0.avif'
+      logo: 'https://res.cloudinary.com/drvug594q/image/upload/w_100,h_100,c_fit,q_auto,f_auto/v1754119537/J_nek9z0.avif'
     },
     { 
-      name: 'Uber', 
+      name: 'L&T ', 
       mentors: 5, 
       experience: '8+',
       color: '#111827',
-      logo: 'https://res.cloudinary.com/drvug594q/image/upload/v1754119537/K_vfcxtt.avif'
+      logo: 'https://res.cloudinary.com/drvug594q/image/upload/w_100,h_100,c_fit,q_auto,f_auto/v1754119537/K_vfcxtt.avif'
     },
     { 
-      name: 'Airbnb', 
+      name: 'Deloitte', 
       mentors: 7, 
       experience: '9+',
       color: '#be123c',
-      logo: 'https://res.cloudinary.com/drvug594q/image/upload/v1754119537/L_mq7q48.avif'
+      logo: 'https://res.cloudinary.com/drvug594q/image/upload/w_100,h_100,c_fit,q_auto,f_auto/v1754119537/L_mq7q48.avif'
     }
   ], []);
 
@@ -254,9 +254,9 @@ const CareerMentorsComponent = () => {
 
   // Size calculations
   const logoSize = useMemo(() => {
-    if (isTablet) return 'w-18 h-18';
-    if (isDesktop) return 'w-20 h-20 lg:w-24 lg:h-24';
-    return 'w-16 h-16';
+    if (isTablet) return { className: 'w-18 h-18', width: 72, height: 72 };
+    if (isDesktop) return { className: 'w-20 h-20 lg:w-24 lg:h-24', width: 96, height: 96 };
+    return { className: 'w-16 h-16', width: 64, height: 64 };
   }, [isTablet, isDesktop]);
 
   const centralHubSize = useMemo(() => {
@@ -265,7 +265,7 @@ const CareerMentorsComponent = () => {
     return 'w-28 h-24';
   }, [isTablet, isDesktop]);
 
-  // PlacementBadge component
+  // PlacementBadge component with optimized image
   const PlacementBadge = useMemo(() => (
     <div className="relative group max-w-md mx-auto lg:mx-0 overflow-visible">
       <div className="absolute inset-1 sm:inset-0 bg-gradient-to-br from-blue-700 via-blue-500 to-blue-600 rounded-2xl sm:rounded-3xl blur-lg sm:blur-xl opacity-10 sm:opacity-15 group-hover:opacity-20 sm:group-hover:opacity-25 transition-opacity duration-500"></div>
@@ -277,9 +277,12 @@ const CareerMentorsComponent = () => {
         <div className="relative flex items-center space-x-3 sm:space-x-4 lg:space-x-6">
           <div className="relative flex-shrink-0">
             <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white/20 rounded-xl p-1.5 sm:p-2 backdrop-blur-sm">
-              <img
-                src="https://res.cloudinary.com/dujs6xvde/image/upload/v1760087082/medal_lyetf6_compressed_mb40gt.avif"
+              <Image
+                src="https://res.cloudinary.com/dujs6xvde/image/upload/w_100,h_100,c_fit,q_auto,f_auto/v1760087082/medal_lyetf6_compressed_mb40gt.avif"
                 alt="Medal icon"
+                width={48}
+                height={48}
+                sizes="(max-width: 640px) 32px, (max-width: 1024px) 40px, 48px"
                 className="w-full h-full object-contain filter brightness-110"
                 loading="lazy"
               />
@@ -302,7 +305,7 @@ const CareerMentorsComponent = () => {
     </div>
   ), []);
 
-  // Company logo components
+  // Company logo components with proper Image optimization
   const companyLogos = useMemo(() => 
     companies.map((company, index) => {
       const logoStyle = getLogoTransform(index);
@@ -318,7 +321,7 @@ const CareerMentorsComponent = () => {
         >
           <div className="relative flex items-center justify-center">
             <div 
-              className={`${logoSize} rounded-full flex items-center justify-center shadow-lg transition-all duration-200 bg-blue-200 group-hover:scale-105 border-2`}
+              className={`${logoSize.className} rounded-full flex items-center justify-center shadow-lg transition-all duration-200 bg-blue-200 group-hover:scale-105 border-2`}
               style={{
                 borderColor: `${company.color}40`,
                 boxShadow: `0 4px 20px ${company.color}15, 0 2px 10px rgba(0,0,0,0.1)`
@@ -327,17 +330,16 @@ const CareerMentorsComponent = () => {
               <div className="relative w-3/4 h-3/4 flex items-center justify-center">
                 <Image 
                   src={company.logo} 
-                  alt={company.name}
-                  fill
-                  sizes="(max-width: 768px) 40px, 60px"
+                  alt={`${company.name} logo`}
+                  width={logoSize.width}
+                  height={logoSize.height}
+                  sizes="(max-width: 768px) 64px, (max-width: 1024px) 72px, 96px"
                   className="object-contain group-hover:scale-105 transition-transform duration-200"
                   style={{
                     filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
-                    objectFit: 'contain',
-                    objectPosition: 'center'
                   }}
-                  decoding="async"
-                  priority={index < 5}
+                  loading={index < 5 ? "eager" : "lazy"}
+                  priority={index < 3}
                 />
               </div>
             </div>
@@ -354,7 +356,7 @@ const CareerMentorsComponent = () => {
     }), [companies, getLogoTransform, logoSize]
   );
 
-  // Connection lines
+  // Connection lines (rest of the component remains the same)
   const connectionLines = useMemo(() => {
     if (animationState !== 'complete') return null;
 
@@ -386,7 +388,7 @@ const CareerMentorsComponent = () => {
     );
   }, [animationState, companies, getLogoPosition]);
 
-  return (
+return (
     <div className="relative w-full min-h-* overflow-hidden flex">
 
       <div
@@ -670,6 +672,7 @@ const CareerMentorsComponent = () => {
       </div>
     </div>
   );
+
 };
 
 export default CareerMentorsComponent;

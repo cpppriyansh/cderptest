@@ -1,8 +1,44 @@
-'use client';
-'use client';
+"use client";
+
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
-import { usePathname } from 'next/navigation';
+
+const renderAnswer = (answer) => {
+  // Case 1: Array of strings (SAP / HR wale)
+  if (Array.isArray(answer)) {
+    return (
+      <div className="space-y-2 text-gray-700 leading-relaxed">
+        {answer.map((line, idx) => (
+          <p key={idx}>{line}</p>
+        ))}
+      </div>
+    );
+  }
+
+  // Case 2: String (HTML ya plain)
+  if (typeof answer === 'string') {
+    const looksLikeHtml = /<\/?[a-z][\s\S]*>/i.test(answer);
+
+    if (looksLikeHtml) {
+      // Python / Data Science waale answers (p, ul, pre, code, etc.)
+      return (
+        <div
+          className="prose max-w-none text-gray-700 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: answer }}
+        />
+      );
+    }
+
+    // Normal string with \n etc.
+    return (
+      <p className="whitespace-pre-line text-gray-700 leading-relaxed">
+        {answer}
+      </p>
+    );
+  }
+
+  return null;
+};
 
 const InterviewCategoryPage = () => {
   const { category } = useParams();
@@ -13,7 +49,6 @@ const InterviewCategoryPage = () => {
   const [selectedResource, setSelectedResource] = useState('');
   const questionsRef = useRef(null);
   const searchParams = useSearchParams();
-  const pathname = usePathname();
 
   useEffect(() => {
     const fetchInterviewData = async () => {
@@ -23,14 +58,15 @@ const InterviewCategoryPage = () => {
           throw new Error('Failed to fetch interview data');
         }
         const data = await response.json();
-        const categoryData = data.find(item => 
+
+        const categoryData = data.find(item =>
           item.heading.toLowerCase().includes(category?.toLowerCase() || '')
         );
-        
+
         if (!categoryData) {
           throw new Error('Category not found');
         }
-        
+
         setInterviewData(categoryData);
         setSelectedResource(categoryData.resources?.[0] || '');
         setError(null);
@@ -44,12 +80,11 @@ const InterviewCategoryPage = () => {
 
     if (category) {
       fetchInterviewData().then(() => {
-        // Check if we should scroll to questions
         const scrollToQuestions = searchParams.get('scroll') === 'questions';
         if (scrollToQuestions && questionsRef.current) {
           setTimeout(() => {
             questionsRef.current.scrollIntoView({ behavior: 'smooth' });
-            // Update URL without the scroll parameter
+
             const url = new URL(window.location.href);
             url.searchParams.delete('scroll');
             window.history.replaceState({}, '', url.toString());
@@ -67,7 +102,7 @@ const InterviewCategoryPage = () => {
     if (!interviewData?.qaData || !selectedResource) return [];
     const targetQuestion = interviewData.topicMap?.[selectedResource];
     if (!targetQuestion) return interviewData.qaData;
-    
+
     const reorderedData = [...interviewData.qaData];
     const targetIndex = reorderedData.findIndex(item => item.question === targetQuestion);
     if (targetIndex > 0) {
@@ -117,12 +152,16 @@ const InterviewCategoryPage = () => {
   }
 
   return (
-    <div className="relative w-8xl max-w-[1800px] mx-auto overflow-hidden  p-6 bg-white">
+    <div className="relative w-8xl max-w-[1800px] mx-auto overflow-hidden p-6 bg-white">
       <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">{interviewData.heading}</h1>
-        <p className="text-gray-600 mb-6">{interviewData.description}</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          {interviewData.heading}
+        </h1>
+        <p className="text-gray-600 mb-6">
+          {interviewData.description}
+        </p>
       </div>
-      
+
       <div ref={questionsRef} className="flex flex-col lg:flex-row gap-8">
         {interviewData.resources?.length > 0 && (
           <div className="lg:w-1/4 order-2 lg:order-1">
@@ -154,17 +193,14 @@ const InterviewCategoryPage = () => {
           {interviewData.qaData?.length > 0 ? (
             <div className="space-y-6">
               {getReorderedQuestions().map((item, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 p-6"
                 >
                   <h2 className="text-xl font-bold text-blue-800 mb-4">
                     {idx + 1}. {item.question}
                   </h2>
-                  <div 
-                    className="text-gray-700 leading-relaxed" 
-                    dangerouslySetInnerHTML={{ __html: item.answer }} 
-                  />
+                  {renderAnswer(item.answer)}
                 </div>
               ))}
             </div>
