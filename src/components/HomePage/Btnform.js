@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "@/styles/HomePage/Btnform.module.css";
 import { User, Mail, Phone, MapPin, X, CheckCircle } from "lucide-react";
 import cities from 'cities.json';

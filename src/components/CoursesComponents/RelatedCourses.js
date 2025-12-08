@@ -8,7 +8,6 @@ import styles from "@/styles/CoursesComponents/RelatedCourses.module.css";
 import ContactForm from "@/components/HomePage/Btnform"; // Assuming Btnform is your ContactForm
 // Removed: import { CityContext } from "@/context/CityContext"; // Not needed
 import { Carousel } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import dynamic from "next/dynamic";
 
 // CoursesRelated now directly receives the 'data' prop

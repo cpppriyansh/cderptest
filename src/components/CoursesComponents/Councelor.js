@@ -4,8 +4,12 @@ import React, { useEffect, useState } from "react";
 import Btnform from "@/components/HomePage/Btnform";
 import styles from "@/styles/CoursesComponents/Councelor.module.css";
 import dynamic from "next/dynamic";
-const AOSModule = dynamic(() => import('aos'), { ssr: false });
-import 'aos/dist/aos.css'
+
+// Dynamically import AOS with SSR disabled
+const AOS = dynamic(() => import('aos').then(mod => mod.default), {
+  ssr: false,
+  loading: () => null,
+});
 
 const Councelor = () => {
   const [showForm, setShowForm] = useState(false)
@@ -19,20 +23,48 @@ const Councelor = () => {
   }
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
     let mounted = true;
-    (async () => {
-      if (typeof window !== "undefined") {
-        const AOS = (await import('aos')).default;
-        // Defer init to idle time to avoid layout thrash during LCP
-        const init = () => AOS.init({ duration: 150, once: true, startEvent: 'load' });
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(() => mounted && init(), { timeout: 2000 });
-        } else {
-          setTimeout(() => mounted && init(), 800);
+    
+    const initAOS = async () => {
+      if (AOS) {
+        try {
+          const AOS = (await import('aos')).default;
+          AOS.init({
+            duration: 150,
+            once: true,
+            startEvent: 'load',
+            offset: 100,
+            easing: 'ease-in-out',
+            delay: 100
+          });
+          
+          // Refresh AOS when components are dynamically loaded
+          const handleRouteChange = () => AOS.refresh();
+          window.addEventListener('load', handleRouteChange);
+          
+          return () => {
+            window.removeEventListener('load', handleRouteChange);
+            if (mounted) AOS.refreshHard();
+          };
+        } catch (error) {
+          console.error('Error initializing AOS:', error);
         }
       }
-    })();
-    return () => { mounted = false; };
+    };
+
+    // Use requestIdleCallback if available, otherwise use a small timeout
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(initAOS, { timeout: 2000 });
+    } else {
+      const timer = setTimeout(initAOS, 800);
+      return () => clearTimeout(timer);
+    }
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   return (

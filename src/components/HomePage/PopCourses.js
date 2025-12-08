@@ -3,9 +3,13 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Button, Form, Modal, Spinner } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "@/styles/HomePage/PopCourses.module.css";
 import dynamic from "next/dynamic";
+
+// Lazy load Toastify CSS only when needed
+if (typeof window !== 'undefined') {
+  import('react-toastify/dist/ReactToastify.css').catch(console.error);
+}
 import {
   FaStar,
   FaUser,
@@ -14,7 +18,6 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 // Country codes with flags (Unicode) and phone number lengths
 const countryCodes = [
