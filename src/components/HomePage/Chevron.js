@@ -1,207 +1,227 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
-import { User, AlignLeft, Clock } from 'lucide-react';
-import BackgroundAnimation from '@/components/Common/BackgroundAnimation';
+import React, { useState, useEffect, useRef, useMemo } from "react";
+import Image from "next/image";
+import BackgroundAnimation from "@/components/Common/BackgroundAnimation";
 
-// Custom Icons as SVG components
-const phases = () => (
+// Memoized SVG icons (no props, so React.memo is safe)
+
+const Phases = React.memo(() => (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-    <path 
-      d="M5 20 Q10 10, 15 20 Q20 30, 25 20 Q30 10, 35 20" 
-      stroke="currentColor" 
-      strokeWidth="2.5" 
+    <path
+      d="M5 20 Q10 10, 15 20 Q20 30, 25 20 Q30 10, 35 20"
+      stroke="currentColor"
+      strokeWidth="2.5"
       fill="none"
       strokeLinecap="round"
     />
-    <path 
-      d="M8 25 Q13 15, 18 25 Q23 35, 28 25 Q33 15, 38 25" 
-      stroke="currentColor" 
-      strokeWidth="2" 
+    <path
+      d="M8 25 Q13 15, 18 25 Q23 35, 28 25 Q33 15, 38 25"
+      stroke="currentColor"
+      strokeWidth="2"
       fill="none"
       strokeLinecap="round"
       opacity="0.6"
     />
   </svg>
-);
+));
 
-const OuterSinusoidalWave = () => (
-  <svg width="600" height="160" viewBox="0 0 600 160" fill="none" className="absolute -top-10 -left-8">
-    {/* Thinner accent waves (kept) */}
-    <path 
-     
-    />
-    
-    <path 
-     
-    />
+const OuterSinusoidalWave = React.memo(() => (
+  <svg
+    width="600"
+    height="160"
+    viewBox="0 0 600 160"
+    fill="none"
+    className="absolute -top-10 -left-8"
+  >
+    <path />
+    <path />
   </svg>
-);
+));
 
-const DatabaseIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-    <rect x="6" y="8" width="28" height="6" rx="3" stroke="currentColor" strokeWidth="2.5" fill="none"/>
-    <rect x="6" y="17" width="28" height="6" rx="3" stroke="currentColor" strokeWidth="2.5" fill="none"/>
-    <rect x="6" y="26" width="28" height="6" rx="3" stroke="currentColor" strokeWidth="2.5" fill="none"/>
-    <circle cx="12" cy="11" r="1.5" fill="currentColor"/>
-    <circle cx="12" cy="20" r="1.5" fill="currentColor"/>
-    <circle cx="12" cy="29" r="1.5" fill="currentColor"/>
-  </svg>
-);
-
-const NetworkIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-    <rect x="8" y="6" width="6" height="8" stroke="currentColor" strokeWidth="2" fill="none"/>
-    <rect x="26" y="6" width="6" height="8" stroke="currentColor" strokeWidth="2" fill="none"/>
-    <rect x="8" y="26" width="6" height="8" stroke="currentColor" strokeWidth="2" fill="none"/>
-    <rect x="26" y="26" width="6" height="8" stroke="currentColor" strokeWidth="2" fill="none"/>
-    <rect x="17" y="16" width="6" height="8" stroke="currentColor" strokeWidth="2" fill="none"/>
-    <line x1="14" y1="10" x2="17" y2="20" stroke="currentColor" strokeWidth="2"/>
-    <line x1="26" y1="10" x2="23" y2="20" stroke="currentColor" strokeWidth="2"/>
-    <line x1="17" y1="24" x2="14" y2="30" stroke="currentColor" strokeWidth="2"/>
-    <line x1="23" y1="24" x2="26" y2="30" stroke="currentColor" strokeWidth="2"/>
-  </svg>
-);
-
-const ChartIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-    <rect x="6" y="25" width="4" height="10" fill="currentColor"/>
-    <rect x="12" y="20" width="4" height="15" fill="currentColor"/>
-    <rect x="18" y="15" width="4" height="20" fill="currentColor"/>
-    <rect x="24" y="10" width="4" height="25" fill="currentColor"/>
-    <rect x="30" y="18" width="4" height="17" fill="currentColor"/>
-    <line x1="5" y1="5" x2="5" y2="35" stroke="currentColor" strokeWidth="2"/>
-    <line x1="5" y1="35" x2="35" y2="35" stroke="currentColor" strokeWidth="2"/>
-  </svg>
-);
-
-// New icons related to headings
-const BookIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-    <path d="M3 6h14v12H3z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M21 6v12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M7 8h6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-  </svg>
-);
-
-const ChatIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-    <path d="M21 15a2 2 0 0 1-2 2H8l-5 3V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M8 10h8" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-  </svg>
-);
-
-const ToolIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-    <path d="M14.7 11.3a4 4 0 1 0-5.4 5.4l5.4-5.4z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M20.4 4.6l-1.8 1.8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-  </svg>
-);
-
-// Computer icon for Experience Alteration
-const ComputerIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-    <rect x="2" y="4" width="20" height="12" rx="1" stroke="currentColor" strokeWidth="1.5"/>
-    <rect x="8" y="16" width="8" height="2" rx="0.5" fill="currentColor"/>
-    <line x1="12" y1="16" x2="12" y2="20" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-  </svg>
-);
-
-const BriefcaseIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-    <rect x="3" y="7" width="18" height="12" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-    <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-  </svg>
-);
+// (Keep your other memoized icons here if you actually use them in JSX)
+// Example:
+// const DatabaseIcon = React.memo(() => ( ... ));
 
 export default function OfferLetter() {
-  // Add step definitions (labels, colors and which semicircle is colored)
-  const steps = [
-    { label: 'Enroll', color: '#34D399', topColored: true, icon: <img src="https://res.cloudinary.com/dwlw1nykn/image/upload/v1763377580/business-contract_vmluti.avif" alt="Enroll" className="w-10 h-10" style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '6px' }} /> },
-    { label: 'Corporate Training', color: '#FBBF24', topColored: false, icon: <img src="https://res.cloudinary.com/dwlw1nykn/image/upload/v1763377580/investment_r2gbt6.avif" alt="Corporate Training" className="w-10 h-10" style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '6px' }} /> },
-    { label: 'Real-Time Projects', color: '#8B5CF6', topColored: true, icon: <img src="https://res.cloudinary.com/dwlw1nykn/image/upload/v1763377580/tasks_vadpph.avif" alt="Real-Time Projects" className="w-10 h-10" style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '6px' }} /> },
-    { label: 'Interview Preparation', color: '#FB7185', topColored: false, icon:<img src="https://res.cloudinary.com/dwlw1nykn/image/upload/v1763377580/interview_tm5vua.avif" alt="Interview Preparation" className="w-10 h-10" style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '6px' }} /> },
-    { label: 'Experience Alteration', color: '#6366F1', topColored: true, icon: <img src="https://res.cloudinary.com/dwlw1nykn/image/upload/v1763377580/job-offer_qifvuj.png" alt="Experience Alteration" className="w-10 h-10" style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '6px' }} /> },
-    { label: 'Job Assistance', color: '#F59E0B', topColored: false, icon: <img src="https://res.cloudinary.com/dwlw1nykn/image/upload/v1763377581/personalization_chsy5j.avif" alt="Job Assistance" className="w-10 h-10" style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '6px' }} />}
-  ];
+  // steps: memoized so they are not recreated on every render
+  const steps = useMemo(() => [
+      {
+        label: "Enroll",
+        color: "#34D399",
+        topColored: true,
+        icon: (
+          <Image
+            src="https://res.cloudinary.com/dwlw1nykn/image/upload/c_scale,w_80/v1763377580/business-contract_vmluti.avif"
+            alt="Enroll"
+            width={40}
+            height={40}
+            loading="lazy"
+            className="w-10 h-10 rounded-[6px] object-cover"
+          />
+        ),
+      },
+      {
+        label: "Corporate Training",
+        color: "#FBBF24",
+        topColored: false,
+        icon: (
+          <Image
+            src="https://res.cloudinary.com/dwlw1nykn/image/upload/c_scale,w_80/v1763377580/investment_r2gbt6.avif"
+            alt="Corporate Training"
+            width={40}
+            height={40}
+            loading="lazy"
+            className="w-10 h-10 rounded-[6px] object-cover"
+          />
+        ),
+      },
+      {
+        label: "Real-Time Projects",
+        color: "#8B5CF6",
+        topColored: true,
+        icon: (
+          <Image
+            src="https://res.cloudinary.com/dwlw1nykn/image/upload/c_scale,w_80/v1763377580/tasks_vadpph.avif"
+            alt="Real-Time Projects"
+            width={40}
+            height={40}
+            loading="lazy"
+            className="w-10 h-10 rounded-[6px] object-cover"
+          />
+        ),
+      },
+      {
+        label: "Interview Preparation",
+        color: "#FB7185",
+        topColored: false,
+        icon: (
+          <Image
+            src="https://res.cloudinary.com/dwlw1nykn/image/upload/c_scale,w_80/v1763377580/interview_tm5vua.avif"
+            alt="Interview Preparation"
+            width={40}
+            height={40}
+            loading="lazy"
+            className="w-10 h-10 rounded-[6px] object-cover"
+          />
+        ),
+      },
+      {
+        label: "Experience Alteration",
+        color: "#6366F1",
+        topColored: true,
+        icon: (
+          <Image
+            src="https://res.cloudinary.com/dwlw1nykn/image/upload/c_scale,w_80/v1763377580/job-offer_qifvuj.png"
+            alt="Experience Alteration"
+            width={40}
+            height={40}
+            loading="lazy"
+            className="w-10 h-10 rounded-[6px] object-cover"
+          />
+        ),
+      },
+      {
+        label: "Job Assistance",
+        color: "#F59E0B",
+        topColored: false,
+        icon: (
+          <Image
+            src="https://res.cloudinary.com/dwlw1nykn/image/upload/c_scale,w_80/v1763377581/personalization_chsy5j.avif"
+            alt="Job Assistance"
+            width={40}
+            height={40}
+            loading="lazy"
+            className="w-10 h-10 rounded-[6px] object-cover"
+          />
+        ),
+      },
+    ],
+    []
+  );
 
-  // Visibility cycle for labels: all appear together for 5s, but the wave will only pause
-  // after the current animation cycle completes. After pausing for 5s, the cycle repeats.
-  const [visible, setVisible] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
-  const [cycleKey, setCycleKey] = useState(0);
+  // Animation state
+  const [animationState, setAnimationState] = useState({
+    visible: false,
+    isPaused: false,
+    cycleKey: 0,
+  });
   const animationStartRef = useRef(Date.now());
+
   useEffect(() => {
-    const animationDuration = 3000; // must match CSS 'flow' duration (ms)
-    const visibleDuration = 5000; // pause duration when wave is stopped
-    const hiddenGap = 600; // small gap before next cycle starts
+    const animationDuration = 3000; // ms, must match CSS 'flow'
+    const visibleDuration = 5000;
+    const hiddenGap = 600;
 
     const timers = [];
 
     function startCycle() {
-      setVisible(true);
+      setAnimationState((prev) => ({ ...prev, visible: true }));
 
-      // compute time until end of current animation iteration
       const now = Date.now();
       const elapsed = (now - animationStartRef.current) % animationDuration;
       const timeUntilEnd = animationDuration - elapsed;
 
-      // schedule pause at end of the current animation iteration
-      const pauseTimer = setTimeout(() => {
-        setIsPaused(true);
+      const pauseTimer = window.setTimeout(() => {
+        setAnimationState((prev) => ({ ...prev, isPaused: true }));
 
-        // keep paused for visibleDuration, then resume and hide labels
-        const resumeTimer = setTimeout(() => {
-          setIsPaused(false);
-          setVisible(false);
-          // reset animation start reference so timing restarts cleanly
+        const resumeTimer = window.setTimeout(() => {
           animationStartRef.current = Date.now();
-          // remount wave SVG so animation restarts from the beginning
-          setCycleKey(k => k + 1);
+          setAnimationState((prev) => ({
+            visible: false,
+            isPaused: false,
+            cycleKey: prev.cycleKey + 1,
+          }));
         }, visibleDuration);
         timers.push(resumeTimer);
       }, timeUntilEnd);
       timers.push(pauseTimer);
 
-      // schedule next cycle after the pause + hidden gap
-      const nextTimer = setTimeout(() => startCycle(), timeUntilEnd + visibleDuration + hiddenGap);
+      const nextTimer = window.setTimeout(
+        () => startCycle(),
+        timeUntilEnd + visibleDuration + hiddenGap
+      );
       timers.push(nextTimer);
     }
 
-    // begin the cycle
     startCycle();
 
-    return () => timers.forEach(t => clearTimeout(t));
+    return () => {
+      timers.forEach((t) => window.clearTimeout(t));
+    };
   }, []);
 
-  // Helper: split a label into two balanced lines for mobile
+  const { visible, isPaused, cycleKey } = animationState;
+
+  // Helper function to split label into two lines for better mobile display
   const splitLabelIntoTwo = (text) => {
     const words = text.trim().split(/\s+/);
     if (words.length === 1) return [words[0], null];
-    // For exactly two words, split into two lines so mobile shows them stacked
     if (words.length === 2) return [words[0], words[1]];
 
-    // For longer labels, choose a split point that balances character counts
     const total = text.length;
     let bestIdx = 0;
     let bestDiff = Infinity;
     let cum = 0;
     for (let i = 0; i < words.length - 1; i++) {
-      cum += words[i].length + 1; // include space
+      cum += words[i].length + 1;
       const diff = Math.abs(cum - total / 2);
       if (diff < bestDiff) {
         bestDiff = diff;
         bestIdx = i;
       }
     }
-    const first = words.slice(0, bestIdx + 1).join(' ');
-    const second = words.slice(bestIdx + 1).join(' ');
+    const first = words.slice(0, bestIdx + 1).join(" ");
+    const second = words.slice(bestIdx + 1).join(" ");
     return [first, second];
   };
 
   return (
-    <div id="chevron-area" className="chevron-root min-h-[520px] relative overflow-visible" style={{ paddingBottom: '12px' }}>
-
+    <div
+      id="chevron-area"
+      className="chevron-root min-h-[520px] relative overflow-visible"
+      style={{ paddingBottom: "12px", contain: "layout style paint" }}
+    >
       <BackgroundAnimation />
 
       {/* Section heading */}
@@ -217,112 +237,173 @@ export default function OfferLetter() {
 
       {/* Center Content - Icon Row */}
       <div className="chevron-content-wrapper absolute top-[46%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-        {/* Make this wrapper relative so we can position the mid-row wave precisely behind the circles */}
-        <div className="relative flex items-center gap-6 w-max" style={{ transform: 'scale(1.25)', transformOrigin: 'center' }}>
+        <div
+          className="relative flex items-center gap-6 w-max"
+          style={{ transform: "scale(1.25)", transformOrigin: "center" }}
+        >
+          {/* Mid-row animated wave */}
+          <svg
+            key={cycleKey}
+            width="700"
+            height="120"
+            viewBox="0 0 600 120"
+            className={`wave absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 pointer-events-none ${
+              isPaused ? "paused" : ""
+            }`}
+          >
+            {(() => {
+              const starts = [6, 110, 214, 318, 422, 526];
+              const ends = [74, 178, 282, 386, 490, 594];
+              const colors = [
+                "#34D399",
+                "#FBBF24",
+                "#8B5CF6",
+                "#FB7185",
+                "#6366F1",
+                "#F59E0B",
+              ];
+              const segs = [];
+              for (let i = 0; i < 6; i++) {
+                const startX = starts[i];
+                const endX = ends[i];
+                const dirFlag = i % 2 === 0 ? 1 : 0;
 
-          {/* Mid-row sinusoidal wave aligned to the circle icons (placed behind icons) */}
-          {/* ...replaced static paths with dynamic segments to allow per-step animation ... */}
-          <svg key={cycleKey} width="700" height="120" viewBox="0 0 600 120" className={`wave absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 pointer-events-none ${isPaused ? 'paused' : ''}`}>
-            {
-              // start and end X coordinates for each of the 6 arcs (matches existing layout)
-              (() => {
-                const starts = [6, 110, 214, 318, 422, 526];
-                const ends =   [74, 178, 282, 386, 490, 594];
-                const colors = ['#34D399','#FBBF24','#8B5CF6','#FB7185','#6366F1','#F59E0B'];
-                const segs = [];
-                for (let i = 0; i < 6; i++) {
-                  const startX = starts[i];
-                  const endX = ends[i];
-                  const dirFlag = (i % 2 === 0) ? 1 : 0; // toggles arc sweep to alternate top/bottom
-
-                  // connector from previous arc end to this arc start (skip for first)
-                  if (i > 0) {
-                    const prevEnd = ends[i - 1];
-                    segs.push(
-                      <path
-                        key={`conn-${i}`}
-                        d={`M${prevEnd} 60 L${startX} 60`}
-                        stroke={colors[i]}
-                        strokeWidth="30"
-                        fill="none"
-                        strokeLinecap="round"
-                        className={`wave-seg`}
-                        style={{ ['--delay']: `${i * 0.15}s` }}
-                      />
-                    );
-                  }
-
-                  // the colored arc for this step
+                if (i > 0) {
+                  const prevEnd = ends[i - 1];
                   segs.push(
                     <path
-                      key={`arc-${i}`}
-                      d={`M${startX} 60 A34 34 0 0 ${dirFlag} ${endX} 60`}
+                      key={`conn-${i}`}
+                      d={`M${prevEnd} 60 L${startX} 60`}
                       stroke={colors[i]}
                       strokeWidth="30"
                       fill="none"
                       strokeLinecap="round"
-                      className={`wave-seg`}
-                      style={{ ['--delay']: `${i * 0.15}s` }}
+                      className="wave-seg"
+                      style={{ "--delay": `${i * 0.15}s` }}
                     />
                   );
                 }
-                return segs;
-              })()
-            }
 
-            {/* Soft shadow under the entire wave (delayed slightly to appear after main arcs) */}
-            <path d="M6 66 A34 34 0 0 1 74 66 A34 34 0 0 1 110 66 A34 34 0 0 1 178 66 A34 34 0 0 1 214 66 A34 34 0 0 1 282 66 A34 34 0 0 1 318 66 A34 34 0 0 1 386 66 A34 34 0 0 1 422 66 A34 34 0 0 1 490 66 A34 34 0 0 1 526 66 A34 34 0 0 1 594 66" stroke="rgba(2,6,23,0.06)" strokeWidth="8" fill="none" strokeLinecap="round" />
+                segs.push(
+                  <path
+                    key={`arc-${i}`}
+                    d={`M${startX} 60 A34 34 0 0 ${dirFlag} ${endX} 60`}
+                    stroke={colors[i]}
+                    strokeWidth="30"
+                    fill="none"
+                    strokeLinecap="round"
+                    className="wave-seg"
+                    style={{ "--delay": `${i * 0.15}s` }}
+                  />
+                );
+              }
+              return segs;
+            })()}
 
-            {/* thin white highlight removed as requested */}
+            <path
+              d="M6 66 A34 34 0 0 1 74 66 A34 34 0 0 1 110 66 A34 34 0 0 1 178 66 A34 34 0 0 1 214 66 A34 34 0 0 1 282 66 A34 34 0 0 1 318 66 A34 34 0 0 1 386 66 A34 34 0 0 1 422 66 A34 34 0 0 1 490 66 A34 34 0 0 1 526 66 A34 34 0 0 1 594 66"
+              stroke="rgba(2,6,23,0.06)"
+              strokeWidth="8"
+              fill="none"
+              strokeLinecap="round"
+            />
           </svg>
 
-          {/* Icons row: generated from steps so we can provide delays and labels */}
+          {/* Icons row */}
           <div className="flex items-center gap-6 relative z-10">
             {steps.map((s, idx) => (
               <div
-                key={idx}
+                key={s.label}
                 className="icon-item relative w-20 h-20"
-                style={{ ['--delay']: `${idx * 0.15}s` }}
+                style={{ "--delay": `${idx * 0.15}s` }}
               >
-                {/* ring SVG - render both top/bottom and left/right semicircles and toggle via CSS */}
-                <svg width="80" height="80" viewBox="0 0 80 80" className="absolute inset-0">
-                  {/* desktop: top/bottom semicircles (colored based on s.topColored) */}
-                  <path className="semi-top" d="M6 40 A34 34 0 0 1 74 40" stroke={s.topColored ? s.color : '#E5E7EB'} strokeWidth="10" fill="none" strokeLinecap="round" />
-                  <path className="semi-bottom" d="M74 40 A34 34 0 0 1 6 40" stroke={s.topColored ? '#E5E7EB' : s.color} strokeWidth="10" fill="none" strokeLinecap="round" />
-
-                  {/* mobile: left/right semicircles (colored based on item index parity) */}
-                  <path className="semi-right" d="M40 6 A34 34 0 0 1 40 74" stroke={(idx % 2 === 0) ? s.color : '#E5E7EB'} strokeWidth="10" fill="none" strokeLinecap="round" />
-                  <path className="semi-left" d="M40 74 A34 34 0 0 1 40 6" stroke={(idx % 2 === 0) ? '#E5E7EB' : s.color} strokeWidth="10" fill="none" strokeLinecap="round" />
+                <svg
+                  width="80"
+                  height="80"
+                  viewBox="0 0 80 80"
+                  className="absolute inset-0"
+                >
+                  <path
+                    className="semi-top"
+                    d="M6 40 A34 34 0 0 1 74 40"
+                    stroke={s.topColored ? s.color : "#E5E7EB"}
+                    strokeWidth="10"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    className="semi-bottom"
+                    d="M74 40 A34 34 0 0 1 6 40"
+                    stroke={s.topColored ? "#E5E7EB" : s.color}
+                    strokeWidth="10"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    className="semi-right"
+                    d="M40 6 A34 34 0 0 1 40 74"
+                    stroke={idx % 2 === 0 ? s.color : "#E5E7EB"}
+                    strokeWidth="10"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    className="semi-left"
+                    d="M40 74 A34 34 0 0 1 40 6"
+                    stroke={idx % 2 === 0 ? "#E5E7EB" : s.color}
+                    strokeWidth="10"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
                 </svg>
 
-                {/* white center with icon */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="icon-inner w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg z-10 text-black">
                     {s.icon}
                   </div>
                 </div>
 
-                {/* small arrow from circle border center toward the label */}
-                <div className={`label-arrow absolute left-1/2 transform -translate-x-1/2 ${s.topColored ? 'arrow-top' : 'arrow-bottom'}`} aria-hidden="true">
+                <div
+                  className={`label-arrow absolute left-1/2 transform -translate-x-1/2 ${
+                    s.topColored ? "arrow-top" : "arrow-bottom"
+                  }`}
+                  aria-hidden="true"
+                >
                   {s.topColored ? (
-                    <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="14"
+                      height="8"
+                      viewBox="0 0 14 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <path d="M7 0 L14 8 H0 L7 0 Z" fill={s.color} />
                     </svg>
                   ) : (
-                    <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                      width="14"
+                      height="8"
+                      viewBox="0 0 14 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <path d="M0 0 L14 0 L7 8 Z" fill={s.color} />
                     </svg>
                   )}
                 </div>
 
-                {/* label that appears on the colored side (above when topColored, below when not) - toggled by cycle */}
                 <div
-                  className={
-                    `label absolute left-1/2 transform -translate-x-1/2 ${s.topColored ? '-top-12 label-top' : '-bottom-12 label-bottom'} ${visible ? 'label-visible' : ''}`
-                  }
-                  style={{ background: s.color, color: '#fff', padding: '6px 10px', borderRadius: 8, transition: 'opacity 180ms ease, transform 180ms ease' }}
+                  className={`label absolute left-1/2 transform -translate-x-1/2 ${
+                    s.topColored ? "-top-12 label-top" : "-bottom-12 label-bottom"
+                  } ${visible ? "label-visible" : ""}`}
+                  style={{
+                    background: s.color,
+                    color: "#fff",
+                    padding: "6px 10px",
+                    borderRadius: 8,
+                    transition: "opacity 180ms ease, transform 180ms ease",
+                  }}
                 >
-                  {/* Render labels as two balanced lines when helpful */}
                   {(() => {
                     const [first, second] = splitLabelIntoTwo(s.label);
                     if (!second) return <span className="label-line">{first}</span>;
