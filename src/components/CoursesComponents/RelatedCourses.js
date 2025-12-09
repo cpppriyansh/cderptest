@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect, useMemo, useCallback } from "react"; // Removed useContext
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import { useRouter } from "next/navigation";
 import styles from "@/styles/CoursesComponents/RelatedCourses.module.css";
 import ContactForm from "@/components/HomePage/Btnform"; // Assuming Btnform is your ContactForm
@@ -168,12 +168,13 @@ const CoursesRelated = ({ data, currentCityName }) => {
                         muted
                       />
                     ) : (
-                      <Image
+                      <CImage
                         src={relcourse.icon}
                         alt={relcourse.alt}
                         width={100}
                         height={100}
                         className={styles.relatedCourseIcon}
+                        sizes="(max-width: 768px) 40px, 70px"
                       />
                     )}
                   </div>

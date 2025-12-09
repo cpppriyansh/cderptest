@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import styles from "@/styles/Common/Navbar.module.css";
 
 // Dynamic import for AnimatedLogo
@@ -838,14 +838,14 @@ const Header = () => {
             <Link href="/" className={styles.logoLink}>
               <AnimatedLogo className={styles.animatedLogo} />
               <div className={styles.logoWrapper}>
-                <Image
+                <CImage
                   src="/Navbar/logo.avif"
                   alt="Logo of Connecting Dots ERP"
                   width={120}
                   height={60}
                   priority
                   className={styles.logoImage}
-                  sizes="120px"
+                  sizes="(max-width: 768px) 40px, 70px"
                 />
               </div>
             </Link>
@@ -918,13 +918,13 @@ const Header = () => {
                   onClick={closeSidebar}
                 >
                   <AnimatedLogo className={styles.sidebarLogo} />
-                  <Image
+                  <CImage
                     src="/Navbar/logo.webp"
                     alt="Connecting Dots ERP Logo"
                     width={130}
                     height={100}
                     loading="lazy"
-                    sizes="130px"
+                    sizes="(max-width: 768px) 40px, 70px"
                   />
                 </Link>
               </div>

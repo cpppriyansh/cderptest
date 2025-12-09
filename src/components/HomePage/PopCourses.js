@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import { Button, Form, Modal, Spinner } from "react-bootstrap";
 import styles from "@/styles/HomePage/PopCourses.module.css";
 import dynamic from "next/dynamic";
@@ -550,12 +550,13 @@ const Courses = () => {
             </div>
 
             <div className={styles.iconContainer}>
-              <Image
+              <CImage
                 src={course.icon}
                 alt={`${course.name} icon`}
                 width={60}
                 height={60}
                 className={styles.courseIcon}
+                sizes="(max-width: 768px) 40px, 70px"
               />
             </div>
 

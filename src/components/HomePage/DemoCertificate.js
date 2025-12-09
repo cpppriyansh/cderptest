@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import styles from "@/styles/HomePage/Certificate.module.css";
 import { Button } from "react-bootstrap";
 import dynamic from "next/dynamic";
@@ -35,12 +35,13 @@ const DemoCertificate = () => {
       <div className={styles.titleUnderline}></div>
       <div className={styles.certificateContent}>
         <div className={styles.certificateImage}>
-          <Image
+          <CImage
             src={certificateData.image}
             alt={certificateData.alt || `${certificateData.courseTitle} Certificate`}
             width={500}
             height={300}
             layout="intrinsic"
+            sizes="(max-width: 768px) 40px, 70px"
           />
         </div>
         <div className={styles.certificateText}>

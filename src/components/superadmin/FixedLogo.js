@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import CImage from "@/components/CImage";
 
 const FixedLogo = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -26,11 +26,12 @@ const FixedLogo = () => {
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <Image
+      <CImage
         src="/Navbar/connecting dot erp logo.avif"
         alt="ERP Logo"
         width={170}
         height={100}
+        sizes="(max-width: 768px) 40px, 70px"
         className="object-contain"
       />
     </div>

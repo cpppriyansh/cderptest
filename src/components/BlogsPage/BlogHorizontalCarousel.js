@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import styles from "@/styles/BlogPage/Components/BlogHorizontalCarousel.module.css";
 
 // CHANGED: Access NEXT_PUBLIC_API_URL_BLOG directly
@@ -166,7 +166,7 @@ const BlogHorizontalCarousel = ({ blogs, title }) => {
           >
             <div className={styles.blogHorizontal}>
               <div className={styles.imageWrapper}>
-                <Image
+                <CImage
                   // CHANGED: Use API_BASE_URL
                   src={
                     blog.image?.startsWith("http")
@@ -177,6 +177,7 @@ const BlogHorizontalCarousel = ({ blogs, title }) => {
                   className={styles.blogImage}
                   width={300}
                   height={200}
+                  sizes="(max-width: 768px) 40px, 70px"
                   loading="lazy"
                 />
               </div>

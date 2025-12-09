@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import Image from "next/image";
+import CImage from "@/components/CImage";
 
 const OrbitalTrail = () => {
   const [rotation, setRotation] = useState(0);
@@ -274,13 +274,14 @@ const OrbitalTrail = () => {
                 {isMobile ? (
                   <>
                     <div className="img mb-3">
-                      <Image
+                      <CImage
                         src={feature.cover}
                         alt={feature.title}
                         width={50}
                         height={50}
                         className={feature.className}
                         style={{ filter: 'brightness(0) invert(1)' }}
+                        sizes="(max-width: 768px) 40px, 70px"
                       />
                     </div>
                     <div className="text-white w-full">
@@ -291,13 +292,14 @@ const OrbitalTrail = () => {
                 ) : (
                   <>
                     <div className="img flex-shrink-0">
-                      <Image
+                      <CImage
                         src={feature.cover}
                         alt={feature.title}
                         width={70}
                         height={70}
                         className={feature.className}
                         style={{ filter: 'brightness(0) invert(1)' }}
+                        sizes="(max-width: 768px) 40px, 70px"
                       />
                     </div>
                     <div className="max-w-md pl-5 text-justify text-white text-sm">

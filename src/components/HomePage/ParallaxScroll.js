@@ -1,7 +1,7 @@
 "use client";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef } from "react";
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import styles from "@/styles/HomePage/ParallaxScroll.module.css";
 
 
@@ -26,12 +26,13 @@ const ParallaxScroll = ({ images }) => {
         <div className={styles.column}>
           {firstPart.map((img, idx) => (
             <motion.div key={idx} style={{ y: translateFirst }}>
-              <Image
+              <CImage
                 src={img}
                 alt={`image-${idx}`}
                 width={300}
                 height={400}
                 className={styles.parallaxImage}
+                sizes="(max-width: 768px) 40px, 70px"
               />
             </motion.div>
           ))}
@@ -40,12 +41,13 @@ const ParallaxScroll = ({ images }) => {
         <div className={styles.column}>
           {secondPart.map((img, idx) => (
             <motion.div key={idx} style={{ y: translateSecond }}>
-              <Image
+              <CImage
                 src={img}
                 alt={`image-${idx}`}
                 width={300}
                 height={400}
                 className={styles.parallaxImage}
+                sizes="(max-width: 768px) 40px, 70px"
               />
             </motion.div>
           ))}
@@ -54,12 +56,13 @@ const ParallaxScroll = ({ images }) => {
         <div className={styles.column}>
           {thirdPart.map((img, idx) => (
             <motion.div key={idx} style={{ y: translateFirst }}>
-              <Image
+              <CImage
                 src={img}
                 alt={`image-${idx}`}
                 width={300}
                 height={400}
                 className={styles.parallaxImage}
+                sizes="(max-width: 768px) 40px, 70px"
               />
             </motion.div>
           ))}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import styles from "@/styles/HomePage/Placement.module.css";
 
 const PlacementSection = () => {
@@ -127,12 +127,13 @@ const PlacementSection = () => {
         >
           <div className={styles.cardContent}>
             <div className={styles.topImageContainer}>
-              <Image
+              <CImage
                 src={story.topImage}
                 alt={`${story.name}'s photo`}
                 width={150}
                 height={150}
                 className={styles.personImage}
+                sizes="(max-width: 768px) 40px, 70px"
               />
             </div>
 
@@ -146,7 +147,7 @@ const PlacementSection = () => {
                   <p>{story.company}</p>
                 </div>
                 <div className={styles.logoContainer}>
-                  <Image
+                  <CImage
                     src={story.logo}
                     alt={story.alt}
                     width={
@@ -162,6 +163,7 @@ const PlacementSection = () => {
                         : 40
                     }
                     className={styles.companyLogo}
+                    sizes="(max-width: 768px) 40px, 70px"
                   />
                 </div>
               </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import BackgroundAnimation from "@/components/Common/BackgroundAnimation";
 
 // Memoized SVG icons (no props, so React.memo is safe)
@@ -51,13 +51,14 @@ export default function OfferLetter() {
         color: "#34D399",
         topColored: true,
         icon: (
-          <Image
+          <CImage
             src="https://res.cloudinary.com/dwlw1nykn/image/upload/c_scale,w_80/v1763377580/business-contract_vmluti.avif"
             alt="Enroll"
             width={40}
             height={40}
             loading="lazy"
             className="w-10 h-10 rounded-[6px] object-cover"
+            sizes="(max-width: 768px) 40px, 70px"
           />
         ),
       },
@@ -66,7 +67,7 @@ export default function OfferLetter() {
         color: "#FBBF24",
         topColored: false,
         icon: (
-          <Image
+          <CImage
             src="https://res.cloudinary.com/dwlw1nykn/image/upload/c_scale,w_80/v1763377580/investment_r2gbt6.avif"
             alt="Corporate Training"
             width={40}
@@ -81,7 +82,7 @@ export default function OfferLetter() {
         color: "#8B5CF6",
         topColored: true,
         icon: (
-          <Image
+          <CImage
             src="https://res.cloudinary.com/dwlw1nykn/image/upload/c_scale,w_80/v1763377580/tasks_vadpph.avif"
             alt="Real-Time Projects"
             width={40}
@@ -96,7 +97,7 @@ export default function OfferLetter() {
         color: "#FB7185",
         topColored: false,
         icon: (
-          <Image
+          <CImage
             src="https://res.cloudinary.com/dwlw1nykn/image/upload/c_scale,w_80/v1763377580/interview_tm5vua.avif"
             alt="Interview Preparation"
             width={40}
@@ -111,7 +112,7 @@ export default function OfferLetter() {
         color: "#6366F1",
         topColored: true,
         icon: (
-          <Image
+          <CImage
             src="https://res.cloudinary.com/dwlw1nykn/image/upload/c_scale,w_80/v1763377580/job-offer_qifvuj.png"
             alt="Experience Alteration"
             width={40}
@@ -126,7 +127,7 @@ export default function OfferLetter() {
         color: "#F59E0B",
         topColored: false,
         icon: (
-          <Image
+          <CImage
             src="https://res.cloudinary.com/dwlw1nykn/image/upload/c_scale,w_80/v1763377581/personalization_chsy5j.avif"
             alt="Job Assistance"
             width={40}

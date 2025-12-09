@@ -1,7 +1,7 @@
 // Footer.js
 
 import Link from "next/link";
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
@@ -141,12 +141,13 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center mb-2.5 border-b border-white/10 pb-2.5 gap-5 md:gap-0">
           <div className="w-[180px] h-auto">
             <Link href="/">
-              <Image
+              <CImage
                 src="/Footer/cdots.avif"
                 alt="Connecting Dots ERP logo"
                 width={150}
                 height={50}
                 loading="lazy"
+                sizes="(max-width: 768px) 40px, 70px"
               />
             </Link>
           </div>

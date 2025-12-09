@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import {
   motion,
   useScroll,
@@ -178,11 +178,12 @@ export const StickyScroll = () => {
                         transition={{ duration: 0.5 }}
                         className={styles.imageWrapper}
                       >
-                        <Image
+                        <CImage
                           src={content[activeCard].image}
                           alt={content[activeCard].title}
                           fill
                           className={styles.contentImage}
+                          sizes="(max-width: 768px) 40px, 70px"
                         />
                       </motion.div>
                     </AnimatePresence>

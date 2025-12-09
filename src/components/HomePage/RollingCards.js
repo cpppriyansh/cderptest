@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useAnimation, useTransform } from "framer-motion";
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import styles from "@/styles/HomePage/RollingCards.module.css";
 
 const IMGS = [
@@ -128,13 +128,14 @@ const RollingCards = ({ autoplay = false, pauseOnHover = false, images = [] }) =
                 transform: `rotateY(${i * (360 / faceCount)}deg) translateZ(${radius}px)`,
               }}
             >
-              <Image
+              <CImage
                 src={url}
                 alt="gallery"
                 className={styles.galleryImg}
                 width={300}
                 height={120}
                 style={{ objectFit: "cover" }}
+                sizes="(max-width: 768px) 40px, 70px"
               />
             </div>
           ))}

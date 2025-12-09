@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import styles from "@/styles/AnimatedLogo2.module.css";
 
 const AnimatedLogo2 = () => {
@@ -12,7 +12,7 @@ const AnimatedLogo2 = () => {
         <div className={`${styles.arcLine} ${styles.line3}`}></div>
       </div>
       <div className={styles.centerArrow}>
-        <Image
+        <CImage
           src="/Navbar/arrow.png"
           alt="Connecting Dots Logo"
           width={120}

@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import dynamic from "next/dynamic"; // Import dynamic for conditional loading
 import {
   MapPin,
@@ -182,7 +182,7 @@ const BranchesComponent = () => {
               >
                 {/* Branch Image - shorter */}
                 <div className="h-32 relative overflow-hidden">
-                  <Image
+                  <CImage
                     src={branches[selectedBranch].image}
                     alt={`${branches[selectedBranch].city} Office`}
                     layout="fill"
@@ -363,15 +363,16 @@ const BranchesComponent = () => {
                   {/* Since map preview for cards is not crucial, we can consider replacing this with a static image if performance is still an issue */}
                   {/* For now, keeping as is, but it's rendering a map for each card on initial load */}
                   {/* If the map previews are also causing issues, we might need a separate component for them and dynamically load only if needed */}
-                  <Image
-                    src={branch.image} // Use static image for card preview initially
-                    alt={`${branch.city} Office Preview`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-transform duration-700 hover:scale-110"
-                    loading="lazy" // Lazy load all card images
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
+                  <CImage
+  src={branch.image}
+  alt={`${branch.city} Office Preview`}
+  fill
+  width={0}
+  height={0}
+  sizes="100vw"
+  style={{ objectFit: "cover" }}
+/>
+
                   {/* Overlay and Title */}
                   <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 to-transparent p-3 group-hover:from-black/90 transition-all duration-300">
                     <div

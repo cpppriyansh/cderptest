@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "@/styles/HomePage/FeedbackandReviews.module.css";
 
@@ -111,12 +111,13 @@ const FeedbackAndReviews = () => {
               <div className={styles.reviewCard} key={index}>
                 <div className={styles.reviewCardInner}>
                   <div className={styles.imageContainer}>
-                    <Image
+                    <CImage
                       src={review.image}
                       alt={`${review.name}'s photo`}
                       width={120}
                       height={120}
                       className={styles.reviewImage}
+                      sizes="(max-width: 768px) 40px, 70px"
                     />
                     <div className={styles.studentBadge}>Verified Student</div>
 
@@ -139,12 +140,13 @@ const FeedbackAndReviews = () => {
               <div className={styles.reviewCard} key={`duplicate-${index}`}>
                 <div className={styles.reviewCardInner}>
                   <div className={styles.imageContainer}>
-                    <Image
+                    <CImage
                       src={review.image}
                       alt={`${review.name}'s photo`}
                       width={120}
                       height={120}
                       className={styles.reviewImage}
+                      sizes="(max-width: 768px) 40px, 70px"
                     />
                     <div className={styles.studentBadge}>Verified Student</div>
 

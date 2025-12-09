@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import { useEffect, useState } from "react";
 
 const premiumClients = [
@@ -62,7 +62,7 @@ const MarqueeRow = ({ logos, direction = "left", speed = "normal", shuffle = fal
             key={`first-${index}`}
             className="flex-shrink-0 group w-24 h-20 sm:w-28 sm:h-24 md:w-32 md:h-28 flex items-center justify-center bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-2"
           >
-            <Image
+            <CImage
               src={`/Ourclients/${logo}`}
               alt={(logo.split('/').pop() || logo).replace(/\.[^/.]+$/, '')}
               width={120}
@@ -80,7 +80,7 @@ const MarqueeRow = ({ logos, direction = "left", speed = "normal", shuffle = fal
             className="flex-shrink-0 group w-24 h-20 sm:w-28 sm:h-24 md:w-32 md:h-28 flex items-center justify-center bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-2"
             aria-hidden="true"
           >
-            <Image
+            <CImage
               src={`/Ourclients/${logo}`}
               alt=""
               width={120}

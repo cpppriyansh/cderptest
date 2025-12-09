@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import dynamic from "next/dynamic";
 import styles from "@/styles/HomePage/Certificate.module.css";
 
@@ -54,7 +54,7 @@ const Certificate = ({ data }) => {
             <div className="relative z-20 -my-10">
               <div className="certificate-wrapper">
                 <div className="bg-white rounded-xl border-4 border-gray-200">
-                  <Image
+                  <CImage
                     src={"https://res.cloudinary.com/duz9xipfm/image/upload/v1762319677/Certificate_1__compressed_1_bqt1ns.avif"}
                     alt={data?.alt || `${data?.courseTitle || "SAP Training"} Certificate`}
                     width={1000}

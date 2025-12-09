@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import CImage from "@/components/CImage";
 import styles from "@/styles/AnimatedLogo.module.css"; 
 
 const AnimatedLogo = () => {
@@ -15,12 +15,13 @@ const AnimatedLogo = () => {
 
       {/* Center Arrow with up-down animation */}
       <div className={styles.centerArrow}>
-        <Image
+        <CImage
           src="/Navbar/arrow.avif"
           alt="Logo Arrow"
           width={18}
           height={18}
-          priority
+          sizes="100vw"
+          priority={true}
         />
       </div>
     </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
+import CImage from "@/components/CImage";
 
 const AboutGallery = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -100,7 +100,7 @@ const AboutGallery = () => {
                 onMouseEnter={() => setIsHovered("featured")}
                 onMouseLeave={() => setIsHovered(null)}
               >
-                <Image
+                <CImage
                   src={images[activeIndex]}
                   alt={`Achievement ${activeIndex + 1}`}
                   fill
